@@ -11,5 +11,12 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 apps:
     radiomanager-cli:
         command: radiomanager-cli
+    bash:
+        command: bash
+
 parts:
-    plugin: radiomanager-cli
+        gnu-bash:
+            source: http://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz
+            plugin: autotools
+            configflags: ["--infodir=/var/bash/info"]
+
