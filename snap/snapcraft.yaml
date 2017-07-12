@@ -11,3 +11,5 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 apps:
     radiomanager-cli:
         command: radiomanager-cli
+parts:
+    plugin: radiomanager-cli
