@@ -15,6 +15,10 @@ apps:
         command: bash
 
 parts:
+        radiomanager-cli:
+            plugin: nil
+            source-type: git
+            source: https://github.com/Pluxbox/radiomanager-cli
         gnu-bash:
             source: http://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz
             plugin: autotools
