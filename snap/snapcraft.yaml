@@ -11,25 +11,11 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 
 apps:
     radiomanager-cli:
-        command: bin/radiomanager-cli
+        command: radiomanager-cli
 
 parts:
     radiomanager-cli:
         source: https://github.com/Pluxbox/radiomanager-cli/archive/1.0.0.tar.gz
         plugin: dump
-
-    curl:
-        plugin: autotools
-        source: http://curl.haxx.se/download/curl-7.44.0.tar.bz2
-        source-type: tar
-        configflags:
-            - --enable-static
-            - --enable-shared
-            - --disable-manual
-        snap:
-            - -bin
-            - -lib/*.a
-            - -lib/pkgconfig
-            - -lib/*.la
-            - -include
-            - -share
+        stage-packages:
+            - curl
