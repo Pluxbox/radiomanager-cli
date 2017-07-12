@@ -1,0 +1,13 @@
+
+name: radiomanager-cli
+version: '0.0.1' 
+summary: Bash RadioManager client
+description: |
+  Command line interface to the RadioManager API v2
+
+grade: stable
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+apps:
+    radiomanager-cli:
+        command: radiomanager-cli
