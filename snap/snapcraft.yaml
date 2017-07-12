@@ -11,10 +11,10 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 
 apps:
     radiomanager-cli:
-        command: $SNAP/usr/bin/radiomanager-cli
+        command: bin/radiomanager-cli
 
 parts:
     radiomanager-cli:
-        source: https://github.com/Pluxbox/radiomanager-cli
+        source: https://github.com/Pluxbox/radiomanager-cli/archive/1.0.0.tar.gz
         plugin: dump
 
