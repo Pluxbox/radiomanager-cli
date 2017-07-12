@@ -1,4 +1,3 @@
-
 name: radiomanager-cli
 version: '0.0.1' 
 summary: Bash RadioManager client
@@ -8,19 +7,7 @@ description: |
 grade: stable
 confinement: devmode # use 'strict' once you have the right plugs and slots
 
-apps:
-    radiomanager-cli:
-        command: radiomanager-cli
-    bash:
-        command: bash
-
 parts:
-        radiomanager-cli:
-            plugin: nil
-            source-type: git
-            source: https://github.com/Pluxbox/radiomanager-cli
-        gnu-bash:
-            source: http://ftp.gnu.org/gnu/bash/bash-4.3.tar.gz
-            plugin: autotools
-            configflags: ["--infodir=/var/bash/info"]
+    radiomanager-cli:
+        plugin: dump
 
