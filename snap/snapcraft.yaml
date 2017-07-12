@@ -1,8 +1,8 @@
 name: radiomanager-cli
 version: '1.0.0' 
-summary: Bash RadioManager client
+summary: Command line interface to Pluxbox RadioManager client
 description: |
-  Command line interface to the Pluxbox RadioManager API v2
+  Command line interface written in bash to the Pluxbox RadioManager API v2
   See http://pluxbox.com for more information.
 
 grade: devel
@@ -11,10 +11,10 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 
 apps:
     radiomanager-cli:
-        command: radiomanager-cli
+        command: $SNAP/usr/bin/radiomanager-cli
 
 parts:
     radiomanager-cli:
-        source: .
+        source: https://github.com/Pluxbox/radiomanager-cli
         plugin: dump
 
