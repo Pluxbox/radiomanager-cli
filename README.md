@@ -1,5 +1,7 @@
 # RadioManager Bash client
 
+[![Snap Status](https://build.snapcraft.io/badge/Pluxbox/radiomanager-cli.svg)](https://build.snapcraft.io/user/Pluxbox/radiomanager-cli)
+
 ## Overview
 This is a Bash client script for accessing RadioManager service.
 
