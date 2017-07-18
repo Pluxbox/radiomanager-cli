@@ -11,6 +11,8 @@ confinement: strict
 apps:
     radiomanager-cli:
         command: radiomanager-cli
+        plugs:
+             - network
 
 parts:
     radiomanager-cli:
