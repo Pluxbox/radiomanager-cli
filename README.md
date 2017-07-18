@@ -5,43 +5,48 @@
 ## Overview
 This is a Bash client script for accessing RadioManager service.
 
-The script uses  cURL underneath for making all REST calls.
+The script uses cURL underneath for making all REST calls.
 
-## Usage
+To get started using RadioManager-cli, please install snapd using the commands provided for your distro.
+
+## Install
+## Ubuntu/Debian/Mint
 
 ```shell
-# Make sure the script has executable rights
-$ chmod u+x radiomanager-cli
+sudo apt install snapd
+sudo snap install radiomanager-cli
+```
 
-# Print the list of operations available on the service
-$ ./radiomanager-cli -h
+## Redhat/Fedora/CentOS
 
-# Print the service description
-$ ./radiomanager-cli --about
+```shell
+sudo dnf install snapd
+sudo systemctl enable --now snapd.socket
+sudo snap install radiomanager-cli
+```
 
-# Print detailed information about specific operation
-$ ./radiomanager-cli <operationId> -h
+## ARCH
 
-# Make GET request
-./radiomanager-cli --host http://<hostname>:<port> --accept xml <operationId> <queryParam1>=<value1> <header_key1>:<header_value2>
+```shell
+sudo pacman -S snapd
+sudo systemctl enable --now snapd.socket
+sudo snap install radiomanager-cli
+```
 
-# Make GET request using arbitrary curl options (must be passed before <operationId>) to an SSL service using username:password
-radiomanager-cli -k -sS --tlsv1.2 --host https://<hostname> -u <user>:<password> --accept xml <operationId> <queryParam1>=<value1> <header_key1>:<header_value2>
+## OpenSUSE
 
-# Make POST request
-$ echo '<body_content>' | radiomanager-cli --host <hostname> --content-type json <operationId> -
-
-# Make POST request with simple JSON content, e.g.:
-# {
-#   "key1": "value1",
-#   "key2": "value2",
-#   "key3": 23
-# }
-$ echo '<body_content>' | radiomanager-cli --host <hostname> --content-type json <operationId> key1==value1 key2=value2 key3:=23 -
-
-# Preview the cURL command without actually executing it
-$ radiomanager-cli --host http://<hostname>:<port> --dry-run <operationid>
-
+For 42.2:
+```shell
+sudo zypper addrepo http://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_42.2/ snappy
+```
+For Tumbleweed:
+```shell
+sudo zypper addrepo http://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed/ snappy
+```
+You can then install snapd and radiomanager-cli:
+```shell
+sudo zypper install snapd
+sudo snap install radiomanager-cli
 ```
 
 ## Docker image
