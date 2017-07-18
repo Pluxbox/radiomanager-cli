@@ -5,7 +5,7 @@ description: |
   Command line interface written in bash to the Pluxbox RadioManager API v2
   See http://pluxbox.com for more information.
 
-grade: devel
+grade: stable
 confinement: devmode # use 'strict' once you have the right plugs and slots
 
 
