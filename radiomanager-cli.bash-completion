@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-07-12T11:38:34.051+02:00
+# ! Generated on: 2017-07-18T17:12:22.914+02:00
 # !
 # !
 # ! System wide installation:
@@ -128,72 +128,70 @@ _radiomanager-cli()
     operations["getUserById"]=1
     operations["inviteUserByMail"]=1
     operations["listUsers"]=1
-    operations["downloadVisualSlide"]=1
     operations["getVisualSlide"]=1
 
     # An associative array of operations to their parameters
     # Only include path, query and header parameters
     declare -A operation_parameters
-    operation_parameters["getBlockById"]="id= _station_id= "
+    operation_parameters["getBlockById"]="id= _external_station_id= "
     operation_parameters["getCurrentBlock"]=""
     operation_parameters["getNextBlock"]=""
-    operation_parameters["listBlocks"]="page= start-min= start_max= broadcast_id= program_id= item_id= _station_id= "
+    operation_parameters["listBlocks"]="page= start-min= start_max= broadcast_id= program_id= item_id= _external_station_id= "
     operation_parameters["createBroadcast"]=""
     operation_parameters["deleteBroadcastById"]="id= "
-    operation_parameters["getBroadcastById"]="id= _station_id= "
+    operation_parameters["getBroadcastById"]="id= _external_station_id= "
     operation_parameters["getCurrentBroadcast"]=""
     operation_parameters["getDailyEPG"]="date= "
     operation_parameters["getEPGByDate"]="date= "
     operation_parameters["getNextBroadcast"]=""
     operation_parameters["getWeeklyEPG"]="date= "
-    operation_parameters["listBroadcasts"]="page= start-min= start_max= model_type_id= tag_id= presenter_id= item_id= block_id= genre_id= program_id= _station_id= "
+    operation_parameters["listBroadcasts"]="page= start-min= start_max= model_type_id= tag_id= presenter_id= item_id= block_id= genre_id= program_id= _external_station_id= "
     operation_parameters["printBroadcastById"]="id= program_id= presenter_id= tag_id= "
     operation_parameters["updateBroadcastByID"]="id= "
     operation_parameters["createCampaign"]=""
     operation_parameters["deleteCampaignById"]="id= "
-    operation_parameters["getCampaignById"]="id= _station_id= "
-    operation_parameters["listCampaigns"]="page= model_type_id= item_id= start-min= start-max= _station_id= "
+    operation_parameters["getCampaignById"]="id= _external_station_id= "
+    operation_parameters["listCampaigns"]="page= model_type_id= item_id= start-min= start-max= _external_station_id= "
     operation_parameters["updateCampaignByID"]="id= "
     operation_parameters["createContact"]=""
     operation_parameters["deleteContactById"]="id= "
-    operation_parameters["getContactById"]="id= _station_id= "
-    operation_parameters["listContacts"]="page= model_type_id= tag_id= item_id= _station_id= "
+    operation_parameters["getContactById"]="id= _external_station_id= "
+    operation_parameters["listContacts"]="page= model_type_id= tag_id= item_id= _external_station_id= "
     operation_parameters["updateContactByID"]="id= "
     operation_parameters["queueExternalMessage"]=""
-    operation_parameters["getGenreById"]="id= _station_id= "
-    operation_parameters["listGenres"]="page= parent_id= program_id= broadcast_id= _station_id= "
+    operation_parameters["getGenreById"]="id= _external_station_id= "
+    operation_parameters["listGenres"]="page= parent_id= program_id= broadcast_id= _external_station_id= "
     operation_parameters["createItem"]=""
     operation_parameters["currentItemPostStructure"]=""
     operation_parameters["currentItemPostTiming"]=""
     operation_parameters["deleteItemById"]="id= "
-    operation_parameters["getItemById"]="id= _station_id= "
-    operation_parameters["listItems"]="page= order-by= order-direction= start-min= start-max= duration-min= duration-max= status= model_type_id= program_draft_id= user_draft_id= station_draft_id= block_id= broadcast_id= campaign_id= contact_id= program_id= tag_id= _station_id= "
+    operation_parameters["getItemById"]="id= _external_station_id= "
+    operation_parameters["listItems"]="page= order-by= order-direction= start-min= start-max= duration-min= duration-max= status= model_type_id= program_draft_id= user_draft_id= station_draft_id= block_id= broadcast_id= campaign_id= contact_id= program_id= tag_id= _external_station_id= "
     operation_parameters["playlistPostStructure"]=""
     operation_parameters["playlistPostTiming"]=""
     operation_parameters["updateItemById"]="id= "
-    operation_parameters["getModelTypeById"]="id= _station_id= "
-    operation_parameters["listModelTypes"]="page= model= program_id= broadcast_id= item_id= campaign_id= presenter_id= contact_id= _station_id= "
+    operation_parameters["getModelTypeById"]="id= _external_station_id= "
+    operation_parameters["listModelTypes"]="page= model= program_id= broadcast_id= item_id= campaign_id= presenter_id= contact_id= _external_station_id= "
     operation_parameters["createPresenter"]=""
     operation_parameters["deletePresenterById"]="id= "
-    operation_parameters["getPresenterById"]="id= _station_id= "
-    operation_parameters["listPresenters"]="page= model_type_id= program_id= broadcast_id= _station_id= "
+    operation_parameters["getPresenterById"]="id= _external_station_id= "
+    operation_parameters["listPresenters"]="page= model_type_id= program_id= broadcast_id= _external_station_id= "
     operation_parameters["updatePresenterByID"]="id= "
     operation_parameters["createProgram"]=""
     operation_parameters["deleteProgramById"]="id= "
-    operation_parameters["getProgramById"]="id= _station_id= "
-    operation_parameters["listPrograms"]="page= genre_id= model_type_id= presenter_id= tag_id= broadcast_id= item_id= block_id= _station_id= "
+    operation_parameters["getProgramById"]="id= _external_station_id= "
+    operation_parameters["listPrograms"]="page= genre_id= model_type_id= presenter_id= tag_id= broadcast_id= item_id= block_id= _external_station_id= "
     operation_parameters["updateProgramByID"]="id= "
     operation_parameters["getStringsByName"]="name= full_model= "
     operation_parameters["createTag"]=""
     operation_parameters["deleteTagById"]="id= "
-    operation_parameters["getTagById"]="id= _station_id= "
-    operation_parameters["listTags"]="page= program_id= item_id= broadcast_id= contact_id= _station_id= "
+    operation_parameters["getTagById"]="id= _external_station_id= "
+    operation_parameters["listTags"]="page= program_id= item_id= broadcast_id= contact_id= _external_station_id= "
     operation_parameters["updateTagByID"]="id= "
     operation_parameters["deleteUserById"]="id= "
     operation_parameters["getUserById"]="id= "
     operation_parameters["inviteUserByMail"]=""
     operation_parameters["listUsers"]="page= role_id= "
-    operation_parameters["downloadVisualSlide"]=""
     operation_parameters["getVisualSlide"]=""
 
     # An associative array of possible values for enum parameters

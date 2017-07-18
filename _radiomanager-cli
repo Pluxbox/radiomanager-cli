@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2017-07-12T11:38:34.051+02:00
+# ! Generated on: 2017-07-18T17:12:22.914+02:00
 # !
 # !
 # ! Installation:
@@ -343,8 +343,7 @@ case $state in
             "updateTagByID[Update tag by id]"             "deleteUserById[Remove user from station by Id]" \
             "getUserById[Get user by id]" \
             "inviteUserByMail[Invite user by mail]" \
-            "listUsers[Get all users.]"             "downloadVisualSlide[Get Visual Slide Image as JPEG]" \
-            "getVisualSlide[Get Visual Slide Image as Base64]" 
+            "listUsers[Get all users.]"             "getVisualSlide[Get Visual Slide Image as Base64]" 
     _arguments "(--help)--help[Print information about operation]"
 
     ret=0
@@ -355,7 +354,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Block **(Required)**"
-          "_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -380,7 +379,7 @@ case $state in
 "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
 "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
 "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
-"_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -401,7 +400,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Broadcast **(Required)**"
-          "_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -451,7 +450,7 @@ case $state in
 "block_id=:[QUERY] Search on Block ID *(Optional)* &#39;(Relation)&#39;"
 "genre_id=:[QUERY] Search on Genre ID *(Optional)* &#39;(Relation)&#39;"
 "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
-"_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -489,7 +488,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Campaign **(Required)**"
-          "_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -501,7 +500,7 @@ case $state in
 "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
 "start-min=:[QUERY] Minimum start date *(Optional)*"
 "start-max=:[QUERY] Maximum start date *(Optional)*"
-"_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -529,7 +528,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Contact **(Required)**"
-          "_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -540,7 +539,7 @@ case $state in
 "model_type_id=:[QUERY] Search on ModelType ID *(Optional)*"
 "tag_id=:[QUERY] Search on Tag ID *(Optional)* &#39;(Relation)&#39;"
 "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
-"_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -561,7 +560,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Genre **(Required)**"
-          "_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -572,7 +571,7 @@ case $state in
 "parent_id=:[QUERY] Search on Parent ID of Genre *(Optional)*"
 "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
 "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
-"_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -605,7 +604,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Item **(Required)**"
-          "_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -630,7 +629,7 @@ case $state in
 "contact_id=:[QUERY] Search on Contact ID *(Optional)* &#39;(Relation)&#39;"
 "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
 "tag_id=:[QUERY] Search on Tag ID *(Optional)* &#39;(Relation)&#39;"
-"_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -657,7 +656,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of ModelType **(Required)**"
-          "_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -672,7 +671,7 @@ case $state in
 "campaign_id=:[QUERY] Search on Campaign ID *(Optional)*"
 "presenter_id=:[QUERY] Search on Presenter ID *(Optional)*"
 "contact_id=:[QUERY] Search on Contact ID *(Optional)*"
-"_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -693,7 +692,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] id of Presenter"
-          "_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -704,7 +703,7 @@ case $state in
 "model_type_id=:[QUERY] Search on ModelType ID (Optional)"
 "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
 "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
-"_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -732,7 +731,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Program **(Required)**"
-          "_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -747,7 +746,7 @@ case $state in
 "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
 "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
 "block_id=:[QUERY] Search on Block ID *(Optional)* &#39;(Relation)&#39;"
-"_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -784,7 +783,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Tag **(Required)**"
-          "_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -796,7 +795,7 @@ case $state in
 "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
 "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
 "contact_id=:[QUERY] Search on Contact ID *(Optional)* &#39;(Relation)&#39;"
-"_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -833,12 +832,6 @@ case $state in
                     "page=:[QUERY] Current page *(Optional)*"
 "role_id=:[QUERY] Search on Role ID *(Optional)*"
           )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      downloadVisualSlide)
-        local -a _op_arguments
-        _op_arguments=(
-                              )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       getVisualSlide)
