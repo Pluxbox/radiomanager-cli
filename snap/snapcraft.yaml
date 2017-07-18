@@ -6,8 +6,7 @@ description: |
   See http://pluxbox.com for more information.
 
 grade: stable
-confinement: devmode # use 'strict' once you have the right plugs and slots
-
+confinement: strict
 
 apps:
     radiomanager-cli:
