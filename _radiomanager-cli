@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2017-07-18T17:12:22.914+02:00
+# ! Generated on: 2017-07-31T11:54:45.643+02:00
 # !
 # !
 # ! Installation:
@@ -336,7 +336,11 @@ case $state in
             "deleteProgramById[Delete program by id]" \
             "getProgramById[Get program by id]" \
             "listPrograms[Get all programs.]" \
-            "updateProgramByID[Update program by id]"             "getStringsByName[Get Strings (formatted)]"             "createTag[Create tag.]" \
+            "updateProgramByID[Update program by id]"             "createStory[Create story.]" \
+            "deleteStoryById[Delete story by id]" \
+            "getStoryById[Get story by id]" \
+            "listStories[Get all stories.]" \
+            "updateStoryByID[Update story by id]"             "getStringsByName[Get Strings (formatted)]"             "createTag[Create tag.]" \
             "deleteTagById[Delete tag by id]" \
             "getTagById[Get tags by id]" \
             "listTags[Get a list of all the tags currently in your station.]" \
@@ -375,7 +379,7 @@ case $state in
         _op_arguments=(
                     "page=:[QUERY] Current page *(Optional)*"
 "start-min=:[QUERY] Minimum start date *(Optional)*"
-"start_max=:[QUERY] Maximum start date *(Optional)*"
+"start-max=:[QUERY] Maximum start date *(Optional)*"
 "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
 "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
 "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
@@ -442,7 +446,7 @@ case $state in
         _op_arguments=(
                     "page=:[QUERY] Current page *(Optional)*"
 "start-min=:[QUERY] Minimum start date *(Optional)*"
-"start_max=:[QUERY] Maximum start date *(Optional)*"
+"start-max=:[QUERY] Maximum start date *(Optional)*"
 "model_type_id=:[QUERY] Search on ModelType ID *(Optional)*"
 "tag_id=:[QUERY] Search on Tag ID *(Optional)* &#39;(Relation)&#39;"
 "presenter_id=:[QUERY] Search on Presenter ID *(Optional)* &#39;(Relation)&#39;"
@@ -754,6 +758,45 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Program **(Required)**"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createStory)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteStoryById)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] ID of Story **(Required)**"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getStoryById)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] ID of Story **(Required)**"
+          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      listStories)
+        local -a _op_arguments
+        _op_arguments=(
+                    "page=:[QUERY] Current page *(Optional)*"
+"model_type_id=:[QUERY] Search on ModelType ID *(Optional)*"
+"tag_id=:[QUERY] Search on Tag ID *(Optional)* &#39;(Relation)&#39;"
+"item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
+"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      updateStoryByID)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] ID of Story **(Required)**"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

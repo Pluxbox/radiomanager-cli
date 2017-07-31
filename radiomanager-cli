@@ -8,12 +8,12 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-07-18T17:12:22.914+02:00
+# ! Generated on: 2017-07-31T11:54:45.643+02:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #
-# This is a Bash client for Pluxbox Radiomanager Client.
+# This is a Bash client for RadioManager.
 #
 # LICENSE:
 # https://pluxbox.com/license
@@ -71,7 +71,7 @@ operation_parameters_minimum_occurences["getBlockById:::id"]=1
 operation_parameters_minimum_occurences["getBlockById:::_external_station_id"]=0
 operation_parameters_minimum_occurences["listBlocks:::page"]=0
 operation_parameters_minimum_occurences["listBlocks:::start-min"]=0
-operation_parameters_minimum_occurences["listBlocks:::start_max"]=0
+operation_parameters_minimum_occurences["listBlocks:::start-max"]=0
 operation_parameters_minimum_occurences["listBlocks:::broadcast_id"]=0
 operation_parameters_minimum_occurences["listBlocks:::program_id"]=0
 operation_parameters_minimum_occurences["listBlocks:::item_id"]=0
@@ -85,7 +85,7 @@ operation_parameters_minimum_occurences["getEPGByDate:::date"]=0
 operation_parameters_minimum_occurences["getWeeklyEPG:::date"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::page"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::start-min"]=0
-operation_parameters_minimum_occurences["listBroadcasts:::start_max"]=0
+operation_parameters_minimum_occurences["listBroadcasts:::start-max"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::model_type_id"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::tag_id"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::presenter_id"]=0
@@ -197,6 +197,17 @@ operation_parameters_minimum_occurences["listPrograms:::block_id"]=0
 operation_parameters_minimum_occurences["listPrograms:::_external_station_id"]=0
 operation_parameters_minimum_occurences["updateProgramByID:::id"]=1
 operation_parameters_minimum_occurences["updateProgramByID:::data"]=0
+operation_parameters_minimum_occurences["createStory:::data"]=1
+operation_parameters_minimum_occurences["deleteStoryById:::id"]=1
+operation_parameters_minimum_occurences["getStoryById:::id"]=1
+operation_parameters_minimum_occurences["getStoryById:::_external_station_id"]=0
+operation_parameters_minimum_occurences["listStories:::page"]=0
+operation_parameters_minimum_occurences["listStories:::model_type_id"]=0
+operation_parameters_minimum_occurences["listStories:::tag_id"]=0
+operation_parameters_minimum_occurences["listStories:::item_id"]=0
+operation_parameters_minimum_occurences["listStories:::_external_station_id"]=0
+operation_parameters_minimum_occurences["updateStoryByID:::id"]=1
+operation_parameters_minimum_occurences["updateStoryByID:::data"]=0
 operation_parameters_minimum_occurences["getStringsByName:::name"]=1
 operation_parameters_minimum_occurences["getStringsByName:::full_model"]=1
 operation_parameters_minimum_occurences["createTag:::data"]=1
@@ -228,7 +239,7 @@ operation_parameters_maximum_occurences["getBlockById:::id"]=0
 operation_parameters_maximum_occurences["getBlockById:::_external_station_id"]=0
 operation_parameters_maximum_occurences["listBlocks:::page"]=0
 operation_parameters_maximum_occurences["listBlocks:::start-min"]=0
-operation_parameters_maximum_occurences["listBlocks:::start_max"]=0
+operation_parameters_maximum_occurences["listBlocks:::start-max"]=0
 operation_parameters_maximum_occurences["listBlocks:::broadcast_id"]=0
 operation_parameters_maximum_occurences["listBlocks:::program_id"]=0
 operation_parameters_maximum_occurences["listBlocks:::item_id"]=0
@@ -242,7 +253,7 @@ operation_parameters_maximum_occurences["getEPGByDate:::date"]=0
 operation_parameters_maximum_occurences["getWeeklyEPG:::date"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::page"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::start-min"]=0
-operation_parameters_maximum_occurences["listBroadcasts:::start_max"]=0
+operation_parameters_maximum_occurences["listBroadcasts:::start-max"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::model_type_id"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::tag_id"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::presenter_id"]=0
@@ -354,6 +365,17 @@ operation_parameters_maximum_occurences["listPrograms:::block_id"]=0
 operation_parameters_maximum_occurences["listPrograms:::_external_station_id"]=0
 operation_parameters_maximum_occurences["updateProgramByID:::id"]=0
 operation_parameters_maximum_occurences["updateProgramByID:::data"]=0
+operation_parameters_maximum_occurences["createStory:::data"]=0
+operation_parameters_maximum_occurences["deleteStoryById:::id"]=0
+operation_parameters_maximum_occurences["getStoryById:::id"]=0
+operation_parameters_maximum_occurences["getStoryById:::_external_station_id"]=0
+operation_parameters_maximum_occurences["listStories:::page"]=0
+operation_parameters_maximum_occurences["listStories:::model_type_id"]=0
+operation_parameters_maximum_occurences["listStories:::tag_id"]=0
+operation_parameters_maximum_occurences["listStories:::item_id"]=0
+operation_parameters_maximum_occurences["listStories:::_external_station_id"]=0
+operation_parameters_maximum_occurences["updateStoryByID:::id"]=0
+operation_parameters_maximum_occurences["updateStoryByID:::data"]=0
 operation_parameters_maximum_occurences["getStringsByName:::name"]=0
 operation_parameters_maximum_occurences["getStringsByName:::full_model"]=0
 operation_parameters_maximum_occurences["createTag:::data"]=0
@@ -382,7 +404,7 @@ operation_parameters_collection_type["getBlockById:::id"]=""
 operation_parameters_collection_type["getBlockById:::_external_station_id"]=""
 operation_parameters_collection_type["listBlocks:::page"]=""
 operation_parameters_collection_type["listBlocks:::start-min"]=""
-operation_parameters_collection_type["listBlocks:::start_max"]=""
+operation_parameters_collection_type["listBlocks:::start-max"]=""
 operation_parameters_collection_type["listBlocks:::broadcast_id"]=""
 operation_parameters_collection_type["listBlocks:::program_id"]=""
 operation_parameters_collection_type["listBlocks:::item_id"]=""
@@ -396,7 +418,7 @@ operation_parameters_collection_type["getEPGByDate:::date"]=""
 operation_parameters_collection_type["getWeeklyEPG:::date"]=""
 operation_parameters_collection_type["listBroadcasts:::page"]=""
 operation_parameters_collection_type["listBroadcasts:::start-min"]=""
-operation_parameters_collection_type["listBroadcasts:::start_max"]=""
+operation_parameters_collection_type["listBroadcasts:::start-max"]=""
 operation_parameters_collection_type["listBroadcasts:::model_type_id"]=""
 operation_parameters_collection_type["listBroadcasts:::tag_id"]=""
 operation_parameters_collection_type["listBroadcasts:::presenter_id"]=""
@@ -508,6 +530,17 @@ operation_parameters_collection_type["listPrograms:::block_id"]=""
 operation_parameters_collection_type["listPrograms:::_external_station_id"]=""
 operation_parameters_collection_type["updateProgramByID:::id"]=""
 operation_parameters_collection_type["updateProgramByID:::data"]=""
+operation_parameters_collection_type["createStory:::data"]=""
+operation_parameters_collection_type["deleteStoryById:::id"]=""
+operation_parameters_collection_type["getStoryById:::id"]=""
+operation_parameters_collection_type["getStoryById:::_external_station_id"]=""
+operation_parameters_collection_type["listStories:::page"]=""
+operation_parameters_collection_type["listStories:::model_type_id"]=""
+operation_parameters_collection_type["listStories:::tag_id"]=""
+operation_parameters_collection_type["listStories:::item_id"]=""
+operation_parameters_collection_type["listStories:::_external_station_id"]=""
+operation_parameters_collection_type["updateStoryByID:::id"]=""
+operation_parameters_collection_type["updateStoryByID:::data"]=""
 operation_parameters_collection_type["getStringsByName:::name"]=""
 operation_parameters_collection_type["getStringsByName:::full_model"]=""
 operation_parameters_collection_type["createTag:::data"]=""
@@ -971,7 +1004,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-$(tput bold)$(tput setaf 7)Pluxbox Radiomanager Client command line client (API version 2.0)$(tput sgr0)
+$(tput bold)$(tput setaf 7)RadioManager command line client (API version 2.0)$(tput sgr0)
 
 $(tput bold)$(tput setaf 7)Usage$(tput sgr0)
 
@@ -1104,6 +1137,16 @@ read -d '' ops <<EOF
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
+    echo -e "$(tput bold)$(tput setaf 7)[story]$(tput sgr0)"
+read -d '' ops <<EOF
+  $(tput setaf 6)createStory$(tput sgr0);Create story.
+  $(tput setaf 6)deleteStoryById$(tput sgr0);Delete story by id
+  $(tput setaf 6)getStoryById$(tput sgr0);Get story by id
+  $(tput setaf 6)listStories$(tput sgr0);Get all stories.
+  $(tput setaf 6)updateStoryByID$(tput sgr0);Update story by id
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
     echo -e "$(tput bold)$(tput setaf 7)[string]$(tput sgr0)"
 read -d '' ops <<EOF
   $(tput setaf 6)getStringsByName$(tput sgr0);Get Strings (formatted)
@@ -1160,14 +1203,14 @@ echo -e "              \t\t\t\t(e.g. 'https://staging.radiomanager.pluxbox.com')
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)Pluxbox Radiomanager Client command line client (API version 2.0)$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)RadioManager command line client (API version 2.0)$(tput sgr0)"
     echo ""
     echo -e "License: License"
     echo -e "Contact: support@pluxbox.com"
     echo ""
 read -d '' appdescription <<EOF
 
-Pluxbox RadioManager gives you the power, flexibility and speed you always wanted in a lightweight and easy-to-use web-based radio solution. With Pluxbox RadioManager you can organise your radio workflow and automate your omnichannel communication with your listeners. We offer wide range specialised services for the radio and connections like Hybrid Radio, Visual Radio, your website and social media without losing focus on your broadcast. For more information visit https://pluxbox.com
+RadioManager
 EOF
 echo "$appdescription" | fold -sw 80
 }
@@ -1180,7 +1223,7 @@ echo "$appdescription" | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "$(tput bold)Pluxbox Radiomanager Client command line client (API version 2.0)$(tput sgr0)"
+    echo -e "$(tput bold)RadioManager command line client (API version 2.0)$(tput sgr0)"
     echo ""
 }
 
@@ -1486,7 +1529,7 @@ print_listBlocks_help() {
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)start-min$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Minimum start date *(Optional)*$(tput setaf 3) Specify as: start-min=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)start_max$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Maximum start date *(Optional)*$(tput setaf 3) Specify as: start_max=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)start-max$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Maximum start date *(Optional)*$(tput setaf 3) Specify as: start-max=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)broadcast_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Broadcast ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: broadcast_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -2365,7 +2408,7 @@ print_listBroadcasts_help() {
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)start-min$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Minimum start date *(Optional)*$(tput setaf 3) Specify as: start-min=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)start_max$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Maximum start date *(Optional)*$(tput setaf 3) Specify as: start_max=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)start-max$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Maximum start date *(Optional)*$(tput setaf 3) Specify as: start-max=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)*$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -6215,6 +6258,540 @@ print_updateProgramByID_help() {
 }
 ##############################################################################
 #
+# Print help for createStory operation
+#
+##############################################################################
+print_createStory_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)createStory - Create story.$(tput sgr0)"
+    echo -e ""
+    echo -e "Create story." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)body$(tput sgr0) $(tput setaf 4)[application/json]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Data **(Required)**" | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Successfully created a story$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Successfully created a story$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Successfully created a story$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Successfully created a story$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Successfully created a story$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Successfully created a story$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 403 in
+        1*)
+        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 404 in
+        1*)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 422 in
+        1*)
+        echo -e "$(tput setaf 7)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 429 in
+        1*)
+        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for deleteStoryById operation
+#
+##############################################################################
+print_deleteStoryById_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)deleteStoryById - Delete story by id$(tput sgr0)"
+    echo -e ""
+    echo -e "Delete story by id" | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - ID of Story **(Required)** $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Successfully deleted Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Successfully deleted Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Successfully deleted Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Successfully deleted Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Successfully deleted Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Successfully deleted Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 403 in
+        1*)
+        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 404 in
+        1*)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 429 in
+        1*)
+        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for getStoryById operation
+#
+##############################################################################
+print_getStoryById_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getStoryById - Get story by id$(tput sgr0)"
+    echo -e ""
+    echo -e "Get story by id" | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - ID of Story **(Required)** $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Successfully got Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Successfully got Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Successfully got Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Successfully got Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Successfully got Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Successfully got Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 403 in
+        1*)
+        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 404 in
+        1*)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 429 in
+        1*)
+        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for listStories operation
+#
+##############################################################################
+print_listStories_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)listStories - Get all stories.$(tput sgr0)"
+    echo -e ""
+    echo -e "List all stories." | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)page$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0) $(tput setaf 6)(default: 1)$(tput sgr0) - Current page *(Optional)*$(tput setaf 3) Specify as: page=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)*$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)tag_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Tag ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: tag_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)item_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Item ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: item_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Successfully got all stories$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Successfully got all stories$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Successfully got all stories$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Successfully got all stories$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Successfully got all stories$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Successfully got all stories$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 403 in
+        1*)
+        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 404 in
+        1*)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 429 in
+        1*)
+        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
+# Print help for updateStoryByID operation
+#
+##############################################################################
+print_updateStoryByID_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)updateStoryByID - Update story by id$(tput sgr0)"
+    echo -e ""
+    echo -e "Update story by id" | fold -sw 80
+    echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - ID of Story **(Required)** $(tput setaf 3)Specify as: id=value$(tput sgr0)" | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)body$(tput sgr0) $(tput setaf 4)[application/json]$(tput sgr0)$(tput sgr0) - Data *(Optional)*" | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Successfully updated Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Successfully updated Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Successfully updated Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Successfully updated Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Successfully updated Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Successfully updated Story by id$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 403 in
+        1*)
+        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 404 in
+        1*)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 422 in
+        1*)
+        echo -e "$(tput setaf 7)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 429 in
+        1*)
+        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
 # Print help for getStringsByName operation
 #
 ##############################################################################
@@ -7411,7 +7988,7 @@ call_getNextBlock() {
 ##############################################################################
 call_listBlocks() {
     local path_parameter_names=()
-    local query_parameter_names=(page start-min start_max broadcast_id program_id item_id _external_station_id)
+    local query_parameter_names=(page start-min start-max broadcast_id program_id item_id _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/blocks" path_parameter_names query_parameter_names
@@ -7732,7 +8309,7 @@ call_getWeeklyEPG() {
 ##############################################################################
 call_listBroadcasts() {
     local path_parameter_names=()
-    local query_parameter_names=(page start-min start_max model_type_id tag_id presenter_id item_id block_id genre_id program_id _external_station_id)
+    local query_parameter_names=(page start-min start-max model_type_id tag_id presenter_id item_id block_id genre_id program_id _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/broadcasts" path_parameter_names query_parameter_names
@@ -9546,6 +10123,245 @@ call_updateProgramByID() {
 
 ##############################################################################
 #
+# Call createStory operation
+#
+##############################################################################
+call_createStory() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/api/v2/stories" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/api/v2/stories" path_parameter_names query_parameter_names)
+    local method="POST"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the Swagger specification
+    # if values produces and consumes are defined unambigously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "Error: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
+# Call deleteStoryById operation
+#
+##############################################################################
+call_deleteStoryById() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/api/v2/stories/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/api/v2/stories/{id}" path_parameter_names query_parameter_names)
+    local method="DELETE"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getStoryById operation
+#
+##############################################################################
+call_getStoryById() {
+    local path_parameter_names=(id)
+    local query_parameter_names=(_external_station_id)
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/api/v2/stories/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/api/v2/stories/{id}" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call listStories operation
+#
+##############################################################################
+call_listStories() {
+    local path_parameter_names=()
+    local query_parameter_names=(page model_type_id tag_id item_id _external_station_id)
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/api/v2/stories" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/api/v2/stories" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call updateStoryByID operation
+#
+##############################################################################
+call_updateStoryByID() {
+    local path_parameter_names=(id)
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/api/v2/stories/{id}" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/api/v2/stories/{id}" path_parameter_names query_parameter_names)
+    local method="PATCH"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the Swagger specification
+    # if values produces and consumes are defined unambigously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "Error: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
 # Call getStringsByName operation
 #
 ##############################################################################
@@ -10243,6 +11059,21 @@ case $key in
     updateProgramByID)
     operation="updateProgramByID"
     ;;
+    createStory)
+    operation="createStory"
+    ;;
+    deleteStoryById)
+    operation="deleteStoryById"
+    ;;
+    getStoryById)
+    operation="getStoryById"
+    ;;
+    listStories)
+    operation="listStories"
+    ;;
+    updateStoryByID)
+    operation="updateStoryByID"
+    ;;
     getStringsByName)
     operation="getStringsByName"
     ;;
@@ -10506,6 +11337,21 @@ case $operation in
     ;;
     updateProgramByID)
     call_updateProgramByID
+    ;;
+    createStory)
+    call_createStory
+    ;;
+    deleteStoryById)
+    call_deleteStoryById
+    ;;
+    getStoryById)
+    call_getStoryById
+    ;;
+    listStories)
+    call_listStories
+    ;;
+    updateStoryByID)
+    call_updateStoryByID
     ;;
     getStringsByName)
     call_getStringsByName

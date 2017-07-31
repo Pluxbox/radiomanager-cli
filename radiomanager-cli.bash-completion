@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-07-18T17:12:22.914+02:00
+# ! Generated on: 2017-07-31T11:54:45.643+02:00
 # !
 # !
 # ! System wide installation:
@@ -118,6 +118,11 @@ _radiomanager-cli()
     operations["getProgramById"]=1
     operations["listPrograms"]=1
     operations["updateProgramByID"]=1
+    operations["createStory"]=1
+    operations["deleteStoryById"]=1
+    operations["getStoryById"]=1
+    operations["listStories"]=1
+    operations["updateStoryByID"]=1
     operations["getStringsByName"]=1
     operations["createTag"]=1
     operations["deleteTagById"]=1
@@ -136,7 +141,7 @@ _radiomanager-cli()
     operation_parameters["getBlockById"]="id= _external_station_id= "
     operation_parameters["getCurrentBlock"]=""
     operation_parameters["getNextBlock"]=""
-    operation_parameters["listBlocks"]="page= start-min= start_max= broadcast_id= program_id= item_id= _external_station_id= "
+    operation_parameters["listBlocks"]="page= start-min= start-max= broadcast_id= program_id= item_id= _external_station_id= "
     operation_parameters["createBroadcast"]=""
     operation_parameters["deleteBroadcastById"]="id= "
     operation_parameters["getBroadcastById"]="id= _external_station_id= "
@@ -145,7 +150,7 @@ _radiomanager-cli()
     operation_parameters["getEPGByDate"]="date= "
     operation_parameters["getNextBroadcast"]=""
     operation_parameters["getWeeklyEPG"]="date= "
-    operation_parameters["listBroadcasts"]="page= start-min= start_max= model_type_id= tag_id= presenter_id= item_id= block_id= genre_id= program_id= _external_station_id= "
+    operation_parameters["listBroadcasts"]="page= start-min= start-max= model_type_id= tag_id= presenter_id= item_id= block_id= genre_id= program_id= _external_station_id= "
     operation_parameters["printBroadcastById"]="id= program_id= presenter_id= tag_id= "
     operation_parameters["updateBroadcastByID"]="id= "
     operation_parameters["createCampaign"]=""
@@ -182,6 +187,11 @@ _radiomanager-cli()
     operation_parameters["getProgramById"]="id= _external_station_id= "
     operation_parameters["listPrograms"]="page= genre_id= model_type_id= presenter_id= tag_id= broadcast_id= item_id= block_id= _external_station_id= "
     operation_parameters["updateProgramByID"]="id= "
+    operation_parameters["createStory"]=""
+    operation_parameters["deleteStoryById"]="id= "
+    operation_parameters["getStoryById"]="id= _external_station_id= "
+    operation_parameters["listStories"]="page= model_type_id= tag_id= item_id= _external_station_id= "
+    operation_parameters["updateStoryByID"]="id= "
     operation_parameters["getStringsByName"]="name= full_model= "
     operation_parameters["createTag"]=""
     operation_parameters["deleteTagById"]="id= "
