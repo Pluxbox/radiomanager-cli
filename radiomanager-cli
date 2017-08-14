@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-08-14T14:25:36.405Z
+# ! Generated on: 2017-08-14T17:12:49.230+02:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -6310,6 +6310,26 @@ print_createStory_help() {
         ;;
         *)
         echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 404 in
+        1*)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
     case 422 in
