@@ -1,5 +1,5 @@
 ---
-apps:
+version: '1.0.93'
   radiomanager-cli:
     command: radiomanager-cli
     plugs:
