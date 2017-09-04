@@ -1,20 +1,21 @@
 ---
-version: '1.0.94'
-  radiomanager-cli:
-    command: radiomanager-cli
-    plugs:
-      - network
-confinement: strict
-description: |
-    Command line interface written in bash to the Pluxbox RadioManager API v2
-    See http://pluxbox.com for more information.
-grade: stable
 name: radiomanager-cli
+version: '1.0.94'
+summary: Command line interface to Pluxbox RadioManager client
+description: |
+  Command line interface written in bash to the Pluxbox RadioManager API v2
+  See http://pluxbox.com for more information.
+grade: stable
+confinement: strict
+apps:
+    radiomanager-cli:
+        command: radiomanager-cli
+        plugs:
+          - network
 parts:
-  radiomanager-cli:
-    plugin: dump
-    source: "https://github.com/Pluxbox/radiomanager-cli.git"
-    stage-packages:
-      - curl
-      - bsdmainutils
-summary: "Command line interface to Pluxbox RadioManager client"
+    radiomanager-cli:
+        source: https://github.com/Pluxbox/radiomanager-cli.git
+        plugin: dump
+        stage-packages:
+          - curl
+          - bsdmainutils
