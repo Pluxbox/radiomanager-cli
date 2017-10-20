@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-08-31T15:03:42.805+02:00
+# ! Generated on: 2017-10-20T12:54:40.225+02:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -70,29 +70,38 @@ declare -A operation_parameters_minimum_occurences
 operation_parameters_minimum_occurences["getBlockById:::id"]=1
 operation_parameters_minimum_occurences["getBlockById:::_external_station_id"]=0
 operation_parameters_minimum_occurences["listBlocks:::page"]=0
+operation_parameters_minimum_occurences["listBlocks:::broadcast_id"]=0
+operation_parameters_minimum_occurences["listBlocks:::item_id"]=0
+operation_parameters_minimum_occurences["listBlocks:::program_id"]=0
 operation_parameters_minimum_occurences["listBlocks:::start-min"]=0
 operation_parameters_minimum_occurences["listBlocks:::start-max"]=0
-operation_parameters_minimum_occurences["listBlocks:::broadcast_id"]=0
-operation_parameters_minimum_occurences["listBlocks:::program_id"]=0
-operation_parameters_minimum_occurences["listBlocks:::item_id"]=0
+operation_parameters_minimum_occurences["listBlocks:::limit"]=0
+operation_parameters_minimum_occurences["listBlocks:::order-by"]=0
+operation_parameters_minimum_occurences["listBlocks:::order-direction"]=0
 operation_parameters_minimum_occurences["listBlocks:::_external_station_id"]=0
 operation_parameters_minimum_occurences["createBroadcast:::data"]=1
 operation_parameters_minimum_occurences["deleteBroadcastById:::id"]=1
 operation_parameters_minimum_occurences["getBroadcastById:::id"]=1
 operation_parameters_minimum_occurences["getBroadcastById:::_external_station_id"]=0
 operation_parameters_minimum_occurences["getDailyEPG:::date"]=0
+operation_parameters_minimum_occurences["getDailyEPG:::withunpublished"]=0
 operation_parameters_minimum_occurences["getEPGByDate:::date"]=0
+operation_parameters_minimum_occurences["getEPGByDate:::withunpublished"]=0
 operation_parameters_minimum_occurences["getWeeklyEPG:::date"]=0
+operation_parameters_minimum_occurences["getWeeklyEPG:::withunpublished"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::page"]=0
-operation_parameters_minimum_occurences["listBroadcasts:::start-min"]=0
-operation_parameters_minimum_occurences["listBroadcasts:::start-max"]=0
+operation_parameters_minimum_occurences["listBroadcasts:::program_id"]=0
+operation_parameters_minimum_occurences["listBroadcasts:::block_id"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::model_type_id"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::tag_id"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::presenter_id"]=0
-operation_parameters_minimum_occurences["listBroadcasts:::item_id"]=0
-operation_parameters_minimum_occurences["listBroadcasts:::block_id"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::genre_id"]=0
-operation_parameters_minimum_occurences["listBroadcasts:::program_id"]=0
+operation_parameters_minimum_occurences["listBroadcasts:::item_id"]=0
+operation_parameters_minimum_occurences["listBroadcasts:::start-min"]=0
+operation_parameters_minimum_occurences["listBroadcasts:::start-max"]=0
+operation_parameters_minimum_occurences["listBroadcasts:::limit"]=0
+operation_parameters_minimum_occurences["listBroadcasts:::order-by"]=0
+operation_parameters_minimum_occurences["listBroadcasts:::order-direction"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::_external_station_id"]=0
 operation_parameters_minimum_occurences["printBroadcastById:::id"]=1
 operation_parameters_minimum_occurences["printBroadcastById:::program_id"]=0
@@ -105,10 +114,13 @@ operation_parameters_minimum_occurences["deleteCampaignById:::id"]=1
 operation_parameters_minimum_occurences["getCampaignById:::id"]=1
 operation_parameters_minimum_occurences["getCampaignById:::_external_station_id"]=0
 operation_parameters_minimum_occurences["listCampaigns:::page"]=0
-operation_parameters_minimum_occurences["listCampaigns:::model_type_id"]=0
 operation_parameters_minimum_occurences["listCampaigns:::item_id"]=0
+operation_parameters_minimum_occurences["listCampaigns:::model_type_id"]=0
 operation_parameters_minimum_occurences["listCampaigns:::start-min"]=0
 operation_parameters_minimum_occurences["listCampaigns:::start-max"]=0
+operation_parameters_minimum_occurences["listCampaigns:::limit"]=0
+operation_parameters_minimum_occurences["listCampaigns:::order-by"]=0
+operation_parameters_minimum_occurences["listCampaigns:::order-direction"]=0
 operation_parameters_minimum_occurences["listCampaigns:::_external_station_id"]=0
 operation_parameters_minimum_occurences["updateCampaignByID:::id"]=1
 operation_parameters_minimum_occurences["updateCampaignByID:::data"]=0
@@ -117,19 +129,24 @@ operation_parameters_minimum_occurences["deleteContactById:::id"]=1
 operation_parameters_minimum_occurences["getContactById:::id"]=1
 operation_parameters_minimum_occurences["getContactById:::_external_station_id"]=0
 operation_parameters_minimum_occurences["listContacts:::page"]=0
+operation_parameters_minimum_occurences["listContacts:::item_id"]=0
 operation_parameters_minimum_occurences["listContacts:::model_type_id"]=0
 operation_parameters_minimum_occurences["listContacts:::tag_id"]=0
-operation_parameters_minimum_occurences["listContacts:::item_id"]=0
+operation_parameters_minimum_occurences["listContacts:::limit"]=0
+operation_parameters_minimum_occurences["listContacts:::order-by"]=0
+operation_parameters_minimum_occurences["listContacts:::order-direction"]=0
 operation_parameters_minimum_occurences["listContacts:::_external_station_id"]=0
 operation_parameters_minimum_occurences["updateContactByID:::id"]=1
 operation_parameters_minimum_occurences["updateContactByID:::data"]=0
-operation_parameters_minimum_occurences["queueExternalMessage:::message"]=1
 operation_parameters_minimum_occurences["getGenreById:::id"]=1
 operation_parameters_minimum_occurences["getGenreById:::_external_station_id"]=0
 operation_parameters_minimum_occurences["listGenres:::page"]=0
 operation_parameters_minimum_occurences["listGenres:::parent_id"]=0
 operation_parameters_minimum_occurences["listGenres:::program_id"]=0
 operation_parameters_minimum_occurences["listGenres:::broadcast_id"]=0
+operation_parameters_minimum_occurences["listGenres:::limit"]=0
+operation_parameters_minimum_occurences["listGenres:::order-by"]=0
+operation_parameters_minimum_occurences["listGenres:::order-direction"]=0
 operation_parameters_minimum_occurences["listGenres:::_external_station_id"]=0
 operation_parameters_minimum_occurences["createItem:::data"]=0
 operation_parameters_minimum_occurences["currentItemPostStructure:::data"]=0
@@ -138,23 +155,24 @@ operation_parameters_minimum_occurences["deleteItemById:::id"]=1
 operation_parameters_minimum_occurences["getItemById:::id"]=1
 operation_parameters_minimum_occurences["getItemById:::_external_station_id"]=0
 operation_parameters_minimum_occurences["listItems:::page"]=0
-operation_parameters_minimum_occurences["listItems:::order-by"]=0
-operation_parameters_minimum_occurences["listItems:::order-direction"]=0
+operation_parameters_minimum_occurences["listItems:::block_id"]=0
+operation_parameters_minimum_occurences["listItems:::broadcast_id"]=0
+operation_parameters_minimum_occurences["listItems:::model_type_id"]=0
+operation_parameters_minimum_occurences["listItems:::tag_id"]=0
+operation_parameters_minimum_occurences["listItems:::campaign_id"]=0
+operation_parameters_minimum_occurences["listItems:::contact_id"]=0
+operation_parameters_minimum_occurences["listItems:::program_draft_id"]=0
+operation_parameters_minimum_occurences["listItems:::user_draft_id"]=0
+operation_parameters_minimum_occurences["listItems:::station_draft_id"]=0
+operation_parameters_minimum_occurences["listItems:::program_id"]=0
 operation_parameters_minimum_occurences["listItems:::start-min"]=0
 operation_parameters_minimum_occurences["listItems:::start-max"]=0
 operation_parameters_minimum_occurences["listItems:::duration-min"]=0
 operation_parameters_minimum_occurences["listItems:::duration-max"]=0
 operation_parameters_minimum_occurences["listItems:::status"]=0
-operation_parameters_minimum_occurences["listItems:::model_type_id"]=0
-operation_parameters_minimum_occurences["listItems:::program_draft_id"]=0
-operation_parameters_minimum_occurences["listItems:::user_draft_id"]=0
-operation_parameters_minimum_occurences["listItems:::station_draft_id"]=0
-operation_parameters_minimum_occurences["listItems:::block_id"]=0
-operation_parameters_minimum_occurences["listItems:::broadcast_id"]=0
-operation_parameters_minimum_occurences["listItems:::campaign_id"]=0
-operation_parameters_minimum_occurences["listItems:::contact_id"]=0
-operation_parameters_minimum_occurences["listItems:::program_id"]=0
-operation_parameters_minimum_occurences["listItems:::tag_id"]=0
+operation_parameters_minimum_occurences["listItems:::limit"]=0
+operation_parameters_minimum_occurences["listItems:::order-by"]=0
+operation_parameters_minimum_occurences["listItems:::order-direction"]=0
 operation_parameters_minimum_occurences["listItems:::_external_station_id"]=0
 operation_parameters_minimum_occurences["playlistPostStructure:::data"]=0
 operation_parameters_minimum_occurences["playlistPostTiming:::data"]=0
@@ -163,22 +181,28 @@ operation_parameters_minimum_occurences["updateItemById:::data"]=0
 operation_parameters_minimum_occurences["getModelTypeById:::id"]=1
 operation_parameters_minimum_occurences["getModelTypeById:::_external_station_id"]=0
 operation_parameters_minimum_occurences["listModelTypes:::page"]=0
-operation_parameters_minimum_occurences["listModelTypes:::model"]=0
 operation_parameters_minimum_occurences["listModelTypes:::program_id"]=0
 operation_parameters_minimum_occurences["listModelTypes:::broadcast_id"]=0
 operation_parameters_minimum_occurences["listModelTypes:::item_id"]=0
 operation_parameters_minimum_occurences["listModelTypes:::campaign_id"]=0
 operation_parameters_minimum_occurences["listModelTypes:::presenter_id"]=0
 operation_parameters_minimum_occurences["listModelTypes:::contact_id"]=0
+operation_parameters_minimum_occurences["listModelTypes:::model"]=0
+operation_parameters_minimum_occurences["listModelTypes:::limit"]=0
+operation_parameters_minimum_occurences["listModelTypes:::order-by"]=0
+operation_parameters_minimum_occurences["listModelTypes:::order-direction"]=0
 operation_parameters_minimum_occurences["listModelTypes:::_external_station_id"]=0
 operation_parameters_minimum_occurences["createPresenter:::data"]=1
 operation_parameters_minimum_occurences["deletePresenterById:::id"]=1
 operation_parameters_minimum_occurences["getPresenterById:::id"]=1
 operation_parameters_minimum_occurences["getPresenterById:::_external_station_id"]=0
 operation_parameters_minimum_occurences["listPresenters:::page"]=0
-operation_parameters_minimum_occurences["listPresenters:::model_type_id"]=0
 operation_parameters_minimum_occurences["listPresenters:::program_id"]=0
 operation_parameters_minimum_occurences["listPresenters:::broadcast_id"]=0
+operation_parameters_minimum_occurences["listPresenters:::model_type_id"]=0
+operation_parameters_minimum_occurences["listPresenters:::limit"]=0
+operation_parameters_minimum_occurences["listPresenters:::order-by"]=0
+operation_parameters_minimum_occurences["listPresenters:::order-direction"]=0
 operation_parameters_minimum_occurences["listPresenters:::_external_station_id"]=0
 operation_parameters_minimum_occurences["updatePresenterByID:::id"]=1
 operation_parameters_minimum_occurences["updatePresenterByID:::data"]=0
@@ -187,13 +211,16 @@ operation_parameters_minimum_occurences["deleteProgramById:::id"]=1
 operation_parameters_minimum_occurences["getProgramById:::id"]=1
 operation_parameters_minimum_occurences["getProgramById:::_external_station_id"]=0
 operation_parameters_minimum_occurences["listPrograms:::page"]=0
-operation_parameters_minimum_occurences["listPrograms:::genre_id"]=0
-operation_parameters_minimum_occurences["listPrograms:::model_type_id"]=0
-operation_parameters_minimum_occurences["listPrograms:::presenter_id"]=0
-operation_parameters_minimum_occurences["listPrograms:::tag_id"]=0
 operation_parameters_minimum_occurences["listPrograms:::broadcast_id"]=0
-operation_parameters_minimum_occurences["listPrograms:::item_id"]=0
+operation_parameters_minimum_occurences["listPrograms:::model_type_id"]=0
+operation_parameters_minimum_occurences["listPrograms:::tag_id"]=0
+operation_parameters_minimum_occurences["listPrograms:::presenter_id"]=0
+operation_parameters_minimum_occurences["listPrograms:::genre_id"]=0
 operation_parameters_minimum_occurences["listPrograms:::block_id"]=0
+operation_parameters_minimum_occurences["listPrograms:::item_id"]=0
+operation_parameters_minimum_occurences["listPrograms:::limit"]=0
+operation_parameters_minimum_occurences["listPrograms:::order-by"]=0
+operation_parameters_minimum_occurences["listPrograms:::order-direction"]=0
 operation_parameters_minimum_occurences["listPrograms:::_external_station_id"]=0
 operation_parameters_minimum_occurences["updateProgramByID:::id"]=1
 operation_parameters_minimum_occurences["updateProgramByID:::data"]=0
@@ -202,9 +229,12 @@ operation_parameters_minimum_occurences["deleteStoryById:::id"]=1
 operation_parameters_minimum_occurences["getStoryById:::id"]=1
 operation_parameters_minimum_occurences["getStoryById:::_external_station_id"]=0
 operation_parameters_minimum_occurences["listStories:::page"]=0
+operation_parameters_minimum_occurences["listStories:::item_id"]=0
 operation_parameters_minimum_occurences["listStories:::model_type_id"]=0
 operation_parameters_minimum_occurences["listStories:::tag_id"]=0
-operation_parameters_minimum_occurences["listStories:::item_id"]=0
+operation_parameters_minimum_occurences["listStories:::limit"]=0
+operation_parameters_minimum_occurences["listStories:::order-by"]=0
+operation_parameters_minimum_occurences["listStories:::order-direction"]=0
 operation_parameters_minimum_occurences["listStories:::_external_station_id"]=0
 operation_parameters_minimum_occurences["updateStoryByID:::id"]=1
 operation_parameters_minimum_occurences["updateStoryByID:::data"]=0
@@ -219,6 +249,9 @@ operation_parameters_minimum_occurences["listTags:::program_id"]=0
 operation_parameters_minimum_occurences["listTags:::item_id"]=0
 operation_parameters_minimum_occurences["listTags:::broadcast_id"]=0
 operation_parameters_minimum_occurences["listTags:::contact_id"]=0
+operation_parameters_minimum_occurences["listTags:::limit"]=0
+operation_parameters_minimum_occurences["listTags:::order-by"]=0
+operation_parameters_minimum_occurences["listTags:::order-direction"]=0
 operation_parameters_minimum_occurences["listTags:::_external_station_id"]=0
 operation_parameters_minimum_occurences["updateTagByID:::id"]=1
 operation_parameters_minimum_occurences["updateTagByID:::data"]=0
@@ -227,6 +260,9 @@ operation_parameters_minimum_occurences["getUserById:::id"]=1
 operation_parameters_minimum_occurences["inviteUserByMail:::data"]=1
 operation_parameters_minimum_occurences["listUsers:::page"]=0
 operation_parameters_minimum_occurences["listUsers:::role_id"]=0
+operation_parameters_minimum_occurences["listUsers:::limit"]=0
+operation_parameters_minimum_occurences["listUsers:::order-by"]=0
+operation_parameters_minimum_occurences["listUsers:::order-direction"]=0
 
 ##
 # This array stores the maximum number of allowed occurences for parameter
@@ -238,29 +274,38 @@ declare -A operation_parameters_maximum_occurences
 operation_parameters_maximum_occurences["getBlockById:::id"]=0
 operation_parameters_maximum_occurences["getBlockById:::_external_station_id"]=0
 operation_parameters_maximum_occurences["listBlocks:::page"]=0
+operation_parameters_maximum_occurences["listBlocks:::broadcast_id"]=0
+operation_parameters_maximum_occurences["listBlocks:::item_id"]=0
+operation_parameters_maximum_occurences["listBlocks:::program_id"]=0
 operation_parameters_maximum_occurences["listBlocks:::start-min"]=0
 operation_parameters_maximum_occurences["listBlocks:::start-max"]=0
-operation_parameters_maximum_occurences["listBlocks:::broadcast_id"]=0
-operation_parameters_maximum_occurences["listBlocks:::program_id"]=0
-operation_parameters_maximum_occurences["listBlocks:::item_id"]=0
+operation_parameters_maximum_occurences["listBlocks:::limit"]=0
+operation_parameters_maximum_occurences["listBlocks:::order-by"]=0
+operation_parameters_maximum_occurences["listBlocks:::order-direction"]=0
 operation_parameters_maximum_occurences["listBlocks:::_external_station_id"]=0
 operation_parameters_maximum_occurences["createBroadcast:::data"]=0
 operation_parameters_maximum_occurences["deleteBroadcastById:::id"]=0
 operation_parameters_maximum_occurences["getBroadcastById:::id"]=0
 operation_parameters_maximum_occurences["getBroadcastById:::_external_station_id"]=0
 operation_parameters_maximum_occurences["getDailyEPG:::date"]=0
+operation_parameters_maximum_occurences["getDailyEPG:::withunpublished"]=0
 operation_parameters_maximum_occurences["getEPGByDate:::date"]=0
+operation_parameters_maximum_occurences["getEPGByDate:::withunpublished"]=0
 operation_parameters_maximum_occurences["getWeeklyEPG:::date"]=0
+operation_parameters_maximum_occurences["getWeeklyEPG:::withunpublished"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::page"]=0
-operation_parameters_maximum_occurences["listBroadcasts:::start-min"]=0
-operation_parameters_maximum_occurences["listBroadcasts:::start-max"]=0
+operation_parameters_maximum_occurences["listBroadcasts:::program_id"]=0
+operation_parameters_maximum_occurences["listBroadcasts:::block_id"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::model_type_id"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::tag_id"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::presenter_id"]=0
-operation_parameters_maximum_occurences["listBroadcasts:::item_id"]=0
-operation_parameters_maximum_occurences["listBroadcasts:::block_id"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::genre_id"]=0
-operation_parameters_maximum_occurences["listBroadcasts:::program_id"]=0
+operation_parameters_maximum_occurences["listBroadcasts:::item_id"]=0
+operation_parameters_maximum_occurences["listBroadcasts:::start-min"]=0
+operation_parameters_maximum_occurences["listBroadcasts:::start-max"]=0
+operation_parameters_maximum_occurences["listBroadcasts:::limit"]=0
+operation_parameters_maximum_occurences["listBroadcasts:::order-by"]=0
+operation_parameters_maximum_occurences["listBroadcasts:::order-direction"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::_external_station_id"]=0
 operation_parameters_maximum_occurences["printBroadcastById:::id"]=0
 operation_parameters_maximum_occurences["printBroadcastById:::program_id"]=0
@@ -273,10 +318,13 @@ operation_parameters_maximum_occurences["deleteCampaignById:::id"]=0
 operation_parameters_maximum_occurences["getCampaignById:::id"]=0
 operation_parameters_maximum_occurences["getCampaignById:::_external_station_id"]=0
 operation_parameters_maximum_occurences["listCampaigns:::page"]=0
-operation_parameters_maximum_occurences["listCampaigns:::model_type_id"]=0
 operation_parameters_maximum_occurences["listCampaigns:::item_id"]=0
+operation_parameters_maximum_occurences["listCampaigns:::model_type_id"]=0
 operation_parameters_maximum_occurences["listCampaigns:::start-min"]=0
 operation_parameters_maximum_occurences["listCampaigns:::start-max"]=0
+operation_parameters_maximum_occurences["listCampaigns:::limit"]=0
+operation_parameters_maximum_occurences["listCampaigns:::order-by"]=0
+operation_parameters_maximum_occurences["listCampaigns:::order-direction"]=0
 operation_parameters_maximum_occurences["listCampaigns:::_external_station_id"]=0
 operation_parameters_maximum_occurences["updateCampaignByID:::id"]=0
 operation_parameters_maximum_occurences["updateCampaignByID:::data"]=0
@@ -285,19 +333,24 @@ operation_parameters_maximum_occurences["deleteContactById:::id"]=0
 operation_parameters_maximum_occurences["getContactById:::id"]=0
 operation_parameters_maximum_occurences["getContactById:::_external_station_id"]=0
 operation_parameters_maximum_occurences["listContacts:::page"]=0
+operation_parameters_maximum_occurences["listContacts:::item_id"]=0
 operation_parameters_maximum_occurences["listContacts:::model_type_id"]=0
 operation_parameters_maximum_occurences["listContacts:::tag_id"]=0
-operation_parameters_maximum_occurences["listContacts:::item_id"]=0
+operation_parameters_maximum_occurences["listContacts:::limit"]=0
+operation_parameters_maximum_occurences["listContacts:::order-by"]=0
+operation_parameters_maximum_occurences["listContacts:::order-direction"]=0
 operation_parameters_maximum_occurences["listContacts:::_external_station_id"]=0
 operation_parameters_maximum_occurences["updateContactByID:::id"]=0
 operation_parameters_maximum_occurences["updateContactByID:::data"]=0
-operation_parameters_maximum_occurences["queueExternalMessage:::message"]=0
 operation_parameters_maximum_occurences["getGenreById:::id"]=0
 operation_parameters_maximum_occurences["getGenreById:::_external_station_id"]=0
 operation_parameters_maximum_occurences["listGenres:::page"]=0
 operation_parameters_maximum_occurences["listGenres:::parent_id"]=0
 operation_parameters_maximum_occurences["listGenres:::program_id"]=0
 operation_parameters_maximum_occurences["listGenres:::broadcast_id"]=0
+operation_parameters_maximum_occurences["listGenres:::limit"]=0
+operation_parameters_maximum_occurences["listGenres:::order-by"]=0
+operation_parameters_maximum_occurences["listGenres:::order-direction"]=0
 operation_parameters_maximum_occurences["listGenres:::_external_station_id"]=0
 operation_parameters_maximum_occurences["createItem:::data"]=0
 operation_parameters_maximum_occurences["currentItemPostStructure:::data"]=0
@@ -306,23 +359,24 @@ operation_parameters_maximum_occurences["deleteItemById:::id"]=0
 operation_parameters_maximum_occurences["getItemById:::id"]=0
 operation_parameters_maximum_occurences["getItemById:::_external_station_id"]=0
 operation_parameters_maximum_occurences["listItems:::page"]=0
-operation_parameters_maximum_occurences["listItems:::order-by"]=0
-operation_parameters_maximum_occurences["listItems:::order-direction"]=0
+operation_parameters_maximum_occurences["listItems:::block_id"]=0
+operation_parameters_maximum_occurences["listItems:::broadcast_id"]=0
+operation_parameters_maximum_occurences["listItems:::model_type_id"]=0
+operation_parameters_maximum_occurences["listItems:::tag_id"]=0
+operation_parameters_maximum_occurences["listItems:::campaign_id"]=0
+operation_parameters_maximum_occurences["listItems:::contact_id"]=0
+operation_parameters_maximum_occurences["listItems:::program_draft_id"]=0
+operation_parameters_maximum_occurences["listItems:::user_draft_id"]=0
+operation_parameters_maximum_occurences["listItems:::station_draft_id"]=0
+operation_parameters_maximum_occurences["listItems:::program_id"]=0
 operation_parameters_maximum_occurences["listItems:::start-min"]=0
 operation_parameters_maximum_occurences["listItems:::start-max"]=0
 operation_parameters_maximum_occurences["listItems:::duration-min"]=0
 operation_parameters_maximum_occurences["listItems:::duration-max"]=0
 operation_parameters_maximum_occurences["listItems:::status"]=0
-operation_parameters_maximum_occurences["listItems:::model_type_id"]=0
-operation_parameters_maximum_occurences["listItems:::program_draft_id"]=0
-operation_parameters_maximum_occurences["listItems:::user_draft_id"]=0
-operation_parameters_maximum_occurences["listItems:::station_draft_id"]=0
-operation_parameters_maximum_occurences["listItems:::block_id"]=0
-operation_parameters_maximum_occurences["listItems:::broadcast_id"]=0
-operation_parameters_maximum_occurences["listItems:::campaign_id"]=0
-operation_parameters_maximum_occurences["listItems:::contact_id"]=0
-operation_parameters_maximum_occurences["listItems:::program_id"]=0
-operation_parameters_maximum_occurences["listItems:::tag_id"]=0
+operation_parameters_maximum_occurences["listItems:::limit"]=0
+operation_parameters_maximum_occurences["listItems:::order-by"]=0
+operation_parameters_maximum_occurences["listItems:::order-direction"]=0
 operation_parameters_maximum_occurences["listItems:::_external_station_id"]=0
 operation_parameters_maximum_occurences["playlistPostStructure:::data"]=0
 operation_parameters_maximum_occurences["playlistPostTiming:::data"]=0
@@ -331,22 +385,28 @@ operation_parameters_maximum_occurences["updateItemById:::data"]=0
 operation_parameters_maximum_occurences["getModelTypeById:::id"]=0
 operation_parameters_maximum_occurences["getModelTypeById:::_external_station_id"]=0
 operation_parameters_maximum_occurences["listModelTypes:::page"]=0
-operation_parameters_maximum_occurences["listModelTypes:::model"]=0
 operation_parameters_maximum_occurences["listModelTypes:::program_id"]=0
 operation_parameters_maximum_occurences["listModelTypes:::broadcast_id"]=0
 operation_parameters_maximum_occurences["listModelTypes:::item_id"]=0
 operation_parameters_maximum_occurences["listModelTypes:::campaign_id"]=0
 operation_parameters_maximum_occurences["listModelTypes:::presenter_id"]=0
 operation_parameters_maximum_occurences["listModelTypes:::contact_id"]=0
+operation_parameters_maximum_occurences["listModelTypes:::model"]=0
+operation_parameters_maximum_occurences["listModelTypes:::limit"]=0
+operation_parameters_maximum_occurences["listModelTypes:::order-by"]=0
+operation_parameters_maximum_occurences["listModelTypes:::order-direction"]=0
 operation_parameters_maximum_occurences["listModelTypes:::_external_station_id"]=0
 operation_parameters_maximum_occurences["createPresenter:::data"]=0
 operation_parameters_maximum_occurences["deletePresenterById:::id"]=0
 operation_parameters_maximum_occurences["getPresenterById:::id"]=0
 operation_parameters_maximum_occurences["getPresenterById:::_external_station_id"]=0
 operation_parameters_maximum_occurences["listPresenters:::page"]=0
-operation_parameters_maximum_occurences["listPresenters:::model_type_id"]=0
 operation_parameters_maximum_occurences["listPresenters:::program_id"]=0
 operation_parameters_maximum_occurences["listPresenters:::broadcast_id"]=0
+operation_parameters_maximum_occurences["listPresenters:::model_type_id"]=0
+operation_parameters_maximum_occurences["listPresenters:::limit"]=0
+operation_parameters_maximum_occurences["listPresenters:::order-by"]=0
+operation_parameters_maximum_occurences["listPresenters:::order-direction"]=0
 operation_parameters_maximum_occurences["listPresenters:::_external_station_id"]=0
 operation_parameters_maximum_occurences["updatePresenterByID:::id"]=0
 operation_parameters_maximum_occurences["updatePresenterByID:::data"]=0
@@ -355,13 +415,16 @@ operation_parameters_maximum_occurences["deleteProgramById:::id"]=0
 operation_parameters_maximum_occurences["getProgramById:::id"]=0
 operation_parameters_maximum_occurences["getProgramById:::_external_station_id"]=0
 operation_parameters_maximum_occurences["listPrograms:::page"]=0
-operation_parameters_maximum_occurences["listPrograms:::genre_id"]=0
-operation_parameters_maximum_occurences["listPrograms:::model_type_id"]=0
-operation_parameters_maximum_occurences["listPrograms:::presenter_id"]=0
-operation_parameters_maximum_occurences["listPrograms:::tag_id"]=0
 operation_parameters_maximum_occurences["listPrograms:::broadcast_id"]=0
-operation_parameters_maximum_occurences["listPrograms:::item_id"]=0
+operation_parameters_maximum_occurences["listPrograms:::model_type_id"]=0
+operation_parameters_maximum_occurences["listPrograms:::tag_id"]=0
+operation_parameters_maximum_occurences["listPrograms:::presenter_id"]=0
+operation_parameters_maximum_occurences["listPrograms:::genre_id"]=0
 operation_parameters_maximum_occurences["listPrograms:::block_id"]=0
+operation_parameters_maximum_occurences["listPrograms:::item_id"]=0
+operation_parameters_maximum_occurences["listPrograms:::limit"]=0
+operation_parameters_maximum_occurences["listPrograms:::order-by"]=0
+operation_parameters_maximum_occurences["listPrograms:::order-direction"]=0
 operation_parameters_maximum_occurences["listPrograms:::_external_station_id"]=0
 operation_parameters_maximum_occurences["updateProgramByID:::id"]=0
 operation_parameters_maximum_occurences["updateProgramByID:::data"]=0
@@ -370,9 +433,12 @@ operation_parameters_maximum_occurences["deleteStoryById:::id"]=0
 operation_parameters_maximum_occurences["getStoryById:::id"]=0
 operation_parameters_maximum_occurences["getStoryById:::_external_station_id"]=0
 operation_parameters_maximum_occurences["listStories:::page"]=0
+operation_parameters_maximum_occurences["listStories:::item_id"]=0
 operation_parameters_maximum_occurences["listStories:::model_type_id"]=0
 operation_parameters_maximum_occurences["listStories:::tag_id"]=0
-operation_parameters_maximum_occurences["listStories:::item_id"]=0
+operation_parameters_maximum_occurences["listStories:::limit"]=0
+operation_parameters_maximum_occurences["listStories:::order-by"]=0
+operation_parameters_maximum_occurences["listStories:::order-direction"]=0
 operation_parameters_maximum_occurences["listStories:::_external_station_id"]=0
 operation_parameters_maximum_occurences["updateStoryByID:::id"]=0
 operation_parameters_maximum_occurences["updateStoryByID:::data"]=0
@@ -387,6 +453,9 @@ operation_parameters_maximum_occurences["listTags:::program_id"]=0
 operation_parameters_maximum_occurences["listTags:::item_id"]=0
 operation_parameters_maximum_occurences["listTags:::broadcast_id"]=0
 operation_parameters_maximum_occurences["listTags:::contact_id"]=0
+operation_parameters_maximum_occurences["listTags:::limit"]=0
+operation_parameters_maximum_occurences["listTags:::order-by"]=0
+operation_parameters_maximum_occurences["listTags:::order-direction"]=0
 operation_parameters_maximum_occurences["listTags:::_external_station_id"]=0
 operation_parameters_maximum_occurences["updateTagByID:::id"]=0
 operation_parameters_maximum_occurences["updateTagByID:::data"]=0
@@ -395,6 +464,9 @@ operation_parameters_maximum_occurences["getUserById:::id"]=0
 operation_parameters_maximum_occurences["inviteUserByMail:::data"]=0
 operation_parameters_maximum_occurences["listUsers:::page"]=0
 operation_parameters_maximum_occurences["listUsers:::role_id"]=0
+operation_parameters_maximum_occurences["listUsers:::limit"]=0
+operation_parameters_maximum_occurences["listUsers:::order-by"]=0
+operation_parameters_maximum_occurences["listUsers:::order-direction"]=0
 
 ##
 # The type of collection for specifying multiple values for parameter:
@@ -403,29 +475,38 @@ declare -A operation_parameters_collection_type
 operation_parameters_collection_type["getBlockById:::id"]=""
 operation_parameters_collection_type["getBlockById:::_external_station_id"]=""
 operation_parameters_collection_type["listBlocks:::page"]=""
+operation_parameters_collection_type["listBlocks:::broadcast_id"]=""
+operation_parameters_collection_type["listBlocks:::item_id"]=""
+operation_parameters_collection_type["listBlocks:::program_id"]=""
 operation_parameters_collection_type["listBlocks:::start-min"]=""
 operation_parameters_collection_type["listBlocks:::start-max"]=""
-operation_parameters_collection_type["listBlocks:::broadcast_id"]=""
-operation_parameters_collection_type["listBlocks:::program_id"]=""
-operation_parameters_collection_type["listBlocks:::item_id"]=""
+operation_parameters_collection_type["listBlocks:::limit"]=""
+operation_parameters_collection_type["listBlocks:::order-by"]=""
+operation_parameters_collection_type["listBlocks:::order-direction"]=""
 operation_parameters_collection_type["listBlocks:::_external_station_id"]=""
 operation_parameters_collection_type["createBroadcast:::data"]=""
 operation_parameters_collection_type["deleteBroadcastById:::id"]=""
 operation_parameters_collection_type["getBroadcastById:::id"]=""
 operation_parameters_collection_type["getBroadcastById:::_external_station_id"]=""
 operation_parameters_collection_type["getDailyEPG:::date"]=""
+operation_parameters_collection_type["getDailyEPG:::withunpublished"]=""
 operation_parameters_collection_type["getEPGByDate:::date"]=""
+operation_parameters_collection_type["getEPGByDate:::withunpublished"]=""
 operation_parameters_collection_type["getWeeklyEPG:::date"]=""
+operation_parameters_collection_type["getWeeklyEPG:::withunpublished"]=""
 operation_parameters_collection_type["listBroadcasts:::page"]=""
-operation_parameters_collection_type["listBroadcasts:::start-min"]=""
-operation_parameters_collection_type["listBroadcasts:::start-max"]=""
+operation_parameters_collection_type["listBroadcasts:::program_id"]=""
+operation_parameters_collection_type["listBroadcasts:::block_id"]=""
 operation_parameters_collection_type["listBroadcasts:::model_type_id"]=""
 operation_parameters_collection_type["listBroadcasts:::tag_id"]=""
 operation_parameters_collection_type["listBroadcasts:::presenter_id"]=""
-operation_parameters_collection_type["listBroadcasts:::item_id"]=""
-operation_parameters_collection_type["listBroadcasts:::block_id"]=""
 operation_parameters_collection_type["listBroadcasts:::genre_id"]=""
-operation_parameters_collection_type["listBroadcasts:::program_id"]=""
+operation_parameters_collection_type["listBroadcasts:::item_id"]=""
+operation_parameters_collection_type["listBroadcasts:::start-min"]=""
+operation_parameters_collection_type["listBroadcasts:::start-max"]=""
+operation_parameters_collection_type["listBroadcasts:::limit"]=""
+operation_parameters_collection_type["listBroadcasts:::order-by"]=""
+operation_parameters_collection_type["listBroadcasts:::order-direction"]=""
 operation_parameters_collection_type["listBroadcasts:::_external_station_id"]=""
 operation_parameters_collection_type["printBroadcastById:::id"]=""
 operation_parameters_collection_type["printBroadcastById:::program_id"]=""
@@ -438,10 +519,13 @@ operation_parameters_collection_type["deleteCampaignById:::id"]=""
 operation_parameters_collection_type["getCampaignById:::id"]=""
 operation_parameters_collection_type["getCampaignById:::_external_station_id"]=""
 operation_parameters_collection_type["listCampaigns:::page"]=""
-operation_parameters_collection_type["listCampaigns:::model_type_id"]=""
 operation_parameters_collection_type["listCampaigns:::item_id"]=""
+operation_parameters_collection_type["listCampaigns:::model_type_id"]=""
 operation_parameters_collection_type["listCampaigns:::start-min"]=""
 operation_parameters_collection_type["listCampaigns:::start-max"]=""
+operation_parameters_collection_type["listCampaigns:::limit"]=""
+operation_parameters_collection_type["listCampaigns:::order-by"]=""
+operation_parameters_collection_type["listCampaigns:::order-direction"]=""
 operation_parameters_collection_type["listCampaigns:::_external_station_id"]=""
 operation_parameters_collection_type["updateCampaignByID:::id"]=""
 operation_parameters_collection_type["updateCampaignByID:::data"]=""
@@ -450,19 +534,24 @@ operation_parameters_collection_type["deleteContactById:::id"]=""
 operation_parameters_collection_type["getContactById:::id"]=""
 operation_parameters_collection_type["getContactById:::_external_station_id"]=""
 operation_parameters_collection_type["listContacts:::page"]=""
+operation_parameters_collection_type["listContacts:::item_id"]=""
 operation_parameters_collection_type["listContacts:::model_type_id"]=""
 operation_parameters_collection_type["listContacts:::tag_id"]=""
-operation_parameters_collection_type["listContacts:::item_id"]=""
+operation_parameters_collection_type["listContacts:::limit"]=""
+operation_parameters_collection_type["listContacts:::order-by"]=""
+operation_parameters_collection_type["listContacts:::order-direction"]=""
 operation_parameters_collection_type["listContacts:::_external_station_id"]=""
 operation_parameters_collection_type["updateContactByID:::id"]=""
 operation_parameters_collection_type["updateContactByID:::data"]=""
-operation_parameters_collection_type["queueExternalMessage:::message"]=""
 operation_parameters_collection_type["getGenreById:::id"]=""
 operation_parameters_collection_type["getGenreById:::_external_station_id"]=""
 operation_parameters_collection_type["listGenres:::page"]=""
 operation_parameters_collection_type["listGenres:::parent_id"]=""
 operation_parameters_collection_type["listGenres:::program_id"]=""
 operation_parameters_collection_type["listGenres:::broadcast_id"]=""
+operation_parameters_collection_type["listGenres:::limit"]=""
+operation_parameters_collection_type["listGenres:::order-by"]=""
+operation_parameters_collection_type["listGenres:::order-direction"]=""
 operation_parameters_collection_type["listGenres:::_external_station_id"]=""
 operation_parameters_collection_type["createItem:::data"]=""
 operation_parameters_collection_type["currentItemPostStructure:::data"]=""
@@ -471,23 +560,24 @@ operation_parameters_collection_type["deleteItemById:::id"]=""
 operation_parameters_collection_type["getItemById:::id"]=""
 operation_parameters_collection_type["getItemById:::_external_station_id"]=""
 operation_parameters_collection_type["listItems:::page"]=""
-operation_parameters_collection_type["listItems:::order-by"]=""
-operation_parameters_collection_type["listItems:::order-direction"]=""
+operation_parameters_collection_type["listItems:::block_id"]=""
+operation_parameters_collection_type["listItems:::broadcast_id"]=""
+operation_parameters_collection_type["listItems:::model_type_id"]=""
+operation_parameters_collection_type["listItems:::tag_id"]=""
+operation_parameters_collection_type["listItems:::campaign_id"]=""
+operation_parameters_collection_type["listItems:::contact_id"]=""
+operation_parameters_collection_type["listItems:::program_draft_id"]=""
+operation_parameters_collection_type["listItems:::user_draft_id"]=""
+operation_parameters_collection_type["listItems:::station_draft_id"]=""
+operation_parameters_collection_type["listItems:::program_id"]=""
 operation_parameters_collection_type["listItems:::start-min"]=""
 operation_parameters_collection_type["listItems:::start-max"]=""
 operation_parameters_collection_type["listItems:::duration-min"]=""
 operation_parameters_collection_type["listItems:::duration-max"]=""
 operation_parameters_collection_type["listItems:::status"]=""
-operation_parameters_collection_type["listItems:::model_type_id"]=""
-operation_parameters_collection_type["listItems:::program_draft_id"]=""
-operation_parameters_collection_type["listItems:::user_draft_id"]=""
-operation_parameters_collection_type["listItems:::station_draft_id"]=""
-operation_parameters_collection_type["listItems:::block_id"]=""
-operation_parameters_collection_type["listItems:::broadcast_id"]=""
-operation_parameters_collection_type["listItems:::campaign_id"]=""
-operation_parameters_collection_type["listItems:::contact_id"]=""
-operation_parameters_collection_type["listItems:::program_id"]=""
-operation_parameters_collection_type["listItems:::tag_id"]=""
+operation_parameters_collection_type["listItems:::limit"]=""
+operation_parameters_collection_type["listItems:::order-by"]=""
+operation_parameters_collection_type["listItems:::order-direction"]=""
 operation_parameters_collection_type["listItems:::_external_station_id"]=""
 operation_parameters_collection_type["playlistPostStructure:::data"]=""
 operation_parameters_collection_type["playlistPostTiming:::data"]=""
@@ -496,22 +586,28 @@ operation_parameters_collection_type["updateItemById:::data"]=""
 operation_parameters_collection_type["getModelTypeById:::id"]=""
 operation_parameters_collection_type["getModelTypeById:::_external_station_id"]=""
 operation_parameters_collection_type["listModelTypes:::page"]=""
-operation_parameters_collection_type["listModelTypes:::model"]=""
 operation_parameters_collection_type["listModelTypes:::program_id"]=""
 operation_parameters_collection_type["listModelTypes:::broadcast_id"]=""
 operation_parameters_collection_type["listModelTypes:::item_id"]=""
 operation_parameters_collection_type["listModelTypes:::campaign_id"]=""
 operation_parameters_collection_type["listModelTypes:::presenter_id"]=""
 operation_parameters_collection_type["listModelTypes:::contact_id"]=""
+operation_parameters_collection_type["listModelTypes:::model"]=""
+operation_parameters_collection_type["listModelTypes:::limit"]=""
+operation_parameters_collection_type["listModelTypes:::order-by"]=""
+operation_parameters_collection_type["listModelTypes:::order-direction"]=""
 operation_parameters_collection_type["listModelTypes:::_external_station_id"]=""
 operation_parameters_collection_type["createPresenter:::data"]=""
 operation_parameters_collection_type["deletePresenterById:::id"]=""
 operation_parameters_collection_type["getPresenterById:::id"]=""
 operation_parameters_collection_type["getPresenterById:::_external_station_id"]=""
 operation_parameters_collection_type["listPresenters:::page"]=""
-operation_parameters_collection_type["listPresenters:::model_type_id"]=""
 operation_parameters_collection_type["listPresenters:::program_id"]=""
 operation_parameters_collection_type["listPresenters:::broadcast_id"]=""
+operation_parameters_collection_type["listPresenters:::model_type_id"]=""
+operation_parameters_collection_type["listPresenters:::limit"]=""
+operation_parameters_collection_type["listPresenters:::order-by"]=""
+operation_parameters_collection_type["listPresenters:::order-direction"]=""
 operation_parameters_collection_type["listPresenters:::_external_station_id"]=""
 operation_parameters_collection_type["updatePresenterByID:::id"]=""
 operation_parameters_collection_type["updatePresenterByID:::data"]=""
@@ -520,13 +616,16 @@ operation_parameters_collection_type["deleteProgramById:::id"]=""
 operation_parameters_collection_type["getProgramById:::id"]=""
 operation_parameters_collection_type["getProgramById:::_external_station_id"]=""
 operation_parameters_collection_type["listPrograms:::page"]=""
-operation_parameters_collection_type["listPrograms:::genre_id"]=""
-operation_parameters_collection_type["listPrograms:::model_type_id"]=""
-operation_parameters_collection_type["listPrograms:::presenter_id"]=""
-operation_parameters_collection_type["listPrograms:::tag_id"]=""
 operation_parameters_collection_type["listPrograms:::broadcast_id"]=""
-operation_parameters_collection_type["listPrograms:::item_id"]=""
+operation_parameters_collection_type["listPrograms:::model_type_id"]=""
+operation_parameters_collection_type["listPrograms:::tag_id"]=""
+operation_parameters_collection_type["listPrograms:::presenter_id"]=""
+operation_parameters_collection_type["listPrograms:::genre_id"]=""
 operation_parameters_collection_type["listPrograms:::block_id"]=""
+operation_parameters_collection_type["listPrograms:::item_id"]=""
+operation_parameters_collection_type["listPrograms:::limit"]=""
+operation_parameters_collection_type["listPrograms:::order-by"]=""
+operation_parameters_collection_type["listPrograms:::order-direction"]=""
 operation_parameters_collection_type["listPrograms:::_external_station_id"]=""
 operation_parameters_collection_type["updateProgramByID:::id"]=""
 operation_parameters_collection_type["updateProgramByID:::data"]=""
@@ -535,9 +634,12 @@ operation_parameters_collection_type["deleteStoryById:::id"]=""
 operation_parameters_collection_type["getStoryById:::id"]=""
 operation_parameters_collection_type["getStoryById:::_external_station_id"]=""
 operation_parameters_collection_type["listStories:::page"]=""
+operation_parameters_collection_type["listStories:::item_id"]=""
 operation_parameters_collection_type["listStories:::model_type_id"]=""
 operation_parameters_collection_type["listStories:::tag_id"]=""
-operation_parameters_collection_type["listStories:::item_id"]=""
+operation_parameters_collection_type["listStories:::limit"]=""
+operation_parameters_collection_type["listStories:::order-by"]=""
+operation_parameters_collection_type["listStories:::order-direction"]=""
 operation_parameters_collection_type["listStories:::_external_station_id"]=""
 operation_parameters_collection_type["updateStoryByID:::id"]=""
 operation_parameters_collection_type["updateStoryByID:::data"]=""
@@ -552,6 +654,9 @@ operation_parameters_collection_type["listTags:::program_id"]=""
 operation_parameters_collection_type["listTags:::item_id"]=""
 operation_parameters_collection_type["listTags:::broadcast_id"]=""
 operation_parameters_collection_type["listTags:::contact_id"]=""
+operation_parameters_collection_type["listTags:::limit"]=""
+operation_parameters_collection_type["listTags:::order-by"]=""
+operation_parameters_collection_type["listTags:::order-direction"]=""
 operation_parameters_collection_type["listTags:::_external_station_id"]=""
 operation_parameters_collection_type["updateTagByID:::id"]=""
 operation_parameters_collection_type["updateTagByID:::data"]=""
@@ -560,6 +665,9 @@ operation_parameters_collection_type["getUserById:::id"]=""
 operation_parameters_collection_type["inviteUserByMail:::data"]=""
 operation_parameters_collection_type["listUsers:::page"]=""
 operation_parameters_collection_type["listUsers:::role_id"]=""
+operation_parameters_collection_type["listUsers:::limit"]=""
+operation_parameters_collection_type["listUsers:::order-by"]=""
+operation_parameters_collection_type["listUsers:::order-direction"]=""
 
 
 ##
@@ -1083,12 +1191,6 @@ read -d '' ops <<EOF
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)[externalMessage]$(tput sgr0)"
-read -d '' ops <<EOF
-  $(tput setaf 6)queueExternalMessage$(tput sgr0);Queue External Message.
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
     echo -e "$(tput bold)$(tput setaf 7)[genre]$(tput sgr0)"
 read -d '' ops <<EOF
   $(tput setaf 6)getGenreById$(tput sgr0);Get genre by id
@@ -1134,6 +1236,12 @@ read -d '' ops <<EOF
   $(tput setaf 6)getProgramById$(tput sgr0);Get program by id
   $(tput setaf 6)listPrograms$(tput sgr0);Get all programs.
   $(tput setaf 6)updateProgramByID$(tput sgr0);Update program by id
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)[station]$(tput sgr0)"
+read -d '' ops <<EOF
+  $(tput setaf 6)getStation$(tput sgr0);Get own station only
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -1183,7 +1291,7 @@ echo "  $ops" | column -t -s ';'
     echo -e "  -V,--version\t\t\t\tPrint API version"
     echo -e "  --about\t\t\t\tPrint the information about service"
     echo -e "  --host $(tput setaf 6)<url>$(tput sgr0)\t\t\t\tSpecify the host URL "
-echo -e "              \t\t\t\t(e.g. 'https://staging.radiomanager.pluxbox.com')"
+echo -e "              \t\t\t\t(e.g. 'https://staging.radiomanager.io')"
 
     echo -e "  --force\t\t\t\tForce command invocation in spite of missing"
     echo -e "         \t\t\t\trequired parameters or wrong content type"
@@ -1527,15 +1635,21 @@ print_listBlocks_help() {
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo -e "  * $(tput setaf 2)page$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0) $(tput setaf 6)(default: 1)$(tput sgr0) - Current page *(Optional)*$(tput setaf 3) Specify as: page=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)broadcast_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Broadcast ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: broadcast_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)item_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Item ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: item_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)program_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Program ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: program_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)start-min$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Minimum start date *(Optional)*$(tput setaf 3) Specify as: start-min=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)start-max$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Maximum start date *(Optional)*$(tput setaf 3) Specify as: start-max=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)broadcast_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Broadcast ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: broadcast_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)limit$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Results per page *(Optional)*$(tput setaf 3) Specify as: limit=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)program_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Program ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: program_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)item_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Item ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: item_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -2041,6 +2155,8 @@ print_getDailyEPG_help() {
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo -e "  * $(tput setaf 2)date$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Date *(Optional)*$(tput setaf 3) Specify as: date=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)withunpublished$(tput sgr0) $(tput setaf 4)[Boolean]$(tput sgr0)$(tput sgr0) - Show Unpublished *(Optional)*$(tput setaf 3) Specify as: withunpublished=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
     case 200 in
@@ -2137,6 +2253,8 @@ print_getEPGByDate_help() {
     echo -e ""
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo -e "  * $(tput setaf 2)date$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Date *(Optional)*$(tput setaf 3) Specify as: date=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)withunpublished$(tput sgr0) $(tput setaf 4)[Boolean]$(tput sgr0)$(tput sgr0) - Show Unpublished *(Optional)*$(tput setaf 3) Specify as: withunpublished=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
@@ -2329,6 +2447,8 @@ print_getWeeklyEPG_help() {
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo -e "  * $(tput setaf 2)date$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Date *(Optional)*$(tput setaf 3) Specify as: date=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)withunpublished$(tput sgr0) $(tput setaf 4)[Boolean]$(tput sgr0)$(tput sgr0) - Show Unpublished *(Optional)*$(tput setaf 3) Specify as: withunpublished=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
     case 200 in
@@ -2406,23 +2526,29 @@ print_listBroadcasts_help() {
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo -e "  * $(tput setaf 2)page$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0) $(tput setaf 6)(default: 1)$(tput sgr0) - Current page *(Optional)*$(tput setaf 3) Specify as: page=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)start-min$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Minimum start date *(Optional)*$(tput setaf 3) Specify as: start-min=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)program_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Program ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: program_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)start-max$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Maximum start date *(Optional)*$(tput setaf 3) Specify as: start-max=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)block_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Block ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: block_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)*$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)tag_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Tag ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: tag_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)presenter_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Presenter ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: presenter_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)item_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Item ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: item_id=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)block_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Block ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: block_id=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)genre_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Genre ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: genre_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)program_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Program ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: program_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)item_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Item ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: item_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)start-min$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Minimum start date *(Optional)*$(tput setaf 3) Specify as: start-min=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)start-max$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Maximum start date *(Optional)*$(tput setaf 3) Specify as: start-max=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)limit$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Results per page *(Optional)*$(tput setaf 3) Specify as: limit=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -3054,13 +3180,19 @@ print_listCampaigns_help() {
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo -e "  * $(tput setaf 2)page$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Current page *(Optional)*$(tput setaf 3) Specify as: page=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)*$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)item_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Item ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: item_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)start-min$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Minimum start date *(Optional)*$(tput setaf 3) Specify as: start-min=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)start-max$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Maximum start date *(Optional)*$(tput setaf 3) Specify as: start-max=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)limit$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Results per page *(Optional)*$(tput setaf 3) Specify as: limit=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -3590,11 +3722,17 @@ print_listContacts_help() {
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo -e "  * $(tput setaf 2)page$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0) $(tput setaf 6)(default: 1)$(tput sgr0) - Current page *(Optional)*$(tput setaf 3) Specify as: page=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)*$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)item_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Item ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: item_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)tag_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Tag ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: tag_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)item_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Item ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: item_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)limit$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Results per page *(Optional)*$(tput setaf 3) Specify as: limit=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -3801,103 +3939,6 @@ print_updateContactByID_help() {
 }
 ##############################################################################
 #
-# Print help for queueExternalMessage operation
-#
-##############################################################################
-print_queueExternalMessage_help() {
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)queueExternalMessage - Queue External Message.$(tput sgr0)"
-    echo -e ""
-    echo -e "Queue External Message." | fold -sw 80
-    echo -e ""
-    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
-    echo -e "  * $(tput setaf 2)body$(tput sgr0) $(tput setaf 4)[application/json]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Data **(Required)**" | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 200 in
-        1*)
-        echo -e "$(tput setaf 7)  200;Message is queued$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  200;Message is queued$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  200;Message is queued$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  200;Message is queued$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  200;Message is queued$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  200;Message is queued$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 403 in
-        1*)
-        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 422 in
-        1*)
-        echo -e "$(tput setaf 7)  422;Something went wrong while processing$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  422;Something went wrong while processing$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  422;Something went wrong while processing$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  422;Something went wrong while processing$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  422;Something went wrong while processing$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  422;Something went wrong while processing$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 429 in
-        1*)
-        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-}
-##############################################################################
-#
 # Print help for getGenreById operation
 #
 ##############################################################################
@@ -4013,6 +4054,12 @@ print_listGenres_help() {
     echo -e "  * $(tput setaf 2)program_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Program ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: program_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)broadcast_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Broadcast ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: broadcast_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)limit$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Results per page *(Optional)*$(tput setaf 3) Specify as: limit=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -4558,9 +4605,25 @@ print_listItems_help() {
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo -e "  * $(tput setaf 2)page$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Current page *(Optional)*$(tput setaf 3) Specify as: page=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)block_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Block ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: block_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)broadcast_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Broadcast ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: broadcast_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)tag_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Tag ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: tag_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)campaign_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Campaign ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: campaign_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)contact_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Contact ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: contact_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)program_draft_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Program Draft ID *(Optional)*$(tput setaf 3) Specify as: program_draft_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)user_draft_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on User Draft ID *(Optional)*$(tput setaf 3) Specify as: user_draft_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)station_draft_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Station Draft ID *(Optional)*$(tput setaf 3) Specify as: station_draft_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)program_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Program ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: program_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)start-min$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Minimum start date *(Optional)*$(tput setaf 3) Specify as: start-min=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -4572,25 +4635,11 @@ print_listItems_help() {
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)status$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Play Status of item *(Optional)*$(tput setaf 3) Specify as: status=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)*$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)limit$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Results per page *(Optional)*$(tput setaf 3) Specify as: limit=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)program_draft_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Program Draft ID *(Optional)*$(tput setaf 3) Specify as: program_draft_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)user_draft_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on User Draft ID *(Optional)*$(tput setaf 3) Specify as: user_draft_id=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)station_draft_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Station Draft ID *(Optional)*$(tput setaf 3) Specify as: station_draft_id=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)block_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Block ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: block_id=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)broadcast_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Broadcast ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: broadcast_id=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)campaign_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Campaign ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: campaign_id=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)contact_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Contact ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: contact_id=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)program_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Program ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: program_id=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)tag_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Tag ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: tag_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -5081,8 +5130,6 @@ print_listModelTypes_help() {
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo -e "  * $(tput setaf 2)page$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Current page *(Optional)*$(tput setaf 3) Specify as: page=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)model$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - $(tput setaf 3) Specify as: model=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)program_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Program ID *(Optional)*$(tput setaf 3) Specify as: program_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)broadcast_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Broadcast ID *(Optional)*$(tput setaf 3) Specify as: broadcast_id=value$(tput sgr0)" \
@@ -5094,6 +5141,14 @@ print_listModelTypes_help() {
     echo -e "  * $(tput setaf 2)presenter_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Presenter ID *(Optional)*$(tput setaf 3) Specify as: presenter_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)contact_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Contact ID *(Optional)*$(tput setaf 3) Specify as: contact_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)model$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Search Modeltypes for certain Model *(Optional)*$(tput setaf 3) Specify as: model=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)limit$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Results per page *(Optional)*$(tput setaf 3) Specify as: limit=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -5505,11 +5560,17 @@ print_listPresenters_help() {
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo -e "  * $(tput setaf 2)page$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Current page *(Optional)*$(tput setaf 3) Specify as: page=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID (Optional)$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)program_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Program ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: program_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)broadcast_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Broadcast ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: broadcast_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID (Optional)$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)limit$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Results per page *(Optional)*$(tput setaf 3) Specify as: limit=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -6039,19 +6100,25 @@ print_listPrograms_help() {
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo -e "  * $(tput setaf 2)page$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Current page *(Optional)*$(tput setaf 3) Specify as: page=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)genre_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Genre ID *(Optional)*$(tput setaf 3) Specify as: genre_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)broadcast_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Broadcast ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: broadcast_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)*$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
-        | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)presenter_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Presenter ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: presenter_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)tag_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Tag ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: tag_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)broadcast_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Broadcast ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: broadcast_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)presenter_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Presenter ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: presenter_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)genre_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Genre ID *(Optional)*$(tput setaf 3) Specify as: genre_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)block_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Block ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: block_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)item_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Item ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: item_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)block_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Block ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: block_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)limit$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Results per page *(Optional)*$(tput setaf 3) Specify as: limit=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -6258,6 +6325,80 @@ print_updateProgramByID_help() {
 }
 ##############################################################################
 #
+# Print help for getStation operation
+#
+##############################################################################
+print_getStation_help() {
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)getStation - Get own station only$(tput sgr0)"
+    echo -e ""
+    echo -e "Get own station only" | fold -sw 80
+    echo -e ""
+    echo ""
+    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
+    case 200 in
+        1*)
+        echo -e "$(tput setaf 7)  200;Station$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  200;Station$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  200;Station$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  200;Station$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  200;Station$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  200;Station$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 404 in
+        1*)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+    case 429 in
+        1*)
+        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        2*)
+        echo -e "$(tput setaf 2)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        3*)
+        echo -e "$(tput setaf 3)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        4*)
+        echo -e "$(tput setaf 1)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        5*)
+        echo -e "$(tput setaf 5)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+        *)
+        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        ;;
+    esac
+}
+##############################################################################
+#
 # Print help for createStory operation
 #
 ##############################################################################
@@ -6310,26 +6451,6 @@ print_createStory_help() {
         ;;
         *)
         echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 404 in
-        1*)
-        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  404;Not Found$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
     case 422 in
@@ -6581,11 +6702,17 @@ print_listStories_help() {
     echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
     echo -e "  * $(tput setaf 2)page$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0) $(tput setaf 6)(default: 1)$(tput sgr0) - Current page *(Optional)*$(tput setaf 3) Specify as: page=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)*$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)item_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Item ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: item_id=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)model_type_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on ModelType ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: model_type_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)tag_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Tag ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: tag_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * $(tput setaf 2)item_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Item ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: item_id=value$(tput sgr0)" \
+    echo -e "  * $(tput setaf 2)limit$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Results per page *(Optional)*$(tput setaf 3) Specify as: limit=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
@@ -7201,6 +7328,12 @@ print_listTags_help() {
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)contact_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Contact ID *(Optional)* '(Relation)'$(tput setaf 3) Specify as: contact_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)limit$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Results per page *(Optional)*$(tput setaf 3) Specify as: limit=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)_external_station_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Query on a different (content providing) station *(Optional)*$(tput setaf 3) Specify as: _external_station_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
@@ -7729,6 +7862,12 @@ print_listUsers_help() {
         | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * $(tput setaf 2)role_id$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Search on Role ID *(Optional)*$(tput setaf 3) Specify as: role_id=value$(tput sgr0)" \
         | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)limit$(tput sgr0) $(tput setaf 4)[Integer]$(tput sgr0)$(tput sgr0) - Results per page *(Optional)*$(tput setaf 3) Specify as: limit=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-by$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Field to order the results *(Optional)*$(tput setaf 3) Specify as: order-by=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * $(tput setaf 2)order-direction$(tput sgr0) $(tput setaf 4)[String]$(tput sgr0)$(tput sgr0) - Direction of ordering *(Optional)*$(tput setaf 3) Specify as: order-direction=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
     case 200 in
@@ -7988,7 +8127,7 @@ call_getNextBlock() {
 ##############################################################################
 call_listBlocks() {
     local path_parameter_names=()
-    local query_parameter_names=(page start-min start-max broadcast_id program_id item_id _external_station_id)
+    local query_parameter_names=(page broadcast_id item_id program_id start-min start-max limit order-by order-direction _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/blocks" path_parameter_names query_parameter_names
@@ -8185,7 +8324,7 @@ call_getCurrentBroadcast() {
 ##############################################################################
 call_getDailyEPG() {
     local path_parameter_names=()
-    local query_parameter_names=(date)
+    local query_parameter_names=(date withunpublished)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/broadcasts/epg/daily" path_parameter_names query_parameter_names
@@ -8216,7 +8355,7 @@ call_getDailyEPG() {
 ##############################################################################
 call_getEPGByDate() {
     local path_parameter_names=()
-    local query_parameter_names=(date)
+    local query_parameter_names=(date withunpublished)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/broadcasts/epg" path_parameter_names query_parameter_names
@@ -8278,7 +8417,7 @@ call_getNextBroadcast() {
 ##############################################################################
 call_getWeeklyEPG() {
     local path_parameter_names=()
-    local query_parameter_names=(date)
+    local query_parameter_names=(date withunpublished)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/broadcasts/epg/weekly" path_parameter_names query_parameter_names
@@ -8309,7 +8448,7 @@ call_getWeeklyEPG() {
 ##############################################################################
 call_listBroadcasts() {
     local path_parameter_names=()
-    local query_parameter_names=(page start-min start-max model_type_id tag_id presenter_id item_id block_id genre_id program_id _external_station_id)
+    local query_parameter_names=(page program_id block_id model_type_id tag_id presenter_id genre_id item_id start-min start-max limit order-by order-direction _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/broadcasts" path_parameter_names query_parameter_names
@@ -8579,7 +8718,7 @@ call_getCampaignById() {
 ##############################################################################
 call_listCampaigns() {
     local path_parameter_names=()
-    local query_parameter_names=(page model_type_id item_id start-min start-max _external_station_id)
+    local query_parameter_names=(page item_id model_type_id start-min start-max limit order-by order-direction _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/campaigns" path_parameter_names query_parameter_names
@@ -8818,7 +8957,7 @@ call_getContactById() {
 ##############################################################################
 call_listContacts() {
     local path_parameter_names=()
-    local query_parameter_names=(page model_type_id tag_id item_id _external_station_id)
+    local query_parameter_names=(page item_id model_type_id tag_id limit order-by order-direction _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/contacts" path_parameter_names query_parameter_names
@@ -8917,79 +9056,6 @@ call_updateContactByID() {
 
 ##############################################################################
 #
-# Call queueExternalMessage operation
-#
-##############################################################################
-call_queueExternalMessage() {
-    local path_parameter_names=()
-    local query_parameter_names=()
-
-    if [[ $force = false ]]; then
-        validate_request_parameters "/api/v2/externalmessagequeue" path_parameter_names query_parameter_names
-    fi
-
-    local path=$(build_request_path "/api/v2/externalmessagequeue" path_parameter_names query_parameter_names)
-    local method="POST"
-    local headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    local body_json_curl=""
-
-    #
-    # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
-    # if values produces and consumes are defined unambigously
-    #
-    if [[ -z $header_content_type ]]; then
-        header_content_type="application/json"
-    fi
-
-
-    if [[ -z $header_content_type && "$force" = false ]]; then
-        :
-        echo "Error: Request's content-type not specified!!!"
-        echo "This operation expects content-type in one of the following formats:"
-        echo -e "\t- application/json"
-        echo ""
-        echo "Use '--content-type' to set proper content type"
-        exit 1
-    else
-        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
-    fi
-
-
-    #
-    # If we have received some body content over pipe, pass it from the
-    # temporary file to cURL
-    #
-    if [[ -n $body_content_temp_file ]]; then
-        if [[ "$print_curl" = true ]]; then
-            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        else
-            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        fi
-        rm "${body_content_temp_file}"
-    #
-    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
-    #
-    else
-        body_json_curl=$(body_parameters_to_json)
-        if [[ "$print_curl" = true ]]; then
-            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        else
-            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        fi
-    fi
-}
-
-##############################################################################
-#
 # Call getGenreById operation
 #
 ##############################################################################
@@ -9026,7 +9092,7 @@ call_getGenreById() {
 ##############################################################################
 call_listGenres() {
     local path_parameter_names=()
-    local query_parameter_names=(page parent_id program_id broadcast_id _external_station_id)
+    local query_parameter_names=(page parent_id program_id broadcast_id limit order-by order-direction _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/genres" path_parameter_names query_parameter_names
@@ -9338,7 +9404,7 @@ call_getItemById() {
 ##############################################################################
 call_listItems() {
     local path_parameter_names=()
-    local query_parameter_names=(page order-by order-direction start-min start-max duration-min duration-max status model_type_id program_draft_id user_draft_id station_draft_id block_id broadcast_id campaign_id contact_id program_id tag_id _external_station_id)
+    local query_parameter_names=(page block_id broadcast_id model_type_id tag_id campaign_id contact_id program_draft_id user_draft_id station_draft_id program_id start-min start-max duration-min duration-max status limit order-by order-direction _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/items" path_parameter_names query_parameter_names
@@ -9619,7 +9685,7 @@ call_getModelTypeById() {
 ##############################################################################
 call_listModelTypes() {
     local path_parameter_names=()
-    local query_parameter_names=(page model program_id broadcast_id item_id campaign_id presenter_id contact_id _external_station_id)
+    local query_parameter_names=(page program_id broadcast_id item_id campaign_id presenter_id contact_id model limit order-by order-direction _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/model_types" path_parameter_names query_parameter_names
@@ -9785,7 +9851,7 @@ call_getPresenterById() {
 ##############################################################################
 call_listPresenters() {
     local path_parameter_names=()
-    local query_parameter_names=(page model_type_id program_id broadcast_id _external_station_id)
+    local query_parameter_names=(page program_id broadcast_id model_type_id limit order-by order-direction _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/presenters" path_parameter_names query_parameter_names
@@ -10024,7 +10090,7 @@ call_getProgramById() {
 ##############################################################################
 call_listPrograms() {
     local path_parameter_names=()
-    local query_parameter_names=(page genre_id model_type_id presenter_id tag_id broadcast_id item_id block_id _external_station_id)
+    local query_parameter_names=(page broadcast_id model_type_id tag_id presenter_id genre_id block_id item_id limit order-by order-direction _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/programs" path_parameter_names query_parameter_names
@@ -10118,6 +10184,37 @@ call_updateProgramByID() {
         else
             eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
         fi
+    fi
+}
+
+##############################################################################
+#
+# Call getStation operation
+#
+##############################################################################
+call_getStation() {
+    local path_parameter_names=()
+    local query_parameter_names=()
+
+    if [[ $force = false ]]; then
+        validate_request_parameters "/api/v2/station" path_parameter_names query_parameter_names
+    fi
+
+    local path=$(build_request_path "/api/v2/station" path_parameter_names query_parameter_names)
+    local method="GET"
+    local headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
     fi
 }
 
@@ -10263,7 +10360,7 @@ call_getStoryById() {
 ##############################################################################
 call_listStories() {
     local path_parameter_names=()
-    local query_parameter_names=(page model_type_id tag_id item_id _external_station_id)
+    local query_parameter_names=(page item_id model_type_id tag_id limit order-by order-direction _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/stories" path_parameter_names query_parameter_names
@@ -10533,7 +10630,7 @@ call_getTagById() {
 ##############################################################################
 call_listTags() {
     local path_parameter_names=()
-    local query_parameter_names=(page program_id item_id broadcast_id contact_id _external_station_id)
+    local query_parameter_names=(page program_id item_id broadcast_id contact_id limit order-by order-direction _external_station_id)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/tags" path_parameter_names query_parameter_names
@@ -10772,7 +10869,7 @@ call_inviteUserByMail() {
 ##############################################################################
 call_listUsers() {
     local path_parameter_names=()
-    local query_parameter_names=(page role_id)
+    local query_parameter_names=(page role_id limit order-by order-direction)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/users" path_parameter_names query_parameter_names
@@ -10987,9 +11084,6 @@ case $key in
     updateContactByID)
     operation="updateContactByID"
     ;;
-    queueExternalMessage)
-    operation="queueExternalMessage"
-    ;;
     getGenreById)
     operation="getGenreById"
     ;;
@@ -11058,6 +11152,9 @@ case $key in
     ;;
     updateProgramByID)
     operation="updateProgramByID"
+    ;;
+    getStation)
+    operation="getStation"
     ;;
     createStory)
     operation="createStory"
@@ -11266,9 +11363,6 @@ case $operation in
     updateContactByID)
     call_updateContactByID
     ;;
-    queueExternalMessage)
-    call_queueExternalMessage
-    ;;
     getGenreById)
     call_getGenreById
     ;;
@@ -11337,6 +11431,9 @@ case $operation in
     ;;
     updateProgramByID)
     call_updateProgramByID
+    ;;
+    getStation)
+    call_getStation
     ;;
     createStory)
     call_createStory
