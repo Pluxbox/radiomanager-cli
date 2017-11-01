@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2017-10-12T16:13:11.887+02:00
+# ! Generated on: 2017-11-01T16:04:08.489Z
 # !
 # !
 # ! Installation:
@@ -318,7 +318,7 @@ case $state in
             "deleteContactById[Delete contact by id]" \
             "getContactById[Get contact by id]" \
             "listContacts[Get all contacts.]" \
-            "updateContactByID[Update contact by id]"             "queueExternalMessage[Queue External Message.]"             "getGenreById[Get genre by id]" \
+            "updateContactByID[Update contact by id]"             "getGenreById[Get genre by id]" \
             "listGenres[List all genres.]"             "createItem[Create an new item.]" \
             "currentItemPostStructure[Post a current playing item, keep structure]" \
             "currentItemPostTiming[Post a current playing item]" \
@@ -414,7 +414,9 @@ case $state in
       getCurrentBroadcast)
         local -a _op_arguments
         _op_arguments=(
-                              )
+                    "withunpublished=true:[QUERY] Show Unpublished *(Optional)*"
+          "withunpublished=false:[QUERY] Show Unpublished *(Optional)*"
+          )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       getDailyEPG)
@@ -438,7 +440,9 @@ case $state in
       getNextBroadcast)
         local -a _op_arguments
         _op_arguments=(
-                              )
+                    "withunpublished=true:[QUERY] Show Unpublished *(Optional)*"
+          "withunpublished=false:[QUERY] Show Unpublished *(Optional)*"
+          )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       getWeeklyEPG)
@@ -570,12 +574,6 @@ case $state in
         _op_arguments=(
           "id=:[PATH] ID of Contact **(Required)**"
                     )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      queueExternalMessage)
-        local -a _op_arguments
-        _op_arguments=(
-                              )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       getGenreById)

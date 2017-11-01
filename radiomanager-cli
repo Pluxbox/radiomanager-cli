@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-10-12T16:13:11.887+02:00
+# ! Generated on: 2017-11-01T16:04:08.489Z
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -83,10 +83,12 @@ operation_parameters_minimum_occurences["createBroadcast:::data"]=1
 operation_parameters_minimum_occurences["deleteBroadcastById:::id"]=1
 operation_parameters_minimum_occurences["getBroadcastById:::id"]=1
 operation_parameters_minimum_occurences["getBroadcastById:::_external_station_id"]=0
+operation_parameters_minimum_occurences["getCurrentBroadcast:::withunpublished"]=0
 operation_parameters_minimum_occurences["getDailyEPG:::date"]=0
 operation_parameters_minimum_occurences["getDailyEPG:::withunpublished"]=0
 operation_parameters_minimum_occurences["getEPGByDate:::date"]=0
 operation_parameters_minimum_occurences["getEPGByDate:::withunpublished"]=0
+operation_parameters_minimum_occurences["getNextBroadcast:::withunpublished"]=0
 operation_parameters_minimum_occurences["getWeeklyEPG:::date"]=0
 operation_parameters_minimum_occurences["getWeeklyEPG:::withunpublished"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::page"]=0
@@ -138,7 +140,6 @@ operation_parameters_minimum_occurences["listContacts:::order-direction"]=0
 operation_parameters_minimum_occurences["listContacts:::_external_station_id"]=0
 operation_parameters_minimum_occurences["updateContactByID:::id"]=1
 operation_parameters_minimum_occurences["updateContactByID:::data"]=0
-operation_parameters_minimum_occurences["queueExternalMessage:::message"]=1
 operation_parameters_minimum_occurences["getGenreById:::id"]=1
 operation_parameters_minimum_occurences["getGenreById:::_external_station_id"]=0
 operation_parameters_minimum_occurences["listGenres:::page"]=0
@@ -288,10 +289,12 @@ operation_parameters_maximum_occurences["createBroadcast:::data"]=0
 operation_parameters_maximum_occurences["deleteBroadcastById:::id"]=0
 operation_parameters_maximum_occurences["getBroadcastById:::id"]=0
 operation_parameters_maximum_occurences["getBroadcastById:::_external_station_id"]=0
+operation_parameters_maximum_occurences["getCurrentBroadcast:::withunpublished"]=0
 operation_parameters_maximum_occurences["getDailyEPG:::date"]=0
 operation_parameters_maximum_occurences["getDailyEPG:::withunpublished"]=0
 operation_parameters_maximum_occurences["getEPGByDate:::date"]=0
 operation_parameters_maximum_occurences["getEPGByDate:::withunpublished"]=0
+operation_parameters_maximum_occurences["getNextBroadcast:::withunpublished"]=0
 operation_parameters_maximum_occurences["getWeeklyEPG:::date"]=0
 operation_parameters_maximum_occurences["getWeeklyEPG:::withunpublished"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::page"]=0
@@ -343,7 +346,6 @@ operation_parameters_maximum_occurences["listContacts:::order-direction"]=0
 operation_parameters_maximum_occurences["listContacts:::_external_station_id"]=0
 operation_parameters_maximum_occurences["updateContactByID:::id"]=0
 operation_parameters_maximum_occurences["updateContactByID:::data"]=0
-operation_parameters_maximum_occurences["queueExternalMessage:::message"]=0
 operation_parameters_maximum_occurences["getGenreById:::id"]=0
 operation_parameters_maximum_occurences["getGenreById:::_external_station_id"]=0
 operation_parameters_maximum_occurences["listGenres:::page"]=0
@@ -490,10 +492,12 @@ operation_parameters_collection_type["createBroadcast:::data"]=""
 operation_parameters_collection_type["deleteBroadcastById:::id"]=""
 operation_parameters_collection_type["getBroadcastById:::id"]=""
 operation_parameters_collection_type["getBroadcastById:::_external_station_id"]=""
+operation_parameters_collection_type["getCurrentBroadcast:::withunpublished"]=""
 operation_parameters_collection_type["getDailyEPG:::date"]=""
 operation_parameters_collection_type["getDailyEPG:::withunpublished"]=""
 operation_parameters_collection_type["getEPGByDate:::date"]=""
 operation_parameters_collection_type["getEPGByDate:::withunpublished"]=""
+operation_parameters_collection_type["getNextBroadcast:::withunpublished"]=""
 operation_parameters_collection_type["getWeeklyEPG:::date"]=""
 operation_parameters_collection_type["getWeeklyEPG:::withunpublished"]=""
 operation_parameters_collection_type["listBroadcasts:::page"]=""
@@ -545,7 +549,6 @@ operation_parameters_collection_type["listContacts:::order-direction"]=""
 operation_parameters_collection_type["listContacts:::_external_station_id"]=""
 operation_parameters_collection_type["updateContactByID:::id"]=""
 operation_parameters_collection_type["updateContactByID:::data"]=""
-operation_parameters_collection_type["queueExternalMessage:::message"]=""
 operation_parameters_collection_type["getGenreById:::id"]=""
 operation_parameters_collection_type["getGenreById:::_external_station_id"]=""
 operation_parameters_collection_type["listGenres:::page"]=""
@@ -1194,12 +1197,6 @@ read -d '' ops <<EOF
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)[externalMessage]$(tput sgr0)"
-read -d '' ops <<EOF
-  $(tput setaf 6)queueExternalMessage$(tput sgr0);Queue External Message.
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
     echo -e "$(tput bold)$(tput setaf 7)[genre]$(tput sgr0)"
 read -d '' ops <<EOF
   $(tput setaf 6)getGenreById$(tput sgr0);Get genre by id
@@ -1300,7 +1297,7 @@ echo "  $ops" | column -t -s ';'
     echo -e "  -V,--version\t\t\t\tPrint API version"
     echo -e "  --about\t\t\t\tPrint the information about service"
     echo -e "  --host $(tput setaf 6)<url>$(tput sgr0)\t\t\t\tSpecify the host URL "
-echo -e "              \t\t\t\t(e.g. 'https://radiomanager.pb')"
+echo -e "              \t\t\t\t(e.g. 'https://staging.radiomanager.io')"
 
     echo -e "  --force\t\t\t\tForce command invocation in spite of missing"
     echo -e "         \t\t\t\trequired parameters or wrong content type"
@@ -2067,26 +2064,29 @@ print_getCurrentBroadcast_help() {
     echo -e ""
     echo -e "Get current Broadcast" | fold -sw 80
     echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)withunpublished$(tput sgr0) $(tput setaf 4)[Boolean]$(tput sgr0)$(tput sgr0) - Show Unpublished *(Optional)*$(tput setaf 3) Specify as: withunpublished=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
     case 200 in
         1*)
-        echo -e "$(tput setaf 7)  200;Successfully got current broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Successfully got current Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  200;Successfully got current broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Successfully got current Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  200;Successfully got current broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Successfully got current Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  200;Successfully got current broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Successfully got current Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  200;Successfully got current broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Successfully got current Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  200;Successfully got current broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Successfully got current Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
     case 403 in
@@ -2359,26 +2359,29 @@ print_getNextBroadcast_help() {
     echo -e ""
     echo -e "Get next Broadcast" | fold -sw 80
     echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)withunpublished$(tput sgr0) $(tput setaf 4)[Boolean]$(tput sgr0)$(tput sgr0) - Show Unpublished *(Optional)*$(tput setaf 3) Specify as: withunpublished=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
     case 200 in
         1*)
-        echo -e "$(tput setaf 7)  200;Successfully got next broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Successfully got next Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  200;Successfully got next broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Successfully got next Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  200;Successfully got next broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Successfully got next Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  200;Successfully got next broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Successfully got next Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  200;Successfully got next broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Successfully got next Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  200;Successfully got next broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Successfully got next Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
     case 403 in
@@ -3923,103 +3926,6 @@ print_updateContactByID_help() {
         ;;
         *)
         echo -e "$(tput setaf 7)  422;Unprocessable Entity$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 429 in
-        1*)
-        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  429;Too Many Requests$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-}
-##############################################################################
-#
-# Print help for queueExternalMessage operation
-#
-##############################################################################
-print_queueExternalMessage_help() {
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)queueExternalMessage - Queue External Message.$(tput sgr0)"
-    echo -e ""
-    echo -e "Queue External Message." | fold -sw 80
-    echo -e ""
-    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
-    echo -e "  * $(tput setaf 2)body$(tput sgr0) $(tput setaf 4)[application/json]$(tput sgr0) $(tput setaf 1)(required)$(tput sgr0)$(tput sgr0) - Data **(Required)**" | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo ""
-    echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
-    case 200 in
-        1*)
-        echo -e "$(tput setaf 7)  200;Message is queued$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  200;Message is queued$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  200;Message is queued$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  200;Message is queued$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  200;Message is queued$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  200;Message is queued$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 403 in
-        1*)
-        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  403;Forbidden$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-    esac
-    case 422 in
-        1*)
-        echo -e "$(tput setaf 7)  422;Something went wrong while processing$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        2*)
-        echo -e "$(tput setaf 2)  422;Something went wrong while processing$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        3*)
-        echo -e "$(tput setaf 3)  422;Something went wrong while processing$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        4*)
-        echo -e "$(tput setaf 1)  422;Something went wrong while processing$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        5*)
-        echo -e "$(tput setaf 5)  422;Something went wrong while processing$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-        ;;
-        *)
-        echo -e "$(tput setaf 7)  422;Something went wrong while processing$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
     case 429 in
@@ -8399,7 +8305,7 @@ call_getBroadcastById() {
 ##############################################################################
 call_getCurrentBroadcast() {
     local path_parameter_names=()
-    local query_parameter_names=()
+    local query_parameter_names=(withunpublished)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/broadcasts/current" path_parameter_names query_parameter_names
@@ -8492,7 +8398,7 @@ call_getEPGByDate() {
 ##############################################################################
 call_getNextBroadcast() {
     local path_parameter_names=()
-    local query_parameter_names=()
+    local query_parameter_names=(withunpublished)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/broadcasts/next" path_parameter_names query_parameter_names
@@ -9102,79 +9008,6 @@ call_updateContactByID() {
 
     local path=$(build_request_path "/api/v2/contacts/{id}" path_parameter_names query_parameter_names)
     local method="PATCH"
-    local headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    local body_json_curl=""
-
-    #
-    # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
-    # if values produces and consumes are defined unambigously
-    #
-    if [[ -z $header_content_type ]]; then
-        header_content_type="application/json"
-    fi
-
-
-    if [[ -z $header_content_type && "$force" = false ]]; then
-        :
-        echo "Error: Request's content-type not specified!!!"
-        echo "This operation expects content-type in one of the following formats:"
-        echo -e "\t- application/json"
-        echo ""
-        echo "Use '--content-type' to set proper content type"
-        exit 1
-    else
-        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
-    fi
-
-
-    #
-    # If we have received some body content over pipe, pass it from the
-    # temporary file to cURL
-    #
-    if [[ -n $body_content_temp_file ]]; then
-        if [[ "$print_curl" = true ]]; then
-            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        else
-            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        fi
-        rm "${body_content_temp_file}"
-    #
-    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
-    #
-    else
-        body_json_curl=$(body_parameters_to_json)
-        if [[ "$print_curl" = true ]]; then
-            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        else
-            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        fi
-    fi
-}
-
-##############################################################################
-#
-# Call queueExternalMessage operation
-#
-##############################################################################
-call_queueExternalMessage() {
-    local path_parameter_names=()
-    local query_parameter_names=()
-
-    if [[ $force = false ]]; then
-        validate_request_parameters "/api/v2/externalmessagequeue" path_parameter_names query_parameter_names
-    fi
-
-    local path=$(build_request_path "/api/v2/externalmessagequeue" path_parameter_names query_parameter_names)
-    local method="POST"
     local headers_curl=$(header_arguments_to_curl)
     if [[ -n $header_accept ]]; then
         headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
@@ -11263,9 +11096,6 @@ case $key in
     updateContactByID)
     operation="updateContactByID"
     ;;
-    queueExternalMessage)
-    operation="queueExternalMessage"
-    ;;
     getGenreById)
     operation="getGenreById"
     ;;
@@ -11544,9 +11374,6 @@ case $operation in
     ;;
     updateContactByID)
     call_updateContactByID
-    ;;
-    queueExternalMessage)
-    call_queueExternalMessage
     ;;
     getGenreById)
     call_getGenreById

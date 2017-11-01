@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-10-12T16:13:11.887+02:00
+# ! Generated on: 2017-11-01T16:04:08.489Z
 # !
 # !
 # ! System wide installation:
@@ -94,7 +94,6 @@ _radiomanager-cli()
     operations["getContactById"]=1
     operations["listContacts"]=1
     operations["updateContactByID"]=1
-    operations["queueExternalMessage"]=1
     operations["getGenreById"]=1
     operations["listGenres"]=1
     operations["createItem"]=1
@@ -146,10 +145,10 @@ _radiomanager-cli()
     operation_parameters["createBroadcast"]=""
     operation_parameters["deleteBroadcastById"]="id= "
     operation_parameters["getBroadcastById"]="id= _external_station_id= "
-    operation_parameters["getCurrentBroadcast"]=""
+    operation_parameters["getCurrentBroadcast"]="withunpublished= "
     operation_parameters["getDailyEPG"]="date= withunpublished= "
     operation_parameters["getEPGByDate"]="date= withunpublished= "
-    operation_parameters["getNextBroadcast"]=""
+    operation_parameters["getNextBroadcast"]="withunpublished= "
     operation_parameters["getWeeklyEPG"]="date= withunpublished= "
     operation_parameters["listBroadcasts"]="page= program_id= block_id= model_type_id= tag_id= presenter_id= genre_id= item_id= start-min= start-max= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["printBroadcastById"]="id= program_id= presenter_id= tag_id= "
@@ -164,7 +163,6 @@ _radiomanager-cli()
     operation_parameters["getContactById"]="id= _external_station_id= "
     operation_parameters["listContacts"]="page= item_id= model_type_id= tag_id= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["updateContactByID"]="id= "
-    operation_parameters["queueExternalMessage"]=""
     operation_parameters["getGenreById"]="id= _external_station_id= "
     operation_parameters["listGenres"]="page= parent_id= program_id= broadcast_id= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["createItem"]=""
@@ -208,10 +206,12 @@ _radiomanager-cli()
 
     # An associative array of possible values for enum parameters
     declare -A operation_parameters_enum_values
+    operation_parameters_enum_values["getCurrentBroadcast::withunpublished"]="true false"
     operation_parameters_enum_values["getDailyEPG::withunpublished"]="true false"
     operation_parameters_enum_values["getDailyEPG::withunpublished"]="true false"
     operation_parameters_enum_values["getEPGByDate::withunpublished"]="true false"
     operation_parameters_enum_values["getEPGByDate::withunpublished"]="true false"
+    operation_parameters_enum_values["getNextBroadcast::withunpublished"]="true false"
     operation_parameters_enum_values["getWeeklyEPG::withunpublished"]="true false"
     operation_parameters_enum_values["getWeeklyEPG::withunpublished"]="true false"
     operation_parameters_enum_values["getStringsByName::full_model"]="true false"
