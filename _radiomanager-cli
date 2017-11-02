@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2017-10-25T14:02:03.674+02:00
+# ! Generated on: 2017-11-02T10:25:54.814+01:00
 # !
 # !
 # ! Installation:
@@ -414,7 +414,9 @@ case $state in
       getCurrentBroadcast)
         local -a _op_arguments
         _op_arguments=(
-                              )
+                    "withunpublished=true:[QUERY] Show Unpublished *(Optional)*"
+          "withunpublished=false:[QUERY] Show Unpublished *(Optional)*"
+          )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       getDailyEPG)
@@ -438,7 +440,9 @@ case $state in
       getNextBroadcast)
         local -a _op_arguments
         _op_arguments=(
-                              )
+                    "withunpublished=true:[QUERY] Show Unpublished *(Optional)*"
+          "withunpublished=false:[QUERY] Show Unpublished *(Optional)*"
+          )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       getWeeklyEPG)

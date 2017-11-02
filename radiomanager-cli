@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-10-25T14:02:03.674+02:00
+# ! Generated on: 2017-11-02T10:25:54.814+01:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -83,10 +83,12 @@ operation_parameters_minimum_occurences["createBroadcast:::data"]=1
 operation_parameters_minimum_occurences["deleteBroadcastById:::id"]=1
 operation_parameters_minimum_occurences["getBroadcastById:::id"]=1
 operation_parameters_minimum_occurences["getBroadcastById:::_external_station_id"]=0
+operation_parameters_minimum_occurences["getCurrentBroadcast:::withunpublished"]=0
 operation_parameters_minimum_occurences["getDailyEPG:::date"]=0
 operation_parameters_minimum_occurences["getDailyEPG:::withunpublished"]=0
 operation_parameters_minimum_occurences["getEPGByDate:::date"]=0
 operation_parameters_minimum_occurences["getEPGByDate:::withunpublished"]=0
+operation_parameters_minimum_occurences["getNextBroadcast:::withunpublished"]=0
 operation_parameters_minimum_occurences["getWeeklyEPG:::date"]=0
 operation_parameters_minimum_occurences["getWeeklyEPG:::withunpublished"]=0
 operation_parameters_minimum_occurences["listBroadcasts:::page"]=0
@@ -287,10 +289,12 @@ operation_parameters_maximum_occurences["createBroadcast:::data"]=0
 operation_parameters_maximum_occurences["deleteBroadcastById:::id"]=0
 operation_parameters_maximum_occurences["getBroadcastById:::id"]=0
 operation_parameters_maximum_occurences["getBroadcastById:::_external_station_id"]=0
+operation_parameters_maximum_occurences["getCurrentBroadcast:::withunpublished"]=0
 operation_parameters_maximum_occurences["getDailyEPG:::date"]=0
 operation_parameters_maximum_occurences["getDailyEPG:::withunpublished"]=0
 operation_parameters_maximum_occurences["getEPGByDate:::date"]=0
 operation_parameters_maximum_occurences["getEPGByDate:::withunpublished"]=0
+operation_parameters_maximum_occurences["getNextBroadcast:::withunpublished"]=0
 operation_parameters_maximum_occurences["getWeeklyEPG:::date"]=0
 operation_parameters_maximum_occurences["getWeeklyEPG:::withunpublished"]=0
 operation_parameters_maximum_occurences["listBroadcasts:::page"]=0
@@ -488,10 +492,12 @@ operation_parameters_collection_type["createBroadcast:::data"]=""
 operation_parameters_collection_type["deleteBroadcastById:::id"]=""
 operation_parameters_collection_type["getBroadcastById:::id"]=""
 operation_parameters_collection_type["getBroadcastById:::_external_station_id"]=""
+operation_parameters_collection_type["getCurrentBroadcast:::withunpublished"]=""
 operation_parameters_collection_type["getDailyEPG:::date"]=""
 operation_parameters_collection_type["getDailyEPG:::withunpublished"]=""
 operation_parameters_collection_type["getEPGByDate:::date"]=""
 operation_parameters_collection_type["getEPGByDate:::withunpublished"]=""
+operation_parameters_collection_type["getNextBroadcast:::withunpublished"]=""
 operation_parameters_collection_type["getWeeklyEPG:::date"]=""
 operation_parameters_collection_type["getWeeklyEPG:::withunpublished"]=""
 operation_parameters_collection_type["listBroadcasts:::page"]=""
@@ -2058,26 +2064,29 @@ print_getCurrentBroadcast_help() {
     echo -e ""
     echo -e "Get current Broadcast" | fold -sw 80
     echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)withunpublished$(tput sgr0) $(tput setaf 4)[Boolean]$(tput sgr0)$(tput sgr0) - Show Unpublished *(Optional)*$(tput setaf 3) Specify as: withunpublished=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
     case 200 in
         1*)
-        echo -e "$(tput setaf 7)  200;Successfully got current broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Successfully got current Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  200;Successfully got current broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Successfully got current Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  200;Successfully got current broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Successfully got current Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  200;Successfully got current broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Successfully got current Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  200;Successfully got current broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Successfully got current Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  200;Successfully got current broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Successfully got current Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
     case 403 in
@@ -2350,26 +2359,29 @@ print_getNextBroadcast_help() {
     echo -e ""
     echo -e "Get next Broadcast" | fold -sw 80
     echo -e ""
+    echo -e "$(tput bold)$(tput setaf 7)Parameters$(tput sgr0)"
+    echo -e "  * $(tput setaf 2)withunpublished$(tput sgr0) $(tput setaf 4)[Boolean]$(tput sgr0)$(tput sgr0) - Show Unpublished *(Optional)*$(tput setaf 3) Specify as: withunpublished=value$(tput sgr0)" \
+        | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
     case 200 in
         1*)
-        echo -e "$(tput setaf 7)  200;Successfully got next broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Successfully got next Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  200;Successfully got next broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Successfully got next Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  200;Successfully got next broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Successfully got next Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  200;Successfully got next broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Successfully got next Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  200;Successfully got next broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Successfully got next Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  200;Successfully got next broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Successfully got next Broadcast$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
     case 403 in
@@ -8293,7 +8305,7 @@ call_getBroadcastById() {
 ##############################################################################
 call_getCurrentBroadcast() {
     local path_parameter_names=()
-    local query_parameter_names=()
+    local query_parameter_names=(withunpublished)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/broadcasts/current" path_parameter_names query_parameter_names
@@ -8386,7 +8398,7 @@ call_getEPGByDate() {
 ##############################################################################
 call_getNextBroadcast() {
     local path_parameter_names=()
-    local query_parameter_names=()
+    local query_parameter_names=(withunpublished)
 
     if [[ $force = false ]]; then
         validate_request_parameters "/api/v2/broadcasts/next" path_parameter_names query_parameter_names

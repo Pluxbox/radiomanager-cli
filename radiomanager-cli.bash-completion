@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-10-25T14:02:03.674+02:00
+# ! Generated on: 2017-11-02T10:25:54.814+01:00
 # !
 # !
 # ! System wide installation:
@@ -145,10 +145,10 @@ _radiomanager-cli()
     operation_parameters["createBroadcast"]=""
     operation_parameters["deleteBroadcastById"]="id= "
     operation_parameters["getBroadcastById"]="id= _external_station_id= "
-    operation_parameters["getCurrentBroadcast"]=""
+    operation_parameters["getCurrentBroadcast"]="withunpublished= "
     operation_parameters["getDailyEPG"]="date= withunpublished= "
     operation_parameters["getEPGByDate"]="date= withunpublished= "
-    operation_parameters["getNextBroadcast"]=""
+    operation_parameters["getNextBroadcast"]="withunpublished= "
     operation_parameters["getWeeklyEPG"]="date= withunpublished= "
     operation_parameters["listBroadcasts"]="page= program_id= block_id= model_type_id= tag_id= presenter_id= genre_id= item_id= start-min= start-max= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["printBroadcastById"]="id= program_id= presenter_id= tag_id= "
@@ -206,10 +206,12 @@ _radiomanager-cli()
 
     # An associative array of possible values for enum parameters
     declare -A operation_parameters_enum_values
+    operation_parameters_enum_values["getCurrentBroadcast::withunpublished"]="true false"
     operation_parameters_enum_values["getDailyEPG::withunpublished"]="true false"
     operation_parameters_enum_values["getDailyEPG::withunpublished"]="true false"
     operation_parameters_enum_values["getEPGByDate::withunpublished"]="true false"
     operation_parameters_enum_values["getEPGByDate::withunpublished"]="true false"
+    operation_parameters_enum_values["getNextBroadcast::withunpublished"]="true false"
     operation_parameters_enum_values["getWeeklyEPG::withunpublished"]="true false"
     operation_parameters_enum_values["getWeeklyEPG::withunpublished"]="true false"
     operation_parameters_enum_values["getStringsByName::full_model"]="true false"
