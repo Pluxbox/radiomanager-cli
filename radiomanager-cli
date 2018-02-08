@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2017-11-02T10:25:54.814+01:00
+# ! Generated on: 2018-02-08T17:17:04.875+01:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -1156,7 +1156,7 @@ EOF
 read -d '' ops <<EOF
   $(tput setaf 6)getBlockById$(tput sgr0);Get block by id
   $(tput setaf 6)getCurrentBlock$(tput sgr0);Get current Block
-  $(tput setaf 6)getNextBlock$(tput sgr0);Get next Block
+  $(tput setaf 6)getNextBlock$(tput sgr0);Get upcoming Block
   $(tput setaf 6)listBlocks$(tput sgr0);Get a list of all blocks currently in your station.
 EOF
 echo "  $ops" | column -t -s ';'
@@ -1540,30 +1540,30 @@ print_getCurrentBlock_help() {
 ##############################################################################
 print_getNextBlock_help() {
     echo ""
-    echo -e "$(tput bold)$(tput setaf 7)getNextBlock - Get next Block$(tput sgr0)"
+    echo -e "$(tput bold)$(tput setaf 7)getNextBlock - Get upcoming Block$(tput sgr0)"
     echo -e ""
-    echo -e "Get next Block" | fold -sw 80
+    echo -e "Get upcoming Block" | fold -sw 80
     echo -e ""
     echo ""
     echo -e "$(tput bold)$(tput setaf 7)Responses$(tput sgr0)"
     case 200 in
         1*)
-        echo -e "$(tput setaf 7)  200;Successfully got current Block$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Successfully got upcoming Block$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         2*)
-        echo -e "$(tput setaf 2)  200;Successfully got current Block$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 2)  200;Successfully got upcoming Block$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         3*)
-        echo -e "$(tput setaf 3)  200;Successfully got current Block$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 3)  200;Successfully got upcoming Block$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         4*)
-        echo -e "$(tput setaf 1)  200;Successfully got current Block$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 1)  200;Successfully got upcoming Block$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         5*)
-        echo -e "$(tput setaf 5)  200;Successfully got current Block$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 5)  200;Successfully got upcoming Block$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
         *)
-        echo -e "$(tput setaf 7)  200;Successfully got current Block$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+        echo -e "$(tput setaf 7)  200;Successfully got upcoming Block$(tput sgr0)" | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
         ;;
     esac
     case 403 in
