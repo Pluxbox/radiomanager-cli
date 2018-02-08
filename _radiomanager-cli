@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2017-11-06T18:08:53.051+01:00
+# ! Generated on: 2018-02-08T17:02:47.933+01:00
 # !
 # !
 # ! Installation:
@@ -299,7 +299,7 @@ case $state in
     _values "Operations" \
             "getBlockById[Get block by id]" \
             "getCurrentBlock[Get current Block]" \
-            "getNextBlock[Get next Block]" \
+            "getNextBlock[Get upcoming Block]" \
             "listBlocks[Get a list of all blocks currently in your station.]"             "createBroadcast[Create broadcast.]" \
             "deleteBroadcastById[Delete broadcast by id]" \
             "getBroadcastById[Get broadcast by id]" \
