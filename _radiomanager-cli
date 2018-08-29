@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2018-02-08T17:17:04.875+01:00
+# ! Generated on: 2018-08-29T12:26:20.243Z
 # !
 # !
 # ! Installation:
@@ -323,6 +323,7 @@ case $state in
             "currentItemPostStructure[Post a current playing item, keep structure]" \
             "currentItemPostTiming[Post a current playing item]" \
             "deleteItemById[Delete item by ID.]" \
+            "getCurrentItem[Get current Item]" \
             "getItemById[Get extended item details by ID.]" \
             "listItems[Get a list of all the items currently in your station.]" \
             "playlistPostStructure[Post a playlist, keep current structure]" \
@@ -623,6 +624,14 @@ case $state in
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
+      getCurrentItem)
+        local -a _op_arguments
+        _op_arguments=(
+                    "lastplayed=true:[QUERY] Show last played item if there is no current item*(Optional)*"
+          "lastplayed=false:[QUERY] Show last played item if there is no current item*(Optional)*"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
       getItemById)
         local -a _op_arguments
         _op_arguments=(
@@ -645,6 +654,7 @@ case $state in
 "user_draft_id=:[QUERY] Search on User Draft ID *(Optional)*"
 "station_draft_id=:[QUERY] Search on Station Draft ID *(Optional)*"
 "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
+"external_id=:[QUERY] Search on External ID *(Optional)*"
 "start-min=:[QUERY] Minimum start date *(Optional)*"
 "start-max=:[QUERY] Maximum start date *(Optional)*"
 "duration-min=:[QUERY] Minimum duration (seconds) *(Optional)*"

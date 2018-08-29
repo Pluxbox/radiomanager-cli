@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2018-02-08T17:17:04.875+01:00
+# ! Generated on: 2018-08-29T12:26:20.243Z
 # !
 # !
 # ! System wide installation:
@@ -100,6 +100,7 @@ _radiomanager-cli()
     operations["currentItemPostStructure"]=1
     operations["currentItemPostTiming"]=1
     operations["deleteItemById"]=1
+    operations["getCurrentItem"]=1
     operations["getItemById"]=1
     operations["listItems"]=1
     operations["playlistPostStructure"]=1
@@ -169,8 +170,9 @@ _radiomanager-cli()
     operation_parameters["currentItemPostStructure"]=""
     operation_parameters["currentItemPostTiming"]=""
     operation_parameters["deleteItemById"]="id= "
+    operation_parameters["getCurrentItem"]="lastplayed= "
     operation_parameters["getItemById"]="id= _external_station_id= "
-    operation_parameters["listItems"]="page= block_id= broadcast_id= model_type_id= tag_id= campaign_id= contact_id= program_draft_id= user_draft_id= station_draft_id= program_id= start-min= start-max= duration-min= duration-max= status= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["listItems"]="page= block_id= broadcast_id= model_type_id= tag_id= campaign_id= contact_id= program_draft_id= user_draft_id= station_draft_id= program_id= external_id= start-min= start-max= duration-min= duration-max= status= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["playlistPostStructure"]=""
     operation_parameters["playlistPostTiming"]=""
     operation_parameters["updateItemById"]="id= "
@@ -214,6 +216,7 @@ _radiomanager-cli()
     operation_parameters_enum_values["getNextBroadcast::withunpublished"]="true false"
     operation_parameters_enum_values["getWeeklyEPG::withunpublished"]="true false"
     operation_parameters_enum_values["getWeeklyEPG::withunpublished"]="true false"
+    operation_parameters_enum_values["getCurrentItem::lastplayed"]="true false"
     operation_parameters_enum_values["getStringsByName::full_model"]="true false"
     operation_parameters_enum_values["getStringsByName::full_model"]="true false"
 
