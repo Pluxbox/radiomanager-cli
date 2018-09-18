@@ -126,4 +126,5 @@ fi
 ```
 
 ### Zsh
-In Zsh, the generated `_radiomanager-cli` Zsh completion file must be copied to one of the folders under `$FPATH` variable.
+In Zsh, the generated `_radiomanager-cli` Zsh completion file must be copied to one of the folders under `$FPATH` variable..
+
