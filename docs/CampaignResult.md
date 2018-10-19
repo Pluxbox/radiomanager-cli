@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **updated_at** | **string** |  | [default to null]
 **created_at** | **string** |  | [default to null]
 **deleted_at** | **string** |  | [default to null]
-**item** | [**array[Item]**](Item.md) |  | [optional] [default to null]
+**item** | [**Item**](Item.md) |  | [optional] [default to null]
 **_external_station_id** | **integer** |  | [optional] [default to null]
 **model_type_id** | **integer** |  | [default to null]
 **field_values** | **map** |  | [optional] [default to null]
