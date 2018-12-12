@@ -9,6 +9,7 @@ The script uses cURL underneath for making all REST calls.
 
 To get started using RadioManager-cli, please install snapd using the commands provided for your distro.
 
+
 # Install
 ## Ubuntu/Debian/Mint
 
