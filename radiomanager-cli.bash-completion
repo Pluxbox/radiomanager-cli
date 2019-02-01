@@ -8,7 +8,7 @@
 # ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
 # ! FROM SWAGGER SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2018-11-07T11:21:18.399+01:00
+# ! Generated on: 2019-02-01T15:41:55.138+01:00
 # !
 # !
 # ! System wide installation:
@@ -103,8 +103,10 @@ _radiomanager-cli()
     operations["getCurrentItem"]=1
     operations["getItemById"]=1
     operations["listItems"]=1
+    operations["playlistPostMerge"]=1
     operations["playlistPostStructure"]=1
     operations["playlistPostTiming"]=1
+    operations["stopCurrentItem"]=1
     operations["updateItemById"]=1
     operations["getModelTypeById"]=1
     operations["listModelTypes"]=1
@@ -173,8 +175,10 @@ _radiomanager-cli()
     operation_parameters["getCurrentItem"]="lastplayed= "
     operation_parameters["getItemById"]="id= _external_station_id= "
     operation_parameters["listItems"]="page= block_id= broadcast_id= model_type_id= tag_id= campaign_id= contact_id= program_draft_id= user_draft_id= station_draft_id= program_id= external_id= start-min= start-max= duration-min= duration-max= status= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["playlistPostMerge"]=""
     operation_parameters["playlistPostStructure"]=""
     operation_parameters["playlistPostTiming"]=""
+    operation_parameters["stopCurrentItem"]=""
     operation_parameters["updateItemById"]="id= "
     operation_parameters["getModelTypeById"]="id= _external_station_id= "
     operation_parameters["listModelTypes"]="page= program_id= broadcast_id= item_id= campaign_id= presenter_id= contact_id= model= limit= order-by= order-direction= _external_station_id= "

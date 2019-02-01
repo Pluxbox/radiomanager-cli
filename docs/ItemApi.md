@@ -11,8 +11,10 @@ Method | HTTP request | Description
 [**getCurrentItem**](ItemApi.md#getCurrentItem) | **GET** /items/current | Get current Item
 [**getItemById**](ItemApi.md#getItemById) | **GET** /items/{id} | Get extended item details by ID.
 [**listItems**](ItemApi.md#listItems) | **GET** /items | Get a list of all the items currently in your station.
+[**playlistPostMerge**](ItemApi.md#playlistPostMerge) | **POST** /items/playlist/merge | Post a playlist, do not remove previously imported items
 [**playlistPostStructure**](ItemApi.md#playlistPostStructure) | **POST** /items/playlist/structure | Post a playlist, keep current structure
 [**playlistPostTiming**](ItemApi.md#playlistPostTiming) | **POST** /items/playlist/timing | Post a playlist
+[**stopCurrentItem**](ItemApi.md#stopCurrentItem) | **POST** /items/stopcurrent | Stop an Item
 [**updateItemById**](ItemApi.md#updateItemById) | **PATCH** /items/{id} | Update extended item details by ID.
 
 
@@ -261,6 +263,38 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+## **playlistPostMerge**
+
+Post a playlist, do not remove previously imported items
+
+Post a playlist, do not remove previously imported items
+
+### Example
+```bash
+radiomanager-cli playlistPostMerge
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | [**Data_2**](Data_2.md) | Data *(Optional)* | [optional]
+
+### Return type
+
+[**Inline_response_202**](Inline_response_202.md)
+
+### Authorization
+
+[API Key](../README.md#API Key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 ## **playlistPostStructure**
 
 Post a playlist, keep current structure
@@ -313,6 +347,38 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Inline_response_202**](Inline_response_202.md)
+
+### Authorization
+
+[API Key](../README.md#API Key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## **stopCurrentItem**
+
+Stop an Item
+
+Set a current playing or specific item on played
+
+### Example
+```bash
+radiomanager-cli stopCurrentItem
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | [**Data_3**](Data_3.md) | Data *(Optional)* | [optional]
+
+### Return type
+
+[**Success**](Success.md)
 
 ### Authorization
 

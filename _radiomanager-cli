@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2018-11-07T11:21:18.399+01:00
+# ! Generated on: 2019-02-01T15:41:55.138+01:00
 # !
 # !
 # ! Installation:
@@ -326,8 +326,10 @@ case $state in
             "getCurrentItem[Get current Item]" \
             "getItemById[Get extended item details by ID.]" \
             "listItems[Get a list of all the items currently in your station.]" \
+            "playlistPostMerge[Post a playlist, do not remove previously imported items]" \
             "playlistPostStructure[Post a playlist, keep current structure]" \
             "playlistPostTiming[Post a playlist]" \
+            "stopCurrentItem[Stop an Item]" \
             "updateItemById[Update extended item details by ID.]"             "getModelTypeById[Get modelType by id]" \
             "listModelTypes[Get all modelTypes.]"             "createPresenter[Create presenter.]" \
             "deletePresenterById[Delete presenter by id]" \
@@ -665,6 +667,12 @@ case $state in
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
+      playlistPostMerge)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
       playlistPostStructure)
         local -a _op_arguments
         _op_arguments=(
@@ -672,6 +680,12 @@ case $state in
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       playlistPostTiming)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      stopCurrentItem)
         local -a _op_arguments
         _op_arguments=(
                               )
