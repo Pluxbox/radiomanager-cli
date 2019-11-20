@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2018-08-29T12:26:20.243Z
+# ! Generated on: 2019-11-20T13:28:38.972+01:00
 # !
 # !
 # ! Installation:
@@ -309,7 +309,7 @@ case $state in
             "getNextBroadcast[Get next Broadcast]" \
             "getWeeklyEPG[Get weekly EPG]" \
             "listBroadcasts[Get all broadcasts.]" \
-            "printBroadcastById[Print Broadcast by id]" \
+            "printBroadcastById[Print broadcast by id with template]" \
             "updateBroadcastByID[Update broadcast by id]"             "createCampaign[Create campaign.]" \
             "deleteCampaignById[Delete campaign by id]" \
             "getCampaignById[Get campaign by id]" \
@@ -326,8 +326,10 @@ case $state in
             "getCurrentItem[Get current Item]" \
             "getItemById[Get extended item details by ID.]" \
             "listItems[Get a list of all the items currently in your station.]" \
+            "playlistPostMerge[Post a playlist, do not remove previously imported items]" \
             "playlistPostStructure[Post a playlist, keep current structure]" \
             "playlistPostTiming[Post a playlist]" \
+            "stopCurrentItem[Stop an Item]" \
             "updateItemById[Update extended item details by ID.]"             "getModelTypeById[Get modelType by id]" \
             "listModelTypes[Get all modelTypes.]"             "createPresenter[Create presenter.]" \
             "deletePresenterById[Delete presenter by id]" \
@@ -479,9 +481,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Broadcast **(Required)**"
-          "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
-"presenter_id=:[QUERY] Search on Presenter ID *(Optional)* &#39;(Relation)&#39;"
-"tag_id=:[QUERY] Search on Tag ID *(Optional)* &#39;(Relation)&#39;"
+          "template_id=:[QUERY] Search on template ID *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -667,6 +667,12 @@ case $state in
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
+      playlistPostMerge)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
       playlistPostStructure)
         local -a _op_arguments
         _op_arguments=(
@@ -674,6 +680,12 @@ case $state in
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       playlistPostTiming)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      stopCurrentItem)
         local -a _op_arguments
         _op_arguments=(
                               )
@@ -786,6 +798,7 @@ case $state in
 "genre_id=:[QUERY] Search on Genre ID *(Optional)*"
 "block_id=:[QUERY] Search on Block ID *(Optional)* &#39;(Relation)&#39;"
 "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
+"disabled=:[QUERY] Search on Disabled status *(Optional)*"
 "limit=:[QUERY] Results per page *(Optional)*"
 "order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"
