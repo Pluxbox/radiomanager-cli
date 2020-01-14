@@ -1,6 +1,6 @@
 ---
 name: radiomanager-cli
-version: '1.0.105'
+version: '1.0.106'
 summary: Command line interface to Pluxbox RadioManager client
 description: |
   Command line interface written in bash to the Pluxbox RadioManager API v2
