@@ -10,22 +10,25 @@ Method | HTTP request | Description
 [**listUsers**](UserApi.md#listUsers) | **GET** /users | Get all users.
 
 
-## **deleteUserById**
+
+## deleteUserById
 
 Remove user from station by Id
 
 Remove user from station by Id
 
 ### Example
+
 ```bash
 radiomanager-cli deleteUserById id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | id of User |
+ **id** | **integer** | id of User | [default to 0]
 
 ### Return type
 
@@ -33,31 +36,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getUserById**
+
+## getUserById
 
 Get user by id
 
 Get user by id
 
 ### Example
+
 ```bash
 radiomanager-cli getUserById id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | id of User |
+ **id** | **integer** | id of User | [default to 0]
 
 ### Return type
 
@@ -65,27 +71,30 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **inviteUserByMail**
+
+## inviteUserByMail
 
 Invite user by mail
 
 Invite user by mail
 
 ### Example
+
 ```bash
 radiomanager-cli inviteUserByMail
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -93,39 +102,42 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InviteUserSuccess**](InviteUserSuccess.md)
+**map**
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **listUsers**
+
+## listUsers
 
 Get all users.
 
 List all users.
 
 ### Example
+
 ```bash
 radiomanager-cli listUsers  page=value  role_id=value  limit=value  order-by=value  order-direction=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
- **roleId** | **integer** | Search on Role ID *(Optional)* | [optional]
- **limit** | **integer** | Results per page *(Optional)* | [optional]
- **orderBy** | **string** | Field to order the results *(Optional)* | [optional]
- **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional]
+ **roleId** | **integer** | Search on Role ID *(Optional)* | [optional] [default to null]
+ **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
+ **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
+ **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -133,12 +145,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

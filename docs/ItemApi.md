@@ -18,18 +18,21 @@ Method | HTTP request | Description
 [**updateItemById**](ItemApi.md#updateItemById) | **PATCH** /items/{id} | Update extended item details by ID.
 
 
-## **createItem**
+
+## createItem
 
 Create an new item.
 
 Create item.
 
 ### Example
+
 ```bash
 radiomanager-cli createItem
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -41,28 +44,31 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **currentItemPostStructure**
+
+## currentItemPostStructure
 
 Post a current playing item, keep structure
 
 Post a current playing item, keep structure
 
 ### Example
+
 ```bash
 radiomanager-cli currentItemPostStructure
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data** | [**ImportItem**](ImportItem.md) | Data *(Optional)* | [optional]
@@ -73,28 +79,31 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **currentItemPostTiming**
+
+## currentItemPostTiming
 
 Post a current playing item
 
 Post a current playing item
 
 ### Example
+
 ```bash
 radiomanager-cli currentItemPostTiming
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data** | [**ImportItem**](ImportItem.md) | Data *(Optional)* | [optional]
@@ -105,31 +114,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **deleteItemById**
+
+## deleteItemById
 
 Delete item by ID.
 
 Delete item by id.
 
 ### Example
+
 ```bash
 radiomanager-cli deleteItemById id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Item **(Required)** |
+ **id** | **integer** | ID of Item **(Required)** | [default to 0]
 
 ### Return type
 
@@ -137,31 +149,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getCurrentItem**
+
+## getCurrentItem
 
 Get current Item
 
 Get current Item
 
 ### Example
+
 ```bash
 radiomanager-cli getCurrentItem  lastplayed=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lastplayed** | **boolean** | Show last played item if there is no current item*(Optional)* | [optional]
+ **lastplayed** | **boolean** | Show last played item if there is no current item*(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -169,32 +184,35 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getItemById**
+
+## getItemById
 
 Get extended item details by ID.
 
 Read item by id.
 
 ### Example
+
 ```bash
 radiomanager-cli getItemById id=value  _external_station_id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Item **(Required)** |
- **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional]
+ **id** | **integer** | ID of Item **(Required)** | [default to 0]
+ **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -202,51 +220,54 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **listItems**
+
+## listItems
 
 Get a list of all the items currently in your station.
 
 Get a list of all the items currently in your station. This feature supports pagination and will give a maximum results of 50 items back.
 
 ### Example
+
 ```bash
 radiomanager-cli listItems  page=value  block_id=value  broadcast_id=value  model_type_id=value  tag_id=value  campaign_id=value  contact_id=value  program_draft_id=value  user_draft_id=value  station_draft_id=value  program_id=value  external_id=value  start-min=value  start-max=value  duration-min=value  duration-max=value  status=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional]
- **blockId** | **integer** | Search on Block ID *(Optional)* '(Relation)' | [optional]
- **broadcastId** | **integer** | Search on Broadcast ID *(Optional)* '(Relation)' | [optional]
- **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional]
- **tagId** | **integer** | Search on Tag ID *(Optional)* '(Relation)' | [optional]
- **campaignId** | **integer** | Search on Campaign ID *(Optional)* '(Relation)' | [optional]
- **contactId** | **integer** | Search on Contact ID *(Optional)* '(Relation)' | [optional]
- **programDraftId** | **integer** | Search on Program Draft ID *(Optional)* | [optional]
- **userDraftId** | **integer** | Search on User Draft ID *(Optional)* | [optional]
- **stationDraftId** | **integer** | Search on Station Draft ID *(Optional)* | [optional]
- **programId** | **integer** | Search on Program ID *(Optional)* '(Relation)' | [optional]
- **externalId** | **string** | Search on External ID *(Optional)* | [optional]
- **startMin** | **string** | Minimum start date *(Optional)* | [optional]
- **startMax** | **string** | Maximum start date *(Optional)* | [optional]
- **durationMin** | **integer** | Minimum duration (seconds) *(Optional)* | [optional]
- **durationMax** | **integer** | Maximum duration (seconds) *(Optional)* | [optional]
- **status** | **string** | Play Status of item *(Optional)* | [optional]
- **limit** | **integer** | Results per page *(Optional)* | [optional]
- **orderBy** | **string** | Field to order the results *(Optional)* | [optional]
- **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional]
- **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional]
+ **page** | **integer** | Current page *(Optional)* | [optional] [default to null]
+ **blockId** | **integer** | Search on Block ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **broadcastId** | **integer** | Search on Broadcast ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **tagId** | **integer** | Search on Tag ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **campaignId** | **integer** | Search on Campaign ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **contactId** | **integer** | Search on Contact ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **programDraftId** | **integer** | Search on Program Draft ID *(Optional)* | [optional] [default to null]
+ **userDraftId** | **integer** | Search on User Draft ID *(Optional)* | [optional] [default to null]
+ **stationDraftId** | **integer** | Search on Station Draft ID *(Optional)* | [optional] [default to null]
+ **programId** | **integer** | Search on Program ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **externalId** | **string** | Search on External ID *(Optional)* | [optional] [default to null]
+ **startMin** | **string** | Minimum start date *(Optional)* | [optional] [default to null]
+ **startMax** | **string** | Maximum start date *(Optional)* | [optional] [default to null]
+ **durationMin** | **integer** | Minimum duration (seconds) *(Optional)* | [optional] [default to null]
+ **durationMax** | **integer** | Maximum duration (seconds) *(Optional)* | [optional] [default to null]
+ **status** | **string** | Play Status of item *(Optional)* | [optional] [default to null]
+ **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
+ **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
+ **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
+ **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -254,127 +275,139 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **playlistPostMerge**
+
+## playlistPostMerge
 
 Post a playlist, do not remove previously imported items
 
 Post a playlist, do not remove previously imported items
 
 ### Example
+
 ```bash
 radiomanager-cli playlistPostMerge
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**Data_2**](Data_2.md) | Data *(Optional)* | [optional]
+ **data** | [**InlineObject2**](InlineObject2.md) |  | [optional]
 
 ### Return type
 
-[**Inline_response_202**](Inline_response_202.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **playlistPostStructure**
+
+## playlistPostStructure
 
 Post a playlist, keep current structure
 
 Post a playlist, keep current structure
 
 ### Example
+
 ```bash
 radiomanager-cli playlistPostStructure
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**Data_1**](Data_1.md) | Data *(Optional)* | [optional]
+ **data** | [**InlineObject1**](InlineObject1.md) |  | [optional]
 
 ### Return type
 
-[**Inline_response_202**](Inline_response_202.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **playlistPostTiming**
+
+## playlistPostTiming
 
 Post a playlist
 
 Post a playlist
 
 ### Example
+
 ```bash
 radiomanager-cli playlistPostTiming
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**Data**](Data.md) | Data *(Optional)* | [optional]
+ **data** | [**InlineObject**](InlineObject.md) |  | [optional]
 
 ### Return type
 
-[**Inline_response_202**](Inline_response_202.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **stopCurrentItem**
+
+## stopCurrentItem
 
 Stop an Item
 
 Set a current playing or specific item on played
 
 ### Example
+
 ```bash
 radiomanager-cli stopCurrentItem
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**Data_3**](Data_3.md) | Data *(Optional)* | [optional]
+ **data** | [**InlineObject3**](InlineObject3.md) |  | [optional]
 
 ### Return type
 
@@ -382,31 +415,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **updateItemById**
+
+## updateItemById
 
 Update extended item details by ID.
 
 Update item by id.
 
 ### Example
+
 ```bash
 radiomanager-cli updateItemById id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Item **(Required)** |
+ **id** | **integer** | ID of Item **(Required)** | [default to 0]
  **data** | [**ItemDataInput**](ItemDataInput.md) | Data *(Optional)* | [optional]
 
 ### Return type
@@ -415,12 +451,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

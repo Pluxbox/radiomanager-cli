@@ -11,18 +11,21 @@ Method | HTTP request | Description
 [**updateCampaignByID**](CampaignApi.md#updateCampaignByID) | **PATCH** /campaigns/{id} | Update campaign by id
 
 
-## **createCampaign**
+
+## createCampaign
 
 Create campaign.
 
 Create campaign.
 
 ### Example
+
 ```bash
 radiomanager-cli createCampaign
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -34,31 +37,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **deleteCampaignById**
+
+## deleteCampaignById
 
 Delete campaign by id
 
 Delete campaign by id
 
 ### Example
+
 ```bash
 radiomanager-cli deleteCampaignById id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Campaign **(Required)** |
+ **id** | **integer** | ID of Campaign **(Required)** | [default to 0]
 
 ### Return type
 
@@ -66,32 +72,35 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getCampaignById**
+
+## getCampaignById
 
 Get campaign by id
 
 Get campaign by id
 
 ### Example
+
 ```bash
 radiomanager-cli getCampaignById id=value  _external_station_id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Campaign **(Required)** |
- **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional]
+ **id** | **integer** | ID of Campaign **(Required)** | [default to 0]
+ **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -99,39 +108,42 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **listCampaigns**
+
+## listCampaigns
 
 Get all campaigns.
 
 List all campaigns.
 
 ### Example
+
 ```bash
 radiomanager-cli listCampaigns  page=value  item_id=value  model_type_id=value  start-min=value  start-max=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional]
- **itemId** | **integer** | Search on Item ID *(Optional)* '(Relation)' | [optional]
- **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional]
- **startMin** | **string** | Minimum start date *(Optional)* | [optional]
- **startMax** | **string** | Maximum start date *(Optional)* | [optional]
- **limit** | **integer** | Results per page *(Optional)* | [optional]
- **orderBy** | **string** | Field to order the results *(Optional)* | [optional]
- **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional]
- **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional]
+ **page** | **integer** | Current page *(Optional)* | [optional] [default to null]
+ **itemId** | **integer** | Search on Item ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **startMin** | **string** | Minimum start date *(Optional)* | [optional] [default to null]
+ **startMax** | **string** | Maximum start date *(Optional)* | [optional] [default to null]
+ **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
+ **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
+ **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
+ **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -139,31 +151,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **updateCampaignByID**
+
+## updateCampaignByID
 
 Update campaign by id
 
 Update campaign by id
 
 ### Example
+
 ```bash
 radiomanager-cli updateCampaignByID id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Campaign **(Required)** |
+ **id** | **integer** | ID of Campaign **(Required)** | [default to 0]
  **data** | [**CampaignDataInput**](CampaignDataInput.md) | Data *(Optional)* | [optional]
 
 ### Return type
@@ -172,12 +187,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

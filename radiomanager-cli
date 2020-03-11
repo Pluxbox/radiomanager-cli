@@ -5,10 +5,9 @@
 # ! Note:
 # !
 # ! THIS SCRIPT HAS BEEN AUTOMATICALLY GENERATED USING
-# ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
-# ! FROM SWAGGER SPECIFICATION IN JSON.
+# ! openapi-generator (https://openapi-generator.tech)
+# ! FROM OPENAPI SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2019-02-01T15:41:55.138+01:00
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -251,6 +250,7 @@ operation_parameters_minimum_occurrences["listPrograms:::presenter_id"]=0
 operation_parameters_minimum_occurrences["listPrograms:::genre_id"]=0
 operation_parameters_minimum_occurrences["listPrograms:::block_id"]=0
 operation_parameters_minimum_occurrences["listPrograms:::item_id"]=0
+operation_parameters_minimum_occurrences["listPrograms:::disabled"]=0
 operation_parameters_minimum_occurrences["listPrograms:::limit"]=0
 operation_parameters_minimum_occurrences["listPrograms:::order-by"]=0
 operation_parameters_minimum_occurrences["listPrograms:::order-direction"]=0
@@ -459,6 +459,7 @@ operation_parameters_maximum_occurrences["listPrograms:::presenter_id"]=0
 operation_parameters_maximum_occurrences["listPrograms:::genre_id"]=0
 operation_parameters_maximum_occurrences["listPrograms:::block_id"]=0
 operation_parameters_maximum_occurrences["listPrograms:::item_id"]=0
+operation_parameters_maximum_occurrences["listPrograms:::disabled"]=0
 operation_parameters_maximum_occurrences["listPrograms:::limit"]=0
 operation_parameters_maximum_occurrences["listPrograms:::order-by"]=0
 operation_parameters_maximum_occurrences["listPrograms:::order-direction"]=0
@@ -664,6 +665,7 @@ operation_parameters_collection_type["listPrograms:::presenter_id"]=""
 operation_parameters_collection_type["listPrograms:::genre_id"]=""
 operation_parameters_collection_type["listPrograms:::block_id"]=""
 operation_parameters_collection_type["listPrograms:::item_id"]=""
+operation_parameters_collection_type["listPrograms:::disabled"]=""
 operation_parameters_collection_type["listPrograms:::limit"]=""
 operation_parameters_collection_type["listPrograms:::order-by"]=""
 operation_parameters_collection_type["listPrograms:::order-direction"]=""
@@ -951,18 +953,16 @@ build_request_path() {
 
     local query_request_part=""
 
-    local count=0
     for qparam in "${query_params[@]}"; do
+        if [[ "${operation_parameters[$qparam]}" == "" ]]; then
+            continue
+        fi
+
         # Get the array of parameter values
         local parameter_value=""
         local parameter_values
         mapfile -t parameter_values < <(sed -e 's/'":::"'/\n/g' <<<"${operation_parameters[$qparam]}")
 
-        if [[ -n "${parameter_values[*]}" ]]; then
-            if [[ $((count++)) -gt 0 ]]; then
-                query_request_part+="&"
-            fi
-        fi
 
 
         #
@@ -1030,6 +1030,9 @@ build_request_path() {
         fi
 
         if [[ -n "${parameter_value}" ]]; then
+            if [[ -n "${query_request_part}" ]]; then
+                query_request_part+="&"
+            fi
             query_request_part+="${parameter_value}"
         fi
 
@@ -1236,7 +1239,7 @@ echo "  $ops" | column -t -s ';'
     echo -e "  -V,--version\\t\\t\\t\\tPrint API version"
     echo -e "  --about\\t\\t\\t\\tPrint the information about service"
     echo -e "  --host ${CYAN}<url>${OFF}\\t\\t\\t\\tSpecify the host URL "
-echo -e "              \\t\\t\\t\\t(e.g. 'https://staging.radiomanager.io')"
+echo -e "              \\t\\t\\t\\t(e.g. 'https://radiomanager.io')"
 
     echo -e "  --force\\t\\t\\t\\tForce command invocation in spite of missing"
     echo -e "         \\t\\t\\t\\trequired parameters or wrong content type"
@@ -1293,8 +1296,8 @@ print_getBlockById_help() {
     echo -e "Get block by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Block **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Block **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1365,23 +1368,23 @@ print_listBlocks_help() {
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 1)${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Broadcast ID *(Optional)* '(Relation)'${YELLOW} Specify as: broadcast_id=value${OFF}" \
+    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Broadcast ID *(Optional)* '(Relation)'${YELLOW} Specify as: broadcast_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
+    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Program ID *(Optional)* '(Relation)'${YELLOW} Specify as: program_id=value${OFF}" \
+    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Program ID *(Optional)* '(Relation)'${YELLOW} Specify as: program_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}start-min${OFF} ${BLUE}[string]${OFF}${OFF} - Minimum start date *(Optional)*${YELLOW} Specify as: start-min=value${OFF}" \
+    echo -e "  * ${GREEN}start-min${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Minimum start date *(Optional)*${YELLOW} Specify as: start-min=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}start-max${OFF} ${BLUE}[string]${OFF}${OFF} - Maximum start date *(Optional)*${YELLOW} Specify as: start-max=value${OFF}" \
+    echo -e "  * ${GREEN}start-max${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Maximum start date *(Optional)*${YELLOW} Specify as: start-max=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF}${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF}${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
+    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF}${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1433,7 +1436,7 @@ print_deleteBroadcastById_help() {
     echo -e "Delete broadcast by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Broadcast **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Broadcast **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -1457,8 +1460,8 @@ print_getBroadcastById_help() {
     echo -e "Get broadcast by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Broadcast **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Broadcast **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1483,7 +1486,7 @@ print_getCurrentBroadcast_help() {
     echo -e "Get current Broadcast" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}withunpublished${OFF} ${BLUE}[boolean]${OFF}${OFF} - Show Unpublished *(Optional)*${YELLOW} Specify as: withunpublished=value${OFF}" \
+    echo -e "  * ${GREEN}withunpublished${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: null)${OFF} - Show Unpublished *(Optional)*${YELLOW} Specify as: withunpublished=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1508,9 +1511,9 @@ print_getDailyEPG_help() {
     echo -e "Get current Broadcast" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}date${OFF} ${BLUE}[string]${OFF}${OFF} - Date *(Optional)*${YELLOW} Specify as: date=value${OFF}" \
+    echo -e "  * ${GREEN}date${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Date *(Optional)*${YELLOW} Specify as: date=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}withunpublished${OFF} ${BLUE}[boolean]${OFF}${OFF} - Show Unpublished *(Optional)*${YELLOW} Specify as: withunpublished=value${OFF}" \
+    echo -e "  * ${GREEN}withunpublished${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: null)${OFF} - Show Unpublished *(Optional)*${YELLOW} Specify as: withunpublished=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1535,9 +1538,9 @@ print_getEPGByDate_help() {
     echo -e "Get EPG by date" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}date${OFF} ${BLUE}[string]${OFF}${OFF} - Date *(Optional)*${YELLOW} Specify as: date=value${OFF}" \
+    echo -e "  * ${GREEN}date${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Date *(Optional)*${YELLOW} Specify as: date=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}withunpublished${OFF} ${BLUE}[boolean]${OFF}${OFF} - Show Unpublished *(Optional)*${YELLOW} Specify as: withunpublished=value${OFF}" \
+    echo -e "  * ${GREEN}withunpublished${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: null)${OFF} - Show Unpublished *(Optional)*${YELLOW} Specify as: withunpublished=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1562,7 +1565,7 @@ print_getNextBroadcast_help() {
     echo -e "Get next Broadcast" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}withunpublished${OFF} ${BLUE}[boolean]${OFF}${OFF} - Show Unpublished *(Optional)*${YELLOW} Specify as: withunpublished=value${OFF}" \
+    echo -e "  * ${GREEN}withunpublished${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: null)${OFF} - Show Unpublished *(Optional)*${YELLOW} Specify as: withunpublished=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1587,9 +1590,9 @@ print_getWeeklyEPG_help() {
     echo -e "Get weekly EPG" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}date${OFF} ${BLUE}[string]${OFF}${OFF} - Date *(Optional)*${YELLOW} Specify as: date=value${OFF}" \
+    echo -e "  * ${GREEN}date${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Date *(Optional)*${YELLOW} Specify as: date=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}withunpublished${OFF} ${BLUE}[boolean]${OFF}${OFF} - Show Unpublished *(Optional)*${YELLOW} Specify as: withunpublished=value${OFF}" \
+    echo -e "  * ${GREEN}withunpublished${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: null)${OFF} - Show Unpublished *(Optional)*${YELLOW} Specify as: withunpublished=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1614,31 +1617,31 @@ print_listBroadcasts_help() {
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 1)${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Program ID *(Optional)* '(Relation)'${YELLOW} Specify as: program_id=value${OFF}" \
+    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Program ID *(Optional)* '(Relation)'${YELLOW} Specify as: program_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}block_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Block ID *(Optional)* '(Relation)'${YELLOW} Specify as: block_id=value${OFF}" \
+    echo -e "  * ${GREEN}block_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Block ID *(Optional)* '(Relation)'${YELLOW} Specify as: block_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on ModelType ID *(Optional)* '(Relation)'${YELLOW} Specify as: model_type_id=value${OFF}" \
+    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on ModelType ID *(Optional)* '(Relation)'${YELLOW} Specify as: model_type_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}tag_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Tag ID *(Optional)* '(Relation)'${YELLOW} Specify as: tag_id=value${OFF}" \
+    echo -e "  * ${GREEN}tag_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Tag ID *(Optional)* '(Relation)'${YELLOW} Specify as: tag_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}presenter_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Presenter ID *(Optional)* '(Relation)'${YELLOW} Specify as: presenter_id=value${OFF}" \
+    echo -e "  * ${GREEN}presenter_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Presenter ID *(Optional)* '(Relation)'${YELLOW} Specify as: presenter_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}genre_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Genre ID *(Optional)* '(Relation)'${YELLOW} Specify as: genre_id=value${OFF}" \
+    echo -e "  * ${GREEN}genre_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Genre ID *(Optional)* '(Relation)'${YELLOW} Specify as: genre_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
+    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}start-min${OFF} ${BLUE}[string]${OFF}${OFF} - Minimum start date *(Optional)*${YELLOW} Specify as: start-min=value${OFF}" \
+    echo -e "  * ${GREEN}start-min${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Minimum start date *(Optional)*${YELLOW} Specify as: start-min=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}start-max${OFF} ${BLUE}[string]${OFF}${OFF} - Maximum start date *(Optional)*${YELLOW} Specify as: start-max=value${OFF}" \
+    echo -e "  * ${GREEN}start-max${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Maximum start date *(Optional)*${YELLOW} Specify as: start-max=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF}${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF}${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
+    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF}${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1663,8 +1666,8 @@ print_printBroadcastById_help() {
     echo -e "Print broadcast by id with template" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Broadcast **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}template_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on template ID *(Optional)*${YELLOW} Specify as: template_id=value${OFF}" \
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Broadcast **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}template_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on template ID *(Optional)*${YELLOW} Specify as: template_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1689,7 +1692,7 @@ print_updateBroadcastByID_help() {
     echo -e "Update broadcast by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Broadcast **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Broadcast **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Data *(Optional)*" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
@@ -1744,7 +1747,7 @@ print_deleteCampaignById_help() {
     echo -e "Delete campaign by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Campaign **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Campaign **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -1768,8 +1771,8 @@ print_getCampaignById_help() {
     echo -e "Get campaign by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Campaign **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Campaign **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1794,23 +1797,23 @@ print_listCampaigns_help() {
     echo -e "List all campaigns." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF}${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
+    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
+    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on ModelType ID *(Optional)* '(Relation)'${YELLOW} Specify as: model_type_id=value${OFF}" \
+    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on ModelType ID *(Optional)* '(Relation)'${YELLOW} Specify as: model_type_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}start-min${OFF} ${BLUE}[string]${OFF}${OFF} - Minimum start date *(Optional)*${YELLOW} Specify as: start-min=value${OFF}" \
+    echo -e "  * ${GREEN}start-min${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Minimum start date *(Optional)*${YELLOW} Specify as: start-min=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}start-max${OFF} ${BLUE}[string]${OFF}${OFF} - Maximum start date *(Optional)*${YELLOW} Specify as: start-max=value${OFF}" \
+    echo -e "  * ${GREEN}start-max${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Maximum start date *(Optional)*${YELLOW} Specify as: start-max=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF}${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF}${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
+    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF}${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1835,7 +1838,7 @@ print_updateCampaignByID_help() {
     echo -e "Update campaign by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Campaign **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Campaign **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Data *(Optional)*" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
@@ -1890,7 +1893,7 @@ print_deleteContactById_help() {
     echo -e "Delete contact by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Contact **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Contact **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -1914,8 +1917,8 @@ print_getContactById_help() {
     echo -e "Get contact by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Contact **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Contact **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1942,19 +1945,19 @@ print_listContacts_help() {
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 1)${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
+    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on ModelType ID *(Optional)* '(Relation)'${YELLOW} Specify as: model_type_id=value${OFF}" \
+    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on ModelType ID *(Optional)* '(Relation)'${YELLOW} Specify as: model_type_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}tag_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Tag ID *(Optional)* '(Relation)'${YELLOW} Specify as: tag_id=value${OFF}" \
+    echo -e "  * ${GREEN}tag_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Tag ID *(Optional)* '(Relation)'${YELLOW} Specify as: tag_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF}${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF}${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
+    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF}${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1979,7 +1982,7 @@ print_updateContactByID_help() {
     echo -e "Update contact by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Contact **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Contact **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Data *(Optional)*" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
@@ -2007,8 +2010,8 @@ print_getGenreById_help() {
     echo -e "Get genre by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Genre **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Genre **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2033,21 +2036,21 @@ print_listGenres_help() {
     echo -e "List all genres." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF}${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
+    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}parent_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Parent ID of Genre *(Optional)*${YELLOW} Specify as: parent_id=value${OFF}" \
+    echo -e "  * ${GREEN}parent_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Parent ID of Genre *(Optional)*${YELLOW} Specify as: parent_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Program ID *(Optional)* '(Relation)'${YELLOW} Specify as: program_id=value${OFF}" \
+    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Program ID *(Optional)* '(Relation)'${YELLOW} Specify as: program_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Broadcast ID *(Optional)* '(Relation)'${YELLOW} Specify as: broadcast_id=value${OFF}" \
+    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Broadcast ID *(Optional)* '(Relation)'${YELLOW} Specify as: broadcast_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF}${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF}${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
+    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF}${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2145,7 +2148,7 @@ print_deleteItemById_help() {
     echo -e "Delete item by id." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Item **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Item **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=202
@@ -2167,7 +2170,7 @@ print_getCurrentItem_help() {
     echo -e "Get current Item" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}lastplayed${OFF} ${BLUE}[boolean]${OFF}${OFF} - Show last played item if there is no current item*(Optional)*${YELLOW} Specify as: lastplayed=value${OFF}" \
+    echo -e "  * ${GREEN}lastplayed${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: null)${OFF} - Show last played item if there is no current item*(Optional)*${YELLOW} Specify as: lastplayed=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2192,8 +2195,8 @@ print_getItemById_help() {
     echo -e "Read item by id." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Item **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Item **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2218,47 +2221,47 @@ print_listItems_help() {
     echo -e "Get a list of all the items currently in your station. This feature supports pagination and will give a maximum results of 50 items back." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF}${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
+    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}block_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Block ID *(Optional)* '(Relation)'${YELLOW} Specify as: block_id=value${OFF}" \
+    echo -e "  * ${GREEN}block_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Block ID *(Optional)* '(Relation)'${YELLOW} Specify as: block_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Broadcast ID *(Optional)* '(Relation)'${YELLOW} Specify as: broadcast_id=value${OFF}" \
+    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Broadcast ID *(Optional)* '(Relation)'${YELLOW} Specify as: broadcast_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on ModelType ID *(Optional)* '(Relation)'${YELLOW} Specify as: model_type_id=value${OFF}" \
+    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on ModelType ID *(Optional)* '(Relation)'${YELLOW} Specify as: model_type_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}tag_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Tag ID *(Optional)* '(Relation)'${YELLOW} Specify as: tag_id=value${OFF}" \
+    echo -e "  * ${GREEN}tag_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Tag ID *(Optional)* '(Relation)'${YELLOW} Specify as: tag_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}campaign_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Campaign ID *(Optional)* '(Relation)'${YELLOW} Specify as: campaign_id=value${OFF}" \
+    echo -e "  * ${GREEN}campaign_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Campaign ID *(Optional)* '(Relation)'${YELLOW} Specify as: campaign_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}contact_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Contact ID *(Optional)* '(Relation)'${YELLOW} Specify as: contact_id=value${OFF}" \
+    echo -e "  * ${GREEN}contact_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Contact ID *(Optional)* '(Relation)'${YELLOW} Specify as: contact_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}program_draft_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Program Draft ID *(Optional)*${YELLOW} Specify as: program_draft_id=value${OFF}" \
+    echo -e "  * ${GREEN}program_draft_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Program Draft ID *(Optional)*${YELLOW} Specify as: program_draft_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}user_draft_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on User Draft ID *(Optional)*${YELLOW} Specify as: user_draft_id=value${OFF}" \
+    echo -e "  * ${GREEN}user_draft_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on User Draft ID *(Optional)*${YELLOW} Specify as: user_draft_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}station_draft_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Station Draft ID *(Optional)*${YELLOW} Specify as: station_draft_id=value${OFF}" \
+    echo -e "  * ${GREEN}station_draft_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Station Draft ID *(Optional)*${YELLOW} Specify as: station_draft_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Program ID *(Optional)* '(Relation)'${YELLOW} Specify as: program_id=value${OFF}" \
+    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Program ID *(Optional)* '(Relation)'${YELLOW} Specify as: program_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}external_id${OFF} ${BLUE}[string]${OFF}${OFF} - Search on External ID *(Optional)*${YELLOW} Specify as: external_id=value${OFF}" \
+    echo -e "  * ${GREEN}external_id${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Search on External ID *(Optional)*${YELLOW} Specify as: external_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}start-min${OFF} ${BLUE}[string]${OFF}${OFF} - Minimum start date *(Optional)*${YELLOW} Specify as: start-min=value${OFF}" \
+    echo -e "  * ${GREEN}start-min${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Minimum start date *(Optional)*${YELLOW} Specify as: start-min=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}start-max${OFF} ${BLUE}[string]${OFF}${OFF} - Maximum start date *(Optional)*${YELLOW} Specify as: start-max=value${OFF}" \
+    echo -e "  * ${GREEN}start-max${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Maximum start date *(Optional)*${YELLOW} Specify as: start-max=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}duration-min${OFF} ${BLUE}[integer]${OFF}${OFF} - Minimum duration (seconds) *(Optional)*${YELLOW} Specify as: duration-min=value${OFF}" \
+    echo -e "  * ${GREEN}duration-min${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Minimum duration (seconds) *(Optional)*${YELLOW} Specify as: duration-min=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}duration-max${OFF} ${BLUE}[integer]${OFF}${OFF} - Maximum duration (seconds) *(Optional)*${YELLOW} Specify as: duration-max=value${OFF}" \
+    echo -e "  * ${GREEN}duration-max${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Maximum duration (seconds) *(Optional)*${YELLOW} Specify as: duration-max=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}status${OFF} ${BLUE}[string]${OFF}${OFF} - Play Status of item *(Optional)*${YELLOW} Specify as: status=value${OFF}" \
+    echo -e "  * ${GREEN}status${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Play Status of item *(Optional)*${YELLOW} Specify as: status=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF}${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF}${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
+    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF}${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2285,7 +2288,7 @@ print_playlistPostMerge_help() {
     echo -e "Post a playlist, do not remove previously imported items" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Data *(Optional)*" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2308,7 +2311,7 @@ print_playlistPostStructure_help() {
     echo -e "Post a playlist, keep current structure" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Data *(Optional)*" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2331,7 +2334,7 @@ print_playlistPostTiming_help() {
     echo -e "Post a playlist" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Data *(Optional)*" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2354,7 +2357,7 @@ print_stopCurrentItem_help() {
     echo -e "Set a current playing or specific item on played" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Data *(Optional)*" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2381,7 +2384,7 @@ print_updateItemById_help() {
     echo -e "Update item by id." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Item **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Item **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Data *(Optional)*" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
@@ -2409,8 +2412,8 @@ print_getModelTypeById_help() {
     echo -e "Get modelType by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of ModelType **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of ModelType **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2435,29 +2438,29 @@ print_listModelTypes_help() {
     echo -e "List all modelTypes." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF}${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
+    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Program ID *(Optional)*${YELLOW} Specify as: program_id=value${OFF}" \
+    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Program ID *(Optional)*${YELLOW} Specify as: program_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Broadcast ID *(Optional)*${YELLOW} Specify as: broadcast_id=value${OFF}" \
+    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Broadcast ID *(Optional)*${YELLOW} Specify as: broadcast_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Item ID *(Optional)*${YELLOW} Specify as: item_id=value${OFF}" \
+    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Item ID *(Optional)*${YELLOW} Specify as: item_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}campaign_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Campaign ID *(Optional)*${YELLOW} Specify as: campaign_id=value${OFF}" \
+    echo -e "  * ${GREEN}campaign_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Campaign ID *(Optional)*${YELLOW} Specify as: campaign_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}presenter_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Presenter ID *(Optional)*${YELLOW} Specify as: presenter_id=value${OFF}" \
+    echo -e "  * ${GREEN}presenter_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Presenter ID *(Optional)*${YELLOW} Specify as: presenter_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}contact_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Contact ID *(Optional)*${YELLOW} Specify as: contact_id=value${OFF}" \
+    echo -e "  * ${GREEN}contact_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Contact ID *(Optional)*${YELLOW} Specify as: contact_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}model${OFF} ${BLUE}[string]${OFF}${OFF} - Search Modeltypes for certain Model *(Optional)*${YELLOW} Specify as: model=value${OFF}" \
+    echo -e "  * ${GREEN}model${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Search Modeltypes for certain Model *(Optional)*${YELLOW} Specify as: model=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF}${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF}${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
+    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF}${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2509,7 +2512,7 @@ print_deletePresenterById_help() {
     echo -e "Delete presenter by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - id of presenter ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - id of presenter ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -2533,8 +2536,8 @@ print_getPresenterById_help() {
     echo -e "Get presenter by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - id of Presenter ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - id of Presenter ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2559,21 +2562,21 @@ print_listPresenters_help() {
     echo -e "List all presenters." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF}${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
+    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Program ID *(Optional)* '(Relation)'${YELLOW} Specify as: program_id=value${OFF}" \
+    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Program ID *(Optional)* '(Relation)'${YELLOW} Specify as: program_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Broadcast ID *(Optional)* '(Relation)'${YELLOW} Specify as: broadcast_id=value${OFF}" \
+    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Broadcast ID *(Optional)* '(Relation)'${YELLOW} Specify as: broadcast_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on ModelType ID (Optional)${YELLOW} Specify as: model_type_id=value${OFF}" \
+    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on ModelType ID (Optional)${YELLOW} Specify as: model_type_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF}${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF}${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
+    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF}${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2598,7 +2601,7 @@ print_updatePresenterByID_help() {
     echo -e "Update presenter by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - id of Presenter ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - id of Presenter ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Data *(Optional)*" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
@@ -2653,7 +2656,7 @@ print_deleteProgramById_help() {
     echo -e "Delete program by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of program **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of program **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -2677,8 +2680,8 @@ print_getProgramById_help() {
     echo -e "Get program by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Program **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Program **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2703,29 +2706,31 @@ print_listPrograms_help() {
     echo -e "List all programs." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF}${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
+    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Broadcast ID *(Optional)* '(Relation)'${YELLOW} Specify as: broadcast_id=value${OFF}" \
+    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Broadcast ID *(Optional)* '(Relation)'${YELLOW} Specify as: broadcast_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on ModelType ID *(Optional)* '(Relation)'${YELLOW} Specify as: model_type_id=value${OFF}" \
+    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on ModelType ID *(Optional)* '(Relation)'${YELLOW} Specify as: model_type_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}tag_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Tag ID *(Optional)* '(Relation)'${YELLOW} Specify as: tag_id=value${OFF}" \
+    echo -e "  * ${GREEN}tag_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Tag ID *(Optional)* '(Relation)'${YELLOW} Specify as: tag_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}presenter_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Presenter ID *(Optional)* '(Relation)'${YELLOW} Specify as: presenter_id=value${OFF}" \
+    echo -e "  * ${GREEN}presenter_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Presenter ID *(Optional)* '(Relation)'${YELLOW} Specify as: presenter_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}genre_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Genre ID *(Optional)*${YELLOW} Specify as: genre_id=value${OFF}" \
+    echo -e "  * ${GREEN}genre_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Genre ID *(Optional)*${YELLOW} Specify as: genre_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}block_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Block ID *(Optional)* '(Relation)'${YELLOW} Specify as: block_id=value${OFF}" \
+    echo -e "  * ${GREEN}block_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Block ID *(Optional)* '(Relation)'${YELLOW} Specify as: block_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
+    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF}${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}disabled${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Disabled status *(Optional)*${YELLOW} Specify as: disabled=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF}${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF}${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2750,7 +2755,7 @@ print_updateProgramByID_help() {
     echo -e "Update program by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Program **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Program **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Data *(Optional)*" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
@@ -2823,7 +2828,7 @@ print_deleteStoryById_help() {
     echo -e "Delete story by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Story **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Story **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -2847,8 +2852,8 @@ print_getStoryById_help() {
     echo -e "Get story by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Story **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Story **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2875,19 +2880,19 @@ print_listStories_help() {
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 1)${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
+    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on ModelType ID *(Optional)* '(Relation)'${YELLOW} Specify as: model_type_id=value${OFF}" \
+    echo -e "  * ${GREEN}model_type_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on ModelType ID *(Optional)* '(Relation)'${YELLOW} Specify as: model_type_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}tag_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Tag ID *(Optional)* '(Relation)'${YELLOW} Specify as: tag_id=value${OFF}" \
+    echo -e "  * ${GREEN}tag_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Tag ID *(Optional)* '(Relation)'${YELLOW} Specify as: tag_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF}${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF}${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
+    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF}${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2912,7 +2917,7 @@ print_updateStoryByID_help() {
     echo -e "Update story by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Story **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Story **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Data *(Optional)*" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
@@ -2940,7 +2945,7 @@ print_getStringsByName_help() {
     echo -e "Get Strings (formatted)" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}name${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF}${OFF} - Name of Strings **(Required)** ${YELLOW}Specify as: name=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}name${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Name of Strings **(Required)** ${YELLOW}Specify as: name=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}full_model${OFF} ${BLUE}[boolean]${OFF} ${RED}(required)${OFF} ${CYAN}(default: true)${OFF} - Full model or content only **(Required)**${YELLOW} Specify as: full_model=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
@@ -2991,7 +2996,7 @@ print_deleteTagById_help() {
     echo -e "Delete tag by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Tag **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Tag **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -3015,8 +3020,8 @@ print_getTagById_help() {
     echo -e "Get tags by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Tag **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Tag **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -3041,23 +3046,23 @@ print_listTags_help() {
     echo -e "Get a list of all the tags currently in your station. This feature supports pagination and will give a maximum results of 50 tags back." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF}${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
+    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Program ID *(Optional)* '(Relation)'${YELLOW} Specify as: program_id=value${OFF}" \
+    echo -e "  * ${GREEN}program_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Program ID *(Optional)* '(Relation)'${YELLOW} Specify as: program_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
+    echo -e "  * ${GREEN}item_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Item ID *(Optional)* '(Relation)'${YELLOW} Specify as: item_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Broadcast ID *(Optional)* '(Relation)'${YELLOW} Specify as: broadcast_id=value${OFF}" \
+    echo -e "  * ${GREEN}broadcast_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Broadcast ID *(Optional)* '(Relation)'${YELLOW} Specify as: broadcast_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}contact_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Contact ID *(Optional)* '(Relation)'${YELLOW} Specify as: contact_id=value${OFF}" \
+    echo -e "  * ${GREEN}contact_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Contact ID *(Optional)* '(Relation)'${YELLOW} Specify as: contact_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF}${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF}${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
+    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF}${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
+    echo -e "  * ${GREEN}_external_station_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Query on a different (content providing) station *(Optional)*${YELLOW} Specify as: _external_station_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -3082,7 +3087,7 @@ print_updateTagByID_help() {
     echo -e "Update tag by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - ID of Tag **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - ID of Tag **(Required)** ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Data *(Optional)*" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
@@ -3110,7 +3115,7 @@ print_deleteUserById_help() {
     echo -e "Remove user from station by Id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - id of User ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - id of User ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -3134,7 +3139,7 @@ print_getUserById_help() {
     echo -e "Get user by id" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF}${OFF} - id of User ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: 0)${OFF} - id of User ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -3187,13 +3192,13 @@ print_listUsers_help() {
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 1)${OFF} - Current page *(Optional)*${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}role_id${OFF} ${BLUE}[integer]${OFF}${OFF} - Search on Role ID *(Optional)*${YELLOW} Specify as: role_id=value${OFF}" \
+    echo -e "  * ${GREEN}role_id${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Search on Role ID *(Optional)*${YELLOW} Specify as: role_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF}${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Results per page *(Optional)*${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF}${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
+    echo -e "  * ${GREEN}order-by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Field to order the results *(Optional)*${YELLOW} Specify as: order-by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF}${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
+    echo -e "  * ${GREEN}order-direction${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Direction of ordering *(Optional)*${YELLOW} Specify as: order-direction=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -3405,7 +3410,7 @@ call_createBroadcast() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -3807,7 +3812,7 @@ call_updateBroadcastByID() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -3885,7 +3890,7 @@ call_createCampaign() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -4071,7 +4076,7 @@ call_updateCampaignByID() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -4149,7 +4154,7 @@ call_createContact() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -4335,7 +4340,7 @@ call_updateContactByID() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -4485,7 +4490,7 @@ call_createItem() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -4563,7 +4568,7 @@ call_currentItemPostStructure() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -4641,7 +4646,7 @@ call_currentItemPostTiming() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -4863,7 +4868,7 @@ call_playlistPostMerge() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -4941,7 +4946,7 @@ call_playlistPostStructure() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -5019,7 +5024,7 @@ call_playlistPostTiming() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -5097,7 +5102,7 @@ call_stopCurrentItem() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -5175,7 +5180,7 @@ call_updateItemById() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -5325,7 +5330,7 @@ call_createPresenter() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -5511,7 +5516,7 @@ call_updatePresenterByID() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -5589,7 +5594,7 @@ call_createProgram() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -5717,7 +5722,7 @@ call_listPrograms() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(page broadcast_id model_type_id tag_id presenter_id genre_id block_id item_id limit order-by order-direction _external_station_id  )
+    local query_parameter_names=(page broadcast_id model_type_id tag_id presenter_id genre_id block_id item_id disabled limit order-by order-direction _external_station_id  )
     local path
 
     if ! path=$(build_request_path "/api/v2/programs" path_parameter_names query_parameter_names); then
@@ -5775,7 +5780,7 @@ call_updateProgramByID() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -5889,7 +5894,7 @@ call_createStory() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -6075,7 +6080,7 @@ call_updateStoryByID() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -6189,7 +6194,7 @@ call_createTag() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -6375,7 +6380,7 @@ call_updateTagByID() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then
@@ -6525,7 +6530,7 @@ call_inviteUserByMail() {
 
     #
     # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the Swagger specification
+    # command line. If not try to set them based on the OpenAPI specification
     # if values produces and consumes are defined unambigously
     #
     if [[ -z $header_content_type ]]; then

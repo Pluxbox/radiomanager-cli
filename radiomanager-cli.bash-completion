@@ -5,10 +5,9 @@
 # ! Note:
 # !
 # ! THIS SCRIPT HAS BEEN AUTOMATICALLY GENERATED USING
-# ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
-# ! FROM SWAGGER SPECIFICATION IN JSON.
+# ! openapi-generator (https://openapi-generator.tech)
+# ! FROM OPENAPI SPECIFICATION IN JSON.
 # !
-# ! Generated on: 2019-02-01T15:41:55.138+01:00
 # !
 # !
 # ! System wide installation:
@@ -190,7 +189,7 @@ _radiomanager-cli()
     operation_parameters["createProgram"]=""
     operation_parameters["deleteProgramById"]="id= "
     operation_parameters["getProgramById"]="id= _external_station_id= "
-    operation_parameters["listPrograms"]="page= broadcast_id= model_type_id= tag_id= presenter_id= genre_id= block_id= item_id= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["listPrograms"]="page= broadcast_id= model_type_id= tag_id= presenter_id= genre_id= block_id= item_id= disabled= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["updateProgramByID"]="id= "
     operation_parameters["getStation"]=""
     operation_parameters["createStory"]=""
@@ -372,7 +371,7 @@ _radiomanager-cli()
     if [[ $cur =~ ^[A-Za-z_0-9]* ]]; then
         # If operation has not been yet selected, suggest the list of operations
         # otherwise suggest arguments of this operation as declared in the
-        # Swagger specification
+        # OpenAPI specification
         if [[ -z $operation ]]; then
             COMPREPLY=( $(compgen -W '${!operations[*]}' -- ${cur}) )
         else

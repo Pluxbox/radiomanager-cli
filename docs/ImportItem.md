@@ -3,14 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**model_type_id** | **integer** |  | [default to null]
-**external_id** | **string** |  | [default to null]
-**field_values** | **map** |  | [optional] [default to null]
+**modelUnderscoretypeUnderscoreid** | **integer** |  | [default to null]
+**externalUnderscoreid** | **string** |  | [default to null]
+**fieldUnderscorevalues** | [**map**](.md) |  | [optional] [default to null]
 **title** | **string** |  | [optional] [default to null]
 **duration** | **integer** |  | [optional] [default to null]
 **start** | **string** |  | [optional] [default to null]
 **recommended** | **boolean** |  | [optional] [default to null]
-**static_start** | **boolean** |  | [optional] [default to null]
+**staticUnderscorestart** | **boolean** |  | [optional] [default to null]
 **details** | **string** |  | [optional] [default to null]
 **contacts** | **array[integer]** |  | [optional] [default to null]
 **tags** | **array[integer]** |  | [optional] [default to null]

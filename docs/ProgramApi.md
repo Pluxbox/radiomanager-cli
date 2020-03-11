@@ -11,18 +11,21 @@ Method | HTTP request | Description
 [**updateProgramByID**](ProgramApi.md#updateProgramByID) | **PATCH** /programs/{id} | Update program by id
 
 
-## **createProgram**
+
+## createProgram
 
 Create program.
 
 Create program.
 
 ### Example
+
 ```bash
 radiomanager-cli createProgram
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -34,31 +37,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **deleteProgramById**
+
+## deleteProgramById
 
 Delete program by id
 
 Delete program by id
 
 ### Example
+
 ```bash
 radiomanager-cli deleteProgramById id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of program **(Required)** |
+ **id** | **integer** | ID of program **(Required)** | [default to 0]
 
 ### Return type
 
@@ -66,32 +72,35 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getProgramById**
+
+## getProgramById
 
 Get program by id
 
 Get program by id
 
 ### Example
+
 ```bash
 radiomanager-cli getProgramById id=value  _external_station_id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Program **(Required)** |
- **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional]
+ **id** | **integer** | ID of Program **(Required)** | [default to 0]
+ **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -99,42 +108,46 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **listPrograms**
+
+## listPrograms
 
 Get all programs.
 
 List all programs.
 
 ### Example
+
 ```bash
-radiomanager-cli listPrograms  page=value  broadcast_id=value  model_type_id=value  tag_id=value  presenter_id=value  genre_id=value  block_id=value  item_id=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
+radiomanager-cli listPrograms  page=value  broadcast_id=value  model_type_id=value  tag_id=value  presenter_id=value  genre_id=value  block_id=value  item_id=value  disabled=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional]
- **broadcastId** | **integer** | Search on Broadcast ID *(Optional)* '(Relation)' | [optional]
- **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional]
- **tagId** | **integer** | Search on Tag ID *(Optional)* '(Relation)' | [optional]
- **presenterId** | **integer** | Search on Presenter ID *(Optional)* '(Relation)' | [optional]
- **genreId** | **integer** | Search on Genre ID *(Optional)* | [optional]
- **blockId** | **integer** | Search on Block ID *(Optional)* '(Relation)' | [optional]
- **itemId** | **integer** | Search on Item ID *(Optional)* '(Relation)' | [optional]
- **limit** | **integer** | Results per page *(Optional)* | [optional]
- **orderBy** | **string** | Field to order the results *(Optional)* | [optional]
- **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional]
- **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional]
+ **page** | **integer** | Current page *(Optional)* | [optional] [default to null]
+ **broadcastId** | **integer** | Search on Broadcast ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **tagId** | **integer** | Search on Tag ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **presenterId** | **integer** | Search on Presenter ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **genreId** | **integer** | Search on Genre ID *(Optional)* | [optional] [default to null]
+ **blockId** | **integer** | Search on Block ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **itemId** | **integer** | Search on Item ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **disabled** | **integer** | Search on Disabled status *(Optional)* | [optional] [default to null]
+ **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
+ **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
+ **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
+ **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -142,31 +155,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **updateProgramByID**
+
+## updateProgramByID
 
 Update program by id
 
 Update program by id
 
 ### Example
+
 ```bash
 radiomanager-cli updateProgramByID id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Program **(Required)** |
+ **id** | **integer** | ID of Program **(Required)** | [default to 0]
  **data** | [**ProgramDataInput**](ProgramDataInput.md) | Data *(Optional)* | [optional]
 
 ### Return type
@@ -175,12 +191,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

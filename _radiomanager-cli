@@ -5,12 +5,11 @@
 # ! Note:
 # !
 # ! THIS SCRIPT HAS BEEN AUTOMATICALLY GENERATED USING
-# ! swagger-codegen (https://github.com/swagger-api/swagger-codegen)
-# ! FROM SWAGGER SPECIFICATION IN JSON.
+# ! openapi-generator (https://openapi-generator.tech)
+# ! FROM OPENAPI SPECIFICATION IN JSON.
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generated on: 2019-02-01T15:41:55.138+01:00
 # !
 # !
 # ! Installation:
@@ -798,6 +797,7 @@ case $state in
 "genre_id=:[QUERY] Search on Genre ID *(Optional)*"
 "block_id=:[QUERY] Search on Block ID *(Optional)* &#39;(Relation)&#39;"
 "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
+"disabled=:[QUERY] Search on Disabled status *(Optional)*"
 "limit=:[QUERY] Results per page *(Optional)*"
 "order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"

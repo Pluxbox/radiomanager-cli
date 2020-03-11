@@ -3,19 +3,19 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**model_type_id** | **integer** |  | [default to null]
-**field_values** | **map** |  | [optional] [default to null]
+**modelUnderscoretypeUnderscoreid** | **integer** |  | [default to null]
+**fieldUnderscorevalues** | [**map**](.md) |  | [optional] [default to null]
 **title** | **string** |  | [default to null]
 **disabled** | **boolean** |  | [optional] [default to null]
-**genre_id** | **integer** |  | [optional] [default to null]
+**genreUnderscoreid** | **integer** |  | [optional] [default to null]
 **description** | **string** |  | [optional] [default to null]
-**short_name** | **string** |  | [optional] [default to null]
-**medium_name** | **string** |  | [optional] [default to null]
+**shortUnderscorename** | **string** |  | [optional] [default to null]
+**mediumUnderscorename** | **string** |  | [optional] [default to null]
 **website** | **string** |  | [optional] [default to null]
 **email** | **string** |  | [optional] [default to null]
 **recommended** | **boolean** |  | [optional] [default to null]
 **language** | **string** |  | [optional] [default to null]
-**pty_code_id** | **integer** |  | [optional] [default to null]
+**ptyUnderscorecodeUnderscoreid** | **integer** |  | [optional] [default to null]
 **tags** | **array[integer]** |  | [optional] [default to null]
 **presenters** | **array[integer]** |  | [optional] [default to null]
 

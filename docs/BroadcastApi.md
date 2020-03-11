@@ -17,18 +17,21 @@ Method | HTTP request | Description
 [**updateBroadcastByID**](BroadcastApi.md#updateBroadcastByID) | **PATCH** /broadcasts/{id} | Update broadcast by id
 
 
-## **createBroadcast**
+
+## createBroadcast
 
 Create broadcast.
 
 Create broadcast.
 
 ### Example
+
 ```bash
 radiomanager-cli createBroadcast
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -40,31 +43,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **deleteBroadcastById**
+
+## deleteBroadcastById
 
 Delete broadcast by id
 
 Delete broadcast by id
 
 ### Example
+
 ```bash
 radiomanager-cli deleteBroadcastById id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Broadcast **(Required)** |
+ **id** | **integer** | ID of Broadcast **(Required)** | [default to 0]
 
 ### Return type
 
@@ -72,32 +78,35 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getBroadcastById**
+
+## getBroadcastById
 
 Get broadcast by id
 
 Get broadcast by id
 
 ### Example
+
 ```bash
 radiomanager-cli getBroadcastById id=value  _external_station_id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Broadcast **(Required)** |
- **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional]
+ **id** | **integer** | ID of Broadcast **(Required)** | [default to 0]
+ **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -105,31 +114,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getCurrentBroadcast**
+
+## getCurrentBroadcast
 
 Get current Broadcast
 
 Get current Broadcast
 
 ### Example
+
 ```bash
 radiomanager-cli getCurrentBroadcast  withunpublished=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **withunpublished** | **boolean** | Show Unpublished *(Optional)* | [optional]
+ **withunpublished** | **boolean** | Show Unpublished *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -137,32 +149,35 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getDailyEPG**
+
+## getDailyEPG
 
 Get daily EPG
 
 Get current Broadcast
 
 ### Example
+
 ```bash
 radiomanager-cli getDailyEPG  date=value  withunpublished=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **date** | **string** | Date *(Optional)* | [optional]
- **withunpublished** | **boolean** | Show Unpublished *(Optional)* | [optional]
+ **date** | **string** | Date *(Optional)* | [optional] [default to null]
+ **withunpublished** | **boolean** | Show Unpublished *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -170,32 +185,35 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getEPGByDate**
+
+## getEPGByDate
 
 Get EPG by date
 
 Get EPG by date
 
 ### Example
+
 ```bash
 radiomanager-cli getEPGByDate  date=value  withunpublished=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **date** | **string** | Date *(Optional)* | [optional]
- **withunpublished** | **boolean** | Show Unpublished *(Optional)* | [optional]
+ **date** | **string** | Date *(Optional)* | [optional] [default to null]
+ **withunpublished** | **boolean** | Show Unpublished *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -203,31 +221,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getNextBroadcast**
+
+## getNextBroadcast
 
 Get next Broadcast
 
 Get next Broadcast
 
 ### Example
+
 ```bash
 radiomanager-cli getNextBroadcast  withunpublished=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **withunpublished** | **boolean** | Show Unpublished *(Optional)* | [optional]
+ **withunpublished** | **boolean** | Show Unpublished *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -235,32 +256,35 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **getWeeklyEPG**
+
+## getWeeklyEPG
 
 Get weekly EPG
 
 Get weekly EPG
 
 ### Example
+
 ```bash
 radiomanager-cli getWeeklyEPG  date=value  withunpublished=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **date** | **string** | Date *(Optional)* | [optional]
- **withunpublished** | **boolean** | Show Unpublished *(Optional)* | [optional]
+ **date** | **string** | Date *(Optional)* | [optional] [default to null]
+ **withunpublished** | **boolean** | Show Unpublished *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -268,44 +292,47 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **listBroadcasts**
+
+## listBroadcasts
 
 Get all broadcasts.
 
 List all broadcasts.
 
 ### Example
+
 ```bash
 radiomanager-cli listBroadcasts  page=value  program_id=value  block_id=value  model_type_id=value  tag_id=value  presenter_id=value  genre_id=value  item_id=value  start-min=value  start-max=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
- **programId** | **integer** | Search on Program ID *(Optional)* '(Relation)' | [optional]
- **blockId** | **integer** | Search on Block ID *(Optional)* '(Relation)' | [optional]
- **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional]
- **tagId** | **integer** | Search on Tag ID *(Optional)* '(Relation)' | [optional]
- **presenterId** | **integer** | Search on Presenter ID *(Optional)* '(Relation)' | [optional]
- **genreId** | **integer** | Search on Genre ID *(Optional)* '(Relation)' | [optional]
- **itemId** | **integer** | Search on Item ID *(Optional)* '(Relation)' | [optional]
- **startMin** | **string** | Minimum start date *(Optional)* | [optional]
- **startMax** | **string** | Maximum start date *(Optional)* | [optional]
- **limit** | **integer** | Results per page *(Optional)* | [optional]
- **orderBy** | **string** | Field to order the results *(Optional)* | [optional]
- **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional]
- **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional]
+ **programId** | **integer** | Search on Program ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **blockId** | **integer** | Search on Block ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **tagId** | **integer** | Search on Tag ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **presenterId** | **integer** | Search on Presenter ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **genreId** | **integer** | Search on Genre ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **itemId** | **integer** | Search on Item ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **startMin** | **string** | Minimum start date *(Optional)* | [optional] [default to null]
+ **startMax** | **string** | Maximum start date *(Optional)* | [optional] [default to null]
+ **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
+ **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
+ **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
+ **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -313,32 +340,35 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **printBroadcastById**
+
+## printBroadcastById
 
 Print broadcast by id with template
 
 Print broadcast by id with template
 
 ### Example
+
 ```bash
 radiomanager-cli printBroadcastById id=value  template_id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Broadcast **(Required)** |
- **templateId** | **integer** | Search on template ID *(Optional)* | [optional]
+ **id** | **integer** | ID of Broadcast **(Required)** | [default to 0]
+ **templateId** | **integer** | Search on template ID *(Optional)* | [optional] [default to null]
 
 ### Return type
 
@@ -346,31 +376,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **updateBroadcastByID**
+
+## updateBroadcastByID
 
 Update broadcast by id
 
 Update broadcast by id
 
 ### Example
+
 ```bash
 radiomanager-cli updateBroadcastByID id=value
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Broadcast **(Required)** |
+ **id** | **integer** | ID of Broadcast **(Required)** | [default to 0]
  **data** | [**BroadcastDataInput**](BroadcastDataInput.md) | Data *(Optional)* | [optional]
 
 ### Return type
@@ -379,12 +412,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**model_type_id** | **integer** |  | [default to null]
-**field_values** | **map** |  | [optional] [default to null]
+**modelUnderscoretypeUnderscoreid** | **integer** |  | [default to null]
+**fieldUnderscorevalues** | [**map**](.md) |  | [optional] [default to null]
 **email** | **string** |  | [optional] [default to null]
 **firstname** | **string** |  | [default to null]
 **lastname** | **string** |  | [default to null]

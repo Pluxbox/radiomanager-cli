@@ -7,18 +7,21 @@ Method | HTTP request | Description
 [**getStation**](StationApi.md#getStation) | **GET** /station | Get own station only
 
 
-## **getStation**
+
+## getStation
 
 Get own station only
 
 Get own station only
 
 ### Example
+
 ```bash
 radiomanager-cli getStation
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -27,12 +30,12 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Key](../README.md#API Key)
+[API-Key](../README.md#API-Key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

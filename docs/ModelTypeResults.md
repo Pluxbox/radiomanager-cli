@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**current_page** | **integer** |  | [optional] [default to null]
+**currentUnderscorepage** | **integer** |  | [optional] [default to null]
 **from** | **integer** |  | [optional] [default to null]
-**last_page** | **integer** |  | [optional] [default to null]
-**next_page_url** | **string** |  | [optional] [default to null]
+**lastUnderscorepage** | **integer** |  | [optional] [default to null]
+**nextUnderscorepageUnderscoreurl** | **string** |  | [optional] [default to null]
 **path** | **string** |  | [optional] [default to null]
-**per_page** | **integer** |  | [optional] [default to null]
-**prev_page_url** | **string** |  | [optional] [default to null]
+**perUnderscorepage** | **integer** |  | [optional] [default to null]
+**prevUnderscorepageUnderscoreurl** | **string** |  | [optional] [default to null]
 **to** | **integer** |  | [optional] [default to null]
 **total** | **integer** |  | [optional] [default to null]
 **results** | [**array[ModelTypeResult]**](ModelTypeResult.md) |  | [optional] [default to null]

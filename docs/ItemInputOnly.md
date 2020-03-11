@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_previous_id** | **integer** |  | [optional] [default to null]
-**_before_id** | **integer** |  | [optional] [default to null]
+**UnderscorepreviousUnderscoreid** | **integer** |  | [optional] [default to null]
+**UnderscorebeforeUnderscoreid** | **integer** |  | [optional] [default to null]
 **contacts** | **array[integer]** |  | [optional] [default to null]
 **tags** | **array[integer]** |  | [optional] [default to null]
 
