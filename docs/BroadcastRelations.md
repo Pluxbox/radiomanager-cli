@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **tags** | [**BroadcastRelationsTags**](BroadcastRelationsTags.md) |  | [optional] [default to null]
 **presenters** | [**BroadcastRelationsPresenters**](BroadcastRelationsPresenters.md) |  | [optional] [default to null]
 **modelUnderscoretype** | [**BroadcastRelationsModelType**](BroadcastRelationsModelType.md) |  | [optional] [default to null]
+**group** | [**BroadcastRelationsGroup**](BroadcastRelationsGroup.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

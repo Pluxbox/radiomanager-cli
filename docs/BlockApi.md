@@ -28,7 +28,7 @@ radiomanager-cli getBlockById id=value  _external_station_id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Block **(Required)** | [default to 0]
+ **id** | **integer** | ID of Block **(Required)** | [default to null]
  **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 Get current Block
 
-Get current Block
+Get currently playing Block
 
 ### Example
 
@@ -83,7 +83,7 @@ This endpoint does not need any parameter.
 
 Get upcoming Block
 
-Get upcoming Block
+Get currently upcoming Block
 
 ### Example
 
@@ -120,7 +120,7 @@ Get a list of all blocks currently in your station. This feature supports pagina
 ### Example
 
 ```bash
-radiomanager-cli listBlocks  page=value  broadcast_id=value  item_id=value  program_id=value  start-min=value  start-max=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
+radiomanager-cli listBlocks  broadcast_id=value  item_id=value  program_id=value  start-min=value  start-max=value  page=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
@@ -128,12 +128,12 @@ radiomanager-cli listBlocks  page=value  broadcast_id=value  item_id=value  prog
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **broadcastId** | **integer** | Search on Broadcast ID *(Optional)* '(Relation)' | [optional] [default to null]
  **itemId** | **integer** | Search on Item ID *(Optional)* '(Relation)' | [optional] [default to null]
  **programId** | **integer** | Search on Program ID *(Optional)* '(Relation)' | [optional] [default to null]
  **startMin** | **string** | Minimum start date *(Optional)* | [optional] [default to null]
  **startMax** | **string** | Maximum start date *(Optional)* | [optional] [default to null]
+ **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
  **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
  **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BlockResults**](BlockResults.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 

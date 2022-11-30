@@ -95,6 +95,8 @@ _radiomanager-cli()
     operations["updateContactByID"]=1
     operations["getGenreById"]=1
     operations["listGenres"]=1
+    operations["getGroupById"]=1
+    operations["listGroups"]=1
     operations["createItem"]=1
     operations["currentItemPostStructure"]=1
     operations["currentItemPostTiming"]=1
@@ -120,11 +122,6 @@ _radiomanager-cli()
     operations["listPrograms"]=1
     operations["updateProgramByID"]=1
     operations["getStation"]=1
-    operations["createStory"]=1
-    operations["deleteStoryById"]=1
-    operations["getStoryById"]=1
-    operations["listStories"]=1
-    operations["updateStoryByID"]=1
     operations["getStringsByName"]=1
     operations["createTag"]=1
     operations["deleteTagById"]=1
@@ -143,7 +140,7 @@ _radiomanager-cli()
     operation_parameters["getBlockById"]="id= _external_station_id= "
     operation_parameters["getCurrentBlock"]=""
     operation_parameters["getNextBlock"]=""
-    operation_parameters["listBlocks"]="page= broadcast_id= item_id= program_id= start-min= start-max= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["listBlocks"]="broadcast_id= item_id= program_id= start-min= start-max= page= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["createBroadcast"]=""
     operation_parameters["deleteBroadcastById"]="id= "
     operation_parameters["getBroadcastById"]="id= _external_station_id= "
@@ -152,61 +149,58 @@ _radiomanager-cli()
     operation_parameters["getEPGByDate"]="date= withunpublished= "
     operation_parameters["getNextBroadcast"]="withunpublished= "
     operation_parameters["getWeeklyEPG"]="date= withunpublished= "
-    operation_parameters["listBroadcasts"]="page= program_id= block_id= model_type_id= tag_id= presenter_id= genre_id= item_id= start-min= start-max= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["listBroadcasts"]="program_id= block_id= model_type_id= tag_id= presenter_id= genre_id= group_id= item_id= planned_in_epg= start-min= start-max= page= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["printBroadcastById"]="id= template_id= "
     operation_parameters["updateBroadcastByID"]="id= "
     operation_parameters["createCampaign"]=""
     operation_parameters["deleteCampaignById"]="id= "
-    operation_parameters["getCampaignById"]="id= _external_station_id= "
-    operation_parameters["listCampaigns"]="page= item_id= model_type_id= start-min= start-max= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["getCampaignById"]="id= "
+    operation_parameters["listCampaigns"]="item_id= model_type_id= start-min= start-max= page= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["updateCampaignByID"]="id= "
     operation_parameters["createContact"]=""
     operation_parameters["deleteContactById"]="id= "
     operation_parameters["getContactById"]="id= _external_station_id= "
-    operation_parameters["listContacts"]="page= item_id= model_type_id= tag_id= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["listContacts"]="item_id= model_type_id= tag_id= page= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["updateContactByID"]="id= "
-    operation_parameters["getGenreById"]="id= _external_station_id= "
-    operation_parameters["listGenres"]="page= parent_id= program_id= broadcast_id= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["getGenreById"]="id= "
+    operation_parameters["listGenres"]="page= limit= order-by= order-direction= "
+    operation_parameters["getGroupById"]="id= _external_station_id= "
+    operation_parameters["listGroups"]="broadcast_id= program_id= user_id= page= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["createItem"]=""
     operation_parameters["currentItemPostStructure"]=""
     operation_parameters["currentItemPostTiming"]=""
     operation_parameters["deleteItemById"]="id= "
     operation_parameters["getCurrentItem"]="lastplayed= "
     operation_parameters["getItemById"]="id= _external_station_id= "
-    operation_parameters["listItems"]="page= block_id= broadcast_id= model_type_id= tag_id= campaign_id= contact_id= program_draft_id= user_draft_id= station_draft_id= program_id= external_id= start-min= start-max= duration-min= duration-max= status= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["listItems"]="block_id= broadcast_id= model_type_id= tag_id= campaign_id= contact_id= program_draft_id= user_draft_id= station_draft_id= program_id= external_id= duration-min= duration-max= status= start-min= start-max= page= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["playlistPostMerge"]=""
     operation_parameters["playlistPostStructure"]=""
     operation_parameters["playlistPostTiming"]=""
     operation_parameters["stopCurrentItem"]=""
     operation_parameters["updateItemById"]="id= "
-    operation_parameters["getModelTypeById"]="id= _external_station_id= "
-    operation_parameters["listModelTypes"]="page= program_id= broadcast_id= item_id= campaign_id= presenter_id= contact_id= model= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["getModelTypeById"]="id= order-direction= _external_station_id= "
+    operation_parameters["listModelTypes"]="program_id= broadcast_id= item_id= campaign_id= presenter_id= contact_id= model= order-direction= _external_station_id= "
     operation_parameters["createPresenter"]=""
     operation_parameters["deletePresenterById"]="id= "
-    operation_parameters["getPresenterById"]="id= _external_station_id= "
-    operation_parameters["listPresenters"]="page= program_id= broadcast_id= model_type_id= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["getPresenterById"]="id= "
+    operation_parameters["listPresenters"]="program_id= broadcast_id= model_type_id= page= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["updatePresenterByID"]="id= "
     operation_parameters["createProgram"]=""
     operation_parameters["deleteProgramById"]="id= "
     operation_parameters["getProgramById"]="id= _external_station_id= "
-    operation_parameters["listPrograms"]="page= broadcast_id= model_type_id= tag_id= presenter_id= genre_id= block_id= item_id= disabled= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["listPrograms"]="broadcast_id= model_type_id= tag_id= presenter_id= genre_id= group_id= block_id= item_id= disabled= page= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["updateProgramByID"]="id= "
     operation_parameters["getStation"]=""
-    operation_parameters["createStory"]=""
-    operation_parameters["deleteStoryById"]="id= "
-    operation_parameters["getStoryById"]="id= _external_station_id= "
-    operation_parameters["listStories"]="page= item_id= model_type_id= tag_id= limit= order-by= order-direction= _external_station_id= "
-    operation_parameters["updateStoryByID"]="id= "
     operation_parameters["getStringsByName"]="name= full_model= "
     operation_parameters["createTag"]=""
     operation_parameters["deleteTagById"]="id= "
-    operation_parameters["getTagById"]="id= _external_station_id= "
-    operation_parameters["listTags"]="page= program_id= item_id= broadcast_id= contact_id= limit= order-by= order-direction= _external_station_id= "
+    operation_parameters["getTagById"]="id= "
+    operation_parameters["listTags"]="program_id= item_id= broadcast_id= contact_id= page= limit= order-by= order-direction= _external_station_id= "
     operation_parameters["updateTagByID"]="id= "
     operation_parameters["deleteUserById"]="id= "
     operation_parameters["getUserById"]="id= "
     operation_parameters["inviteUserByMail"]=""
-    operation_parameters["listUsers"]="page= role_id= limit= order-by= order-direction= "
+    operation_parameters["listUsers"]="role_id= group_id= page= limit= order-by= order-direction= "
     operation_parameters["getVisualSlide"]=""
 
     # An associative array of possible values for enum parameters

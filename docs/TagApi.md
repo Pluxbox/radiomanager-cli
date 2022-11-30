@@ -29,11 +29,11 @@ radiomanager-cli createTag
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**TagDataInput**](TagDataInput.md) | Data **(Required)** |
+ **tagDataInput** | [**TagDataInput**](TagDataInput.md) | Data **(Required)** |
 
 ### Return type
 
-[**PostSuccess**](PostSuccess.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -64,11 +64,11 @@ radiomanager-cli deleteTagById id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Tag **(Required)** | [default to 0]
+ **id** | **integer** | ID of Tag **(Required)** | [default to null]
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ Get tags by id
 ### Example
 
 ```bash
-radiomanager-cli getTagById id=value  _external_station_id=value
+radiomanager-cli getTagById id=value
 ```
 
 ### Parameters
@@ -99,8 +99,7 @@ radiomanager-cli getTagById id=value  _external_station_id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Tag **(Required)** | [default to 0]
- **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
+ **id** | **integer** | ID of Tag **(Required)** | [default to null]
 
 ### Return type
 
@@ -127,7 +126,7 @@ Get a list of all the tags currently in your station. This feature supports pagi
 ### Example
 
 ```bash
-radiomanager-cli listTags  page=value  program_id=value  item_id=value  broadcast_id=value  contact_id=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
+radiomanager-cli listTags  program_id=value  item_id=value  broadcast_id=value  contact_id=value  page=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
@@ -135,11 +134,11 @@ radiomanager-cli listTags  page=value  program_id=value  item_id=value  broadcas
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional] [default to null]
  **programId** | **integer** | Search on Program ID *(Optional)* '(Relation)' | [optional] [default to null]
  **itemId** | **integer** | Search on Item ID *(Optional)* '(Relation)' | [optional] [default to null]
  **broadcastId** | **integer** | Search on Broadcast ID *(Optional)* '(Relation)' | [optional] [default to null]
  **contactId** | **integer** | Search on Contact ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
  **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
  **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
@@ -147,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TagResults**](TagResults.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -178,12 +177,12 @@ radiomanager-cli updateTagByID id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Tag **(Required)** | [default to 0]
- **data** | [**TagDataInput**](TagDataInput.md) | Data *(Optional)* | [optional]
+ **id** | **integer** | ID of Tag **(Required)** | [default to null]
+ **tagDataInput** | [**TagDataInput**](TagDataInput.md) | Data *(Optional)* |
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **modelUnderscoretypeUnderscoreid** | **integer** |  | [default to null]
-**fieldUnderscorevalues** | [**map**](.md) |  | [optional] [default to null]
+**fieldUnderscorevalues** | **map** |  | [optional] [default to null]
 **email** | **string** |  | [optional] [default to null]
 **firstname** | **string** |  | [default to null]
 **lastname** | **string** |  | [default to null]

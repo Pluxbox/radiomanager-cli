@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createItem**](ItemApi.md#createItem) | **POST** /items | Create an new item.
 [**currentItemPostStructure**](ItemApi.md#currentItemPostStructure) | **POST** /items/current/structure | Post a current playing item, keep structure
-[**currentItemPostTiming**](ItemApi.md#currentItemPostTiming) | **POST** /items/current/timing | Post a current playing item
+[**currentItemPostTiming**](ItemApi.md#currentItemPostTiming) | **POST** /items/current/timing | Post current playing Item
 [**deleteItemById**](ItemApi.md#deleteItemById) | **DELETE** /items/{id} | Delete item by ID.
 [**getCurrentItem**](ItemApi.md#getCurrentItem) | **GET** /items/current | Get current Item
 [**getItemById**](ItemApi.md#getItemById) | **GET** /items/{id} | Get extended item details by ID.
@@ -36,11 +36,11 @@ radiomanager-cli createItem
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**ItemDataInput**](ItemDataInput.md) | Data *(Optional)* | [optional]
+ **itemDataInput** | [**ItemDataInput**](ItemDataInput.md) | Data **(Required)** |
 
 ### Return type
 
-[**PostSuccess**](PostSuccess.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 Post a current playing item, keep structure
 
-Post a current playing item, keep structure
+Post current playing Item. Can be existing Item referenced by external_id. When Items are moved, this function **will attempt to** keep Items' ModelType structure in rundown.
 
 ### Example
 
@@ -71,11 +71,11 @@ radiomanager-cli currentItemPostStructure
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**ImportItem**](ImportItem.md) | Data *(Optional)* | [optional]
+ **importItem** | [**ImportItem**](ImportItem.md) | Data **(Required)** |
 
 ### Return type
 
-[**Success**](Success.md)
+[**ItemResult**](ItemResult.md)
 
 ### Authorization
 
@@ -91,9 +91,9 @@ Name | Type | Description  | Notes
 
 ## currentItemPostTiming
 
-Post a current playing item
+Post current playing Item
 
-Post a current playing item
+Post current playing Item. Can be existing Item referenced by external_id. When Items are moved, this function **will not keep** Items' ModelType structure in rundown.
 
 ### Example
 
@@ -106,11 +106,11 @@ radiomanager-cli currentItemPostTiming
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**ImportItem**](ImportItem.md) | Data *(Optional)* | [optional]
+ **importItem** | [**ImportItem**](ImportItem.md) | Data **(Required)** |
 
 ### Return type
 
-[**Success**](Success.md)
+[**ItemResult**](ItemResult.md)
 
 ### Authorization
 
@@ -141,11 +141,11 @@ radiomanager-cli deleteItemById id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Item **(Required)** | [default to 0]
+ **id** | **integer** | ID of Item **(Required)** | [default to null]
 
 ### Return type
 
-[**Success**](Success.md)
+(empty response body)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ radiomanager-cli getItemById id=value  _external_station_id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Item **(Required)** | [default to 0]
+ **id** | **integer** | ID of Item **(Required)** | [default to null]
  **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
@@ -239,7 +239,7 @@ Get a list of all the items currently in your station. This feature supports pag
 ### Example
 
 ```bash
-radiomanager-cli listItems  page=value  block_id=value  broadcast_id=value  model_type_id=value  tag_id=value  campaign_id=value  contact_id=value  program_draft_id=value  user_draft_id=value  station_draft_id=value  program_id=value  external_id=value  start-min=value  start-max=value  duration-min=value  duration-max=value  status=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
+radiomanager-cli listItems  block_id=value  broadcast_id=value  model_type_id=value  tag_id=value  campaign_id=value  contact_id=value  program_draft_id=value  user_draft_id=value  station_draft_id=value  program_id=value  external_id=value  duration-min=value  duration-max=value  status=value  start-min=value  start-max=value  page=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
@@ -247,7 +247,6 @@ radiomanager-cli listItems  page=value  block_id=value  broadcast_id=value  mode
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional] [default to null]
  **blockId** | **integer** | Search on Block ID *(Optional)* '(Relation)' | [optional] [default to null]
  **broadcastId** | **integer** | Search on Broadcast ID *(Optional)* '(Relation)' | [optional] [default to null]
  **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional] [default to null]
@@ -259,11 +258,12 @@ Name | Type | Description  | Notes
  **stationDraftId** | **integer** | Search on Station Draft ID *(Optional)* | [optional] [default to null]
  **programId** | **integer** | Search on Program ID *(Optional)* '(Relation)' | [optional] [default to null]
  **externalId** | **string** | Search on External ID *(Optional)* | [optional] [default to null]
- **startMin** | **string** | Minimum start date *(Optional)* | [optional] [default to null]
- **startMax** | **string** | Maximum start date *(Optional)* | [optional] [default to null]
  **durationMin** | **integer** | Minimum duration (seconds) *(Optional)* | [optional] [default to null]
  **durationMax** | **integer** | Maximum duration (seconds) *(Optional)* | [optional] [default to null]
  **status** | **string** | Play Status of item *(Optional)* | [optional] [default to null]
+ **startMin** | **string** | Minimum start date *(Optional)* | [optional] [default to null]
+ **startMax** | **string** | Maximum start date *(Optional)* | [optional] [default to null]
+ **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
  **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
  **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ItemResults**](ItemResults.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 Post a playlist, do not remove previously imported items
 
-Post a playlist, do not remove previously imported items
+Post a playlist with 'keep structure' method, but do not remove previously imported items
 
 ### Example
 
@@ -302,11 +302,11 @@ radiomanager-cli playlistPostMerge
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**InlineObject2**](InlineObject2.md) |  | [optional]
+ **playlistMergeBody** | [**PlaylistMergeBody**](PlaylistMergeBody.md) | Data *(Required)* |
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**InlineResponse2021**](InlineResponse2021.md)
 
 ### Authorization
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 Post a playlist, keep current structure
 
-Post a playlist, keep current structure
+Post a playlist for a block. Existing Items can referenced by external_id. When Items are moved, this function **will attempt to** keep Items' ModelType structure in rundown.
 
 ### Example
 
@@ -337,11 +337,11 @@ radiomanager-cli playlistPostStructure
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**InlineObject1**](InlineObject1.md) |  | [optional]
+ **playlistStructureBody** | [**PlaylistStructureBody**](PlaylistStructureBody.md) | Data *(Required)* |
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**InlineResponse2021**](InlineResponse2021.md)
 
 ### Authorization
 
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 
 Post a playlist
 
-Post a playlist
+Post a playlist for a block. Existing Items can referenced by external_id. When Items are moved, this function **will not** keep Items' ModelType structure in rundown.
 
 ### Example
 
@@ -372,11 +372,11 @@ radiomanager-cli playlistPostTiming
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**InlineObject**](InlineObject.md) |  | [optional]
+ **playlistTimingBody** | [**PlaylistTimingBody**](PlaylistTimingBody.md) | Data *(Required)* |
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**InlineResponse2021**](InlineResponse2021.md)
 
 ### Authorization
 
@@ -407,11 +407,11 @@ radiomanager-cli stopCurrentItem
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**InlineObject3**](InlineObject3.md) |  | [optional]
+ **itemsStopcurrentBody** | [**ItemsStopcurrentBody**](ItemsStopcurrentBody.md) | Data *(Optional)* | [optional]
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -442,12 +442,12 @@ radiomanager-cli updateItemById id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Item **(Required)** | [default to 0]
- **data** | [**ItemDataInput**](ItemDataInput.md) | Data *(Optional)* | [optional]
+ **id** | **integer** | ID of Item **(Required)** | [default to null]
+ **itemDataInput** | [**ItemDataInput**](ItemDataInput.md) | Data *(Optional)* |
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

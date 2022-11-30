@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **deletedUnderscoreat** | **string** |  | [optional] [default to null]
 **UnderscoreexternalUnderscorestationUnderscoreid** | **integer** |  | [optional] [default to null]
 **modelUnderscoretypeUnderscoreid** | **integer** |  | [default to null]
-**fieldUnderscorevalues** | [**map**](.md) |  | [optional] [default to null]
+**fieldUnderscorevalues** | **map** |  | [optional] [default to null]
 **email** | **string** |  | [optional] [default to null]
 **firstname** | **string** |  | [default to null]
 **lastname** | **string** |  | [default to null]

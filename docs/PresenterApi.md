@@ -29,11 +29,11 @@ radiomanager-cli createPresenter
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**PresenterDataInput**](PresenterDataInput.md) | Data **(Required)** |
+ **presenterDataInput** | [**PresenterDataInput**](PresenterDataInput.md) | Data **(Required)** |
 
 ### Return type
 
-[**PostSuccess**](PostSuccess.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -64,11 +64,11 @@ radiomanager-cli deletePresenterById id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | id of presenter | [default to 0]
+ **id** | **integer** | id of presenter | [default to null]
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ Get presenter by id
 ### Example
 
 ```bash
-radiomanager-cli getPresenterById id=value  _external_station_id=value
+radiomanager-cli getPresenterById id=value
 ```
 
 ### Parameters
@@ -99,8 +99,7 @@ radiomanager-cli getPresenterById id=value  _external_station_id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | id of Presenter | [default to 0]
- **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
+ **id** | **integer** | id of Presenter | [default to null]
 
 ### Return type
 
@@ -127,7 +126,7 @@ List all presenters.
 ### Example
 
 ```bash
-radiomanager-cli listPresenters  page=value  program_id=value  broadcast_id=value  model_type_id=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
+radiomanager-cli listPresenters  program_id=value  broadcast_id=value  model_type_id=value  page=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
@@ -135,10 +134,10 @@ radiomanager-cli listPresenters  page=value  program_id=value  broadcast_id=valu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional] [default to null]
  **programId** | **integer** | Search on Program ID *(Optional)* '(Relation)' | [optional] [default to null]
  **broadcastId** | **integer** | Search on Broadcast ID *(Optional)* '(Relation)' | [optional] [default to null]
  **modelTypeId** | **integer** | Search on ModelType ID (Optional) | [optional] [default to null]
+ **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
  **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
  **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
@@ -146,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PresenterResults**](PresenterResults.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -177,12 +176,12 @@ radiomanager-cli updatePresenterByID id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | id of Presenter | [default to 0]
- **data** | [**PresenterDataInput**](PresenterDataInput.md) | Data *(Optional)* | [optional]
+ **id** | **integer** | id of Presenter | [default to null]
+ **presenterDataInput** | [**PresenterDataInput**](PresenterDataInput.md) | Data *(Optional)* |
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

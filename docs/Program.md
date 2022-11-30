@@ -4,10 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **modelUnderscoretypeUnderscoreid** | **integer** |  | [default to null]
-**fieldUnderscorevalues** | [**map**](.md) |  | [optional] [default to null]
+**fieldUnderscorevalues** | **map** |  | [optional] [default to null]
 **title** | **string** |  | [default to null]
 **disabled** | **boolean** |  | [optional] [default to null]
 **genreUnderscoreid** | **integer** |  | [optional] [default to null]
+**groupUnderscoreid** | **integer** |  | [optional] [default to null]
 **description** | **string** |  | [optional] [default to null]
 **shortUnderscorename** | **string** |  | [optional] [default to null]
 **mediumUnderscorename** | **string** |  | [optional] [default to null]

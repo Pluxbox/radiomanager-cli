@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Get Strings (formatted)
 
-Get Strings (formatted)
+Get RadioText/DAB String for publication based on String Templates
 
 ### Example
 
@@ -25,8 +25,8 @@ radiomanager-cli getStringsByName name=value  full_model=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string** | Name of Strings **(Required)** | [default to null]
- **fullModel** | **boolean** | Full model or content only **(Required)** | [default to true]
+ **name** | **string** | Name of String Template **(Required)** | [default to null]
+ **fullModel** | **boolean** | Full model or content only **(Optional)** | [optional] [default to null]
 
 ### Return type
 

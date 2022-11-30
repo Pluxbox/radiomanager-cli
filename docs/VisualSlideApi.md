@@ -4,15 +4,15 @@ All URIs are relative to */api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getVisualSlide**](VisualSlideApi.md#getVisualSlide) | **GET** /visual | Get Visual Slide Image as Base64
+[**getVisualSlide**](VisualSlideApi.md#getVisualSlide) | **GET** /visual | Get Visual Slide Image
 
 
 
 ## getVisualSlide
 
-Get Visual Slide Image as Base64
+Get Visual Slide Image
 
-Get Visual Slide Image as Base64
+Get VisualRadio Image as PNG for publication Base64 encoded inside a JSON object
 
 ### Example
 

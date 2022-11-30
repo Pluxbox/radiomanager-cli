@@ -29,11 +29,11 @@ radiomanager-cli createCampaign
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**CampaignDataInput**](CampaignDataInput.md) | Data **(Required)** |
+ **campaignDataInput** | [**CampaignDataInput**](CampaignDataInput.md) | Data **(Required)** |
 
 ### Return type
 
-[**PostSuccess**](PostSuccess.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -64,11 +64,11 @@ radiomanager-cli deleteCampaignById id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Campaign **(Required)** | [default to 0]
+ **id** | **integer** | ID of Campaign **(Required)** | [default to null]
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ Get campaign by id
 ### Example
 
 ```bash
-radiomanager-cli getCampaignById id=value  _external_station_id=value
+radiomanager-cli getCampaignById id=value
 ```
 
 ### Parameters
@@ -99,8 +99,7 @@ radiomanager-cli getCampaignById id=value  _external_station_id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Campaign **(Required)** | [default to 0]
- **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
+ **id** | **integer** | ID of Campaign **(Required)** | [default to null]
 
 ### Return type
 
@@ -127,7 +126,7 @@ List all campaigns.
 ### Example
 
 ```bash
-radiomanager-cli listCampaigns  page=value  item_id=value  model_type_id=value  start-min=value  start-max=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
+radiomanager-cli listCampaigns  item_id=value  model_type_id=value  start-min=value  start-max=value  page=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
@@ -135,11 +134,11 @@ radiomanager-cli listCampaigns  page=value  item_id=value  model_type_id=value  
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional] [default to null]
  **itemId** | **integer** | Search on Item ID *(Optional)* '(Relation)' | [optional] [default to null]
  **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional] [default to null]
  **startMin** | **string** | Minimum start date *(Optional)* | [optional] [default to null]
  **startMax** | **string** | Maximum start date *(Optional)* | [optional] [default to null]
+ **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
  **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
  **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
@@ -147,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CampaignResults**](CampaignResults.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -178,12 +177,12 @@ radiomanager-cli updateCampaignByID id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Campaign **(Required)** | [default to 0]
- **data** | [**CampaignDataInput**](CampaignDataInput.md) | Data *(Optional)* | [optional]
+ **id** | **integer** | ID of Campaign **(Required)** | [default to null]
+ **campaignDataInput** | [**CampaignDataInput**](CampaignDataInput.md) | Data **(Optional)** |
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

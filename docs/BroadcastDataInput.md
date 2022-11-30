@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **programUnderscoreid** | **integer** |  | [optional] [default to null]
 **modelUnderscoretypeUnderscoreid** | **integer** |  | [optional] [default to null]
 **stationUnderscoreid** | **integer** |  | [optional] [default to null]
-**fieldUnderscorevalues** | [**map**](.md) |  | [optional] [default to null]
+**fieldUnderscorevalues** | **map** |  | [optional] [default to null]
 **title** | **string** |  | [optional] [default to null]
 **start** | **string** |  | [optional] [default to null]
 **stop** | **string** |  | [optional] [default to null]
@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **repetitionUnderscorestart** | **string** |  | [optional] [default to null]
 **repetitionUnderscoredays** | **string** |  | [optional] [default to null]
 **ptyUnderscorecodeUnderscoreid** | **integer** |  | [optional] [default to null]
+**plannedUnderscoreinUnderscoreepg** | **integer** |  | [optional] [default to null]
+**groupUnderscoreid** | **integer** |  | [optional] [default to null]
 **tags** | **array[integer]** |  | [optional] [default to null]
 **presenters** | **array[integer]** |  | [optional] [default to null]
 

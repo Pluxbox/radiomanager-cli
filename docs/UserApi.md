@@ -4,7 +4,7 @@ All URIs are relative to */api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteUserById**](UserApi.md#deleteUserById) | **DELETE** /users/{id} | Remove user from station by Id
+[**deleteUserById**](UserApi.md#deleteUserById) | **DELETE** /users/{id} | Remove User from station by Id
 [**getUserById**](UserApi.md#getUserById) | **GET** /users/{id} | Get user by id
 [**inviteUserByMail**](UserApi.md#inviteUserByMail) | **POST** /users/invite | Invite user by mail
 [**listUsers**](UserApi.md#listUsers) | **GET** /users | Get all users.
@@ -13,9 +13,9 @@ Method | HTTP request | Description
 
 ## deleteUserById
 
-Remove user from station by Id
+Remove User from station by Id
 
-Remove user from station by Id
+Remove User from station by Id, will not actually delete a User record
 
 ### Example
 
@@ -28,11 +28,11 @@ radiomanager-cli deleteUserById id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | id of User | [default to 0]
+ **id** | **integer** | ID of User **(Required)** | [default to null]
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ radiomanager-cli getUserById id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | id of User | [default to 0]
+ **id** | **integer** | id of User | [default to null]
 
 ### Return type
 
@@ -98,11 +98,11 @@ radiomanager-cli inviteUserByMail
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**InviteUserData**](InviteUserData.md) | Data **(Required)** |
+ **inviteUserData** | [**InviteUserData**](InviteUserData.md) | Data *(Required)* |
 
 ### Return type
 
-**map**
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ List all users.
 ### Example
 
 ```bash
-radiomanager-cli listUsers  page=value  role_id=value  limit=value  order-by=value  order-direction=value
+radiomanager-cli listUsers  role_id=value  group_id=value  page=value  limit=value  order-by=value  order-direction=value
 ```
 
 ### Parameters
@@ -133,15 +133,16 @@ radiomanager-cli listUsers  page=value  role_id=value  limit=value  order-by=val
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **roleId** | **integer** | Search on Role ID *(Optional)* | [optional] [default to null]
+ **groupId** | **integer** | Search on Group ID *(Optional)* | [optional] [default to null]
+ **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
  **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
  **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
 
 ### Return type
 
-[**UserResults**](UserResults.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 

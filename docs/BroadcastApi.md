@@ -35,11 +35,11 @@ radiomanager-cli createBroadcast
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**BroadcastDataInput**](BroadcastDataInput.md) | Data **(Required)** |
+ **broadcastDataInput** | [**BroadcastDataInput**](BroadcastDataInput.md) | Data **(Required)** |
 
 ### Return type
 
-[**PostSuccess**](PostSuccess.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -70,11 +70,11 @@ radiomanager-cli deleteBroadcastById id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Broadcast **(Required)** | [default to 0]
+ **id** | **integer** | ID of Broadcast **(Required)** | [default to null]
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -105,7 +105,7 @@ radiomanager-cli getBroadcastById id=value  _external_station_id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Broadcast **(Required)** | [default to 0]
+ **id** | **integer** | ID of Broadcast **(Required)** | [default to null]
  **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 Get current Broadcast
 
-Get current Broadcast
+Get currently playing Broadcast
 
 ### Example
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 Get daily EPG
 
-Get current Broadcast
+Get a list of broadcasts as Programming guide for 1 day
 
 ### Example
 
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 Get EPG by date
 
-Get EPG by date
+Get a list of broadcasts as Programming guide, seperated per day
 
 ### Example
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 Get next Broadcast
 
-Get next Broadcast
+Get currently upcoming Broadcast
 
 ### Example
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 Get weekly EPG
 
-Get weekly EPG
+Get a list of broadcasts as Programming guide for 7 days, seperated per day
 
 ### Example
 
@@ -311,7 +311,7 @@ List all broadcasts.
 ### Example
 
 ```bash
-radiomanager-cli listBroadcasts  page=value  program_id=value  block_id=value  model_type_id=value  tag_id=value  presenter_id=value  genre_id=value  item_id=value  start-min=value  start-max=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
+radiomanager-cli listBroadcasts  program_id=value  block_id=value  model_type_id=value  tag_id=value  presenter_id=value  genre_id=value  group_id=value  item_id=value  planned_in_epg=value  start-min=value  start-max=value  page=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
@@ -319,16 +319,18 @@ radiomanager-cli listBroadcasts  page=value  program_id=value  block_id=value  m
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **programId** | **integer** | Search on Program ID *(Optional)* '(Relation)' | [optional] [default to null]
  **blockId** | **integer** | Search on Block ID *(Optional)* '(Relation)' | [optional] [default to null]
  **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional] [default to null]
  **tagId** | **integer** | Search on Tag ID *(Optional)* '(Relation)' | [optional] [default to null]
  **presenterId** | **integer** | Search on Presenter ID *(Optional)* '(Relation)' | [optional] [default to null]
  **genreId** | **integer** | Search on Genre ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **groupId** | **integer** | Search on Group ID *(Optional)* '(Relation)' | [optional] [default to null]
  **itemId** | **integer** | Search on Item ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **plannedInEpg** | **integer** | Checks if item is in EPG *(Optional)* | [optional] [default to null]
  **startMin** | **string** | Minimum start date *(Optional)* | [optional] [default to null]
  **startMax** | **string** | Maximum start date *(Optional)* | [optional] [default to null]
+ **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
  **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
  **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
@@ -336,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BroadcastResults**](BroadcastResults.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -354,7 +356,7 @@ Name | Type | Description  | Notes
 
 Print broadcast by id with template
 
-Print broadcast by id with template
+Download a rundown in printable format as HTML inside the JSON repsonse
 
 ### Example
 
@@ -367,12 +369,12 @@ radiomanager-cli printBroadcastById id=value  template_id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Broadcast **(Required)** | [default to 0]
- **templateId** | **integer** | Search on template ID *(Optional)* | [optional] [default to null]
+ **id** | **integer** | ID of Broadcast **(Required)** | [default to null]
+ **templateId** | **integer** | The print template to be used *(Optional)* | [optional] [default to null]
 
 ### Return type
 
-**string**
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -403,12 +405,12 @@ radiomanager-cli updateBroadcastByID id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Broadcast **(Required)** | [default to 0]
- **data** | [**BroadcastDataInput**](BroadcastDataInput.md) | Data *(Optional)* | [optional]
+ **id** | **integer** | ID of Broadcast **(Required)** | [default to null]
+ **broadcastDataInput** | [**BroadcastDataInput**](BroadcastDataInput.md) | Data *(Optional)* | [optional]
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

@@ -18,7 +18,7 @@ Get modelType by id
 ### Example
 
 ```bash
-radiomanager-cli getModelTypeById id=value  _external_station_id=value
+radiomanager-cli getModelTypeById id=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
@@ -26,7 +26,8 @@ radiomanager-cli getModelTypeById id=value  _external_station_id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of ModelType **(Required)** | [default to 0]
+ **id** | **integer** | ID of ModelType **(Required)** | [default to null]
+ **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
  **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
@@ -54,7 +55,7 @@ List all modelTypes.
 ### Example
 
 ```bash
-radiomanager-cli listModelTypes  page=value  program_id=value  broadcast_id=value  item_id=value  campaign_id=value  presenter_id=value  contact_id=value  model=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
+radiomanager-cli listModelTypes  program_id=value  broadcast_id=value  item_id=value  campaign_id=value  presenter_id=value  contact_id=value  model=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
@@ -62,7 +63,6 @@ radiomanager-cli listModelTypes  page=value  program_id=value  broadcast_id=valu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional] [default to null]
  **programId** | **integer** | Search on Program ID *(Optional)* | [optional] [default to null]
  **broadcastId** | **integer** | Search on Broadcast ID *(Optional)* | [optional] [default to null]
  **itemId** | **integer** | Search on Item ID *(Optional)* | [optional] [default to null]
@@ -70,14 +70,12 @@ Name | Type | Description  | Notes
  **presenterId** | **integer** | Search on Presenter ID *(Optional)* | [optional] [default to null]
  **contactId** | **integer** | Search on Contact ID *(Optional)* | [optional] [default to null]
  **model** | **string** | Search Modeltypes for certain Model *(Optional)* | [optional] [default to null]
- **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
- **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
  **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
  **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
 
-[**ModelTypeResults**](ModelTypeResults.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **language** | **boolean** |  | [optional] [default to null]
 **activeUnderscoreexternalUnderscorestationUnderscoreid** | **integer** |  | [optional] [default to null]
 **roles** | [**array[UserResultRoles]**](UserResultRoles.md) |  | [optional] [default to null]
+**groups** | [**array[UserResultGroups]**](UserResultGroups.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

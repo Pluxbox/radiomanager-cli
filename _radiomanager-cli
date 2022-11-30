@@ -318,9 +318,10 @@ case $state in
             "getContactById[Get contact by id]" \
             "listContacts[Get all contacts.]" \
             "updateContactByID[Update contact by id]"             "getGenreById[Get genre by id]" \
-            "listGenres[List all genres.]"             "createItem[Create an new item.]" \
+            "listGenres[List all genres.]"             "getGroupById[Get group by id]" \
+            "listGroups[Get all groups.]"             "createItem[Create an new item.]" \
             "currentItemPostStructure[Post a current playing item, keep structure]" \
-            "currentItemPostTiming[Post a current playing item]" \
+            "currentItemPostTiming[Post current playing Item]" \
             "deleteItemById[Delete item by ID.]" \
             "getCurrentItem[Get current Item]" \
             "getItemById[Get extended item details by ID.]" \
@@ -338,18 +339,15 @@ case $state in
             "deleteProgramById[Delete program by id]" \
             "getProgramById[Get program by id]" \
             "listPrograms[Get all programs.]" \
-            "updateProgramByID[Update program by id]"             "getStation[Get own station only]"             "createStory[Create story.]" \
-            "deleteStoryById[Delete story by id]" \
-            "getStoryById[Get story by id]" \
-            "listStories[Get all stories.]" \
-            "updateStoryByID[Update story by id]"             "getStringsByName[Get Strings (formatted)]"             "createTag[Create tag.]" \
+            "updateProgramByID[Update program by id]"             "getStation[Get own station only]"             "getStringsByName[Get Strings (formatted)]"             "createTag[Create tag.]" \
             "deleteTagById[Delete tag by id]" \
             "getTagById[Get tags by id]" \
             "listTags[Get a list of all the tags currently in your station.]" \
-            "updateTagByID[Update tag by id]"             "deleteUserById[Remove user from station by Id]" \
+            "updateTagByID[Update tag by id]"             "deleteUserById[Remove User from station by Id]" \
             "getUserById[Get user by id]" \
             "inviteUserByMail[Invite user by mail]" \
-            "listUsers[Get all users.]"             "getVisualSlide[Get Visual Slide Image as Base64]" 
+            "listUsers[Get all users.]"             "getVisualSlide[Get Visual Slide Image]" \
+
     _arguments "(--help)--help[Print information about operation]"
 
     ret=0
@@ -379,12 +377,12 @@ case $state in
       listBlocks)
         local -a _op_arguments
         _op_arguments=(
-                    "page=:[QUERY] Current page *(Optional)*"
-"broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
+                    "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
 "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
 "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
 "start-min=:[QUERY] Minimum start date *(Optional)*"
 "start-max=:[QUERY] Maximum start date *(Optional)*"
+"page=:[QUERY] Current page *(Optional)*"
 "limit=:[QUERY] Results per page *(Optional)*"
 "order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"
@@ -459,16 +457,18 @@ case $state in
       listBroadcasts)
         local -a _op_arguments
         _op_arguments=(
-                    "page=:[QUERY] Current page *(Optional)*"
-"program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
+                    "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
 "block_id=:[QUERY] Search on Block ID *(Optional)* &#39;(Relation)&#39;"
 "model_type_id=:[QUERY] Search on ModelType ID *(Optional)* &#39;(Relation)&#39;"
 "tag_id=:[QUERY] Search on Tag ID *(Optional)* &#39;(Relation)&#39;"
 "presenter_id=:[QUERY] Search on Presenter ID *(Optional)* &#39;(Relation)&#39;"
 "genre_id=:[QUERY] Search on Genre ID *(Optional)* &#39;(Relation)&#39;"
+"group_id=:[QUERY] Search on Group ID *(Optional)* &#39;(Relation)&#39;"
 "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
+"planned_in_epg=:[QUERY] Checks if item is in EPG *(Optional)*"
 "start-min=:[QUERY] Minimum start date *(Optional)*"
 "start-max=:[QUERY] Maximum start date *(Optional)*"
+"page=:[QUERY] Current page *(Optional)*"
 "limit=:[QUERY] Results per page *(Optional)*"
 "order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"
@@ -480,7 +480,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Broadcast **(Required)**"
-          "template_id=:[QUERY] Search on template ID *(Optional)*"
+          "template_id=:[QUERY] The print template to be used *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -508,18 +508,17 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Campaign **(Required)**"
-          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
-          )
+                    )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       listCampaigns)
         local -a _op_arguments
         _op_arguments=(
-                    "page=:[QUERY] Current page *(Optional)*"
-"item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
+                    "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
 "model_type_id=:[QUERY] Search on ModelType ID *(Optional)* &#39;(Relation)&#39;"
 "start-min=:[QUERY] Minimum start date *(Optional)*"
 "start-max=:[QUERY] Maximum start date *(Optional)*"
+"page=:[QUERY] Current page *(Optional)*"
 "limit=:[QUERY] Results per page *(Optional)*"
 "order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"
@@ -558,10 +557,10 @@ case $state in
       listContacts)
         local -a _op_arguments
         _op_arguments=(
-                    "page=:[QUERY] Current page *(Optional)*"
-"item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
+                    "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
 "model_type_id=:[QUERY] Search on ModelType ID *(Optional)* &#39;(Relation)&#39;"
 "tag_id=:[QUERY] Search on Tag ID *(Optional)* &#39;(Relation)&#39;"
+"page=:[QUERY] Current page *(Optional)*"
 "limit=:[QUERY] Results per page *(Optional)*"
 "order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"
@@ -579,18 +578,35 @@ case $state in
       getGenreById)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] ID of Genre **(Required)**"
-          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
-          )
+          "id=:[PATH] "
+                    )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       listGenres)
         local -a _op_arguments
         _op_arguments=(
                     "page=:[QUERY] Current page *(Optional)*"
-"parent_id=:[QUERY] Search on Parent ID of Genre *(Optional)*"
+"limit=:[QUERY] Results per page *(Optional)*"
+"order-by=:[QUERY] Field to order the results *(Optional)*"
+"order-direction=:[QUERY] Direction of ordering *(Optional)*"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getGroupById)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] id of Group"
+          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      listGroups)
+        local -a _op_arguments
+        _op_arguments=(
+                    "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
 "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
-"broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
+"user_id=:[QUERY] Search on User ID *(Optional)* &#39;(Relation)&#39;"
+"page=:[QUERY] Current page *(Optional)*"
 "limit=:[QUERY] Results per page *(Optional)*"
 "order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"
@@ -642,8 +658,7 @@ case $state in
       listItems)
         local -a _op_arguments
         _op_arguments=(
-                    "page=:[QUERY] Current page *(Optional)*"
-"block_id=:[QUERY] Search on Block ID *(Optional)* &#39;(Relation)&#39;"
+                    "block_id=:[QUERY] Search on Block ID *(Optional)* &#39;(Relation)&#39;"
 "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
 "model_type_id=:[QUERY] Search on ModelType ID *(Optional)* &#39;(Relation)&#39;"
 "tag_id=:[QUERY] Search on Tag ID *(Optional)* &#39;(Relation)&#39;"
@@ -654,11 +669,12 @@ case $state in
 "station_draft_id=:[QUERY] Search on Station Draft ID *(Optional)*"
 "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
 "external_id=:[QUERY] Search on External ID *(Optional)*"
-"start-min=:[QUERY] Minimum start date *(Optional)*"
-"start-max=:[QUERY] Maximum start date *(Optional)*"
 "duration-min=:[QUERY] Minimum duration (seconds) *(Optional)*"
 "duration-max=:[QUERY] Maximum duration (seconds) *(Optional)*"
 "status=:[QUERY] Play Status of item *(Optional)*"
+"start-min=:[QUERY] Minimum start date *(Optional)*"
+"start-max=:[QUERY] Maximum start date *(Optional)*"
+"page=:[QUERY] Current page *(Optional)*"
 "limit=:[QUERY] Results per page *(Optional)*"
 "order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"
@@ -701,23 +717,21 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of ModelType **(Required)**"
-          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
+          "order-direction=:[QUERY] Direction of ordering *(Optional)*"
+"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       listModelTypes)
         local -a _op_arguments
         _op_arguments=(
-                    "page=:[QUERY] Current page *(Optional)*"
-"program_id=:[QUERY] Search on Program ID *(Optional)*"
+                    "program_id=:[QUERY] Search on Program ID *(Optional)*"
 "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)*"
 "item_id=:[QUERY] Search on Item ID *(Optional)*"
 "campaign_id=:[QUERY] Search on Campaign ID *(Optional)*"
 "presenter_id=:[QUERY] Search on Presenter ID *(Optional)*"
 "contact_id=:[QUERY] Search on Contact ID *(Optional)*"
 "model=:[QUERY] Search Modeltypes for certain Model *(Optional)*"
-"limit=:[QUERY] Results per page *(Optional)*"
-"order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"
 "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
           )
@@ -740,17 +754,16 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] id of Presenter"
-          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
-          )
+                    )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       listPresenters)
         local -a _op_arguments
         _op_arguments=(
-                    "page=:[QUERY] Current page *(Optional)*"
-"program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
+                    "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
 "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
 "model_type_id=:[QUERY] Search on ModelType ID (Optional)"
+"page=:[QUERY] Current page *(Optional)*"
 "limit=:[QUERY] Results per page *(Optional)*"
 "order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"
@@ -789,15 +802,16 @@ case $state in
       listPrograms)
         local -a _op_arguments
         _op_arguments=(
-                    "page=:[QUERY] Current page *(Optional)*"
-"broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
+                    "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
 "model_type_id=:[QUERY] Search on ModelType ID *(Optional)* &#39;(Relation)&#39;"
 "tag_id=:[QUERY] Search on Tag ID *(Optional)* &#39;(Relation)&#39;"
 "presenter_id=:[QUERY] Search on Presenter ID *(Optional)* &#39;(Relation)&#39;"
 "genre_id=:[QUERY] Search on Genre ID *(Optional)*"
+"group_id=:[QUERY] Search on Group ID *(Optional)*"
 "block_id=:[QUERY] Search on Block ID *(Optional)* &#39;(Relation)&#39;"
 "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
 "disabled=:[QUERY] Search on Disabled status *(Optional)*"
+"page=:[QUERY] Current page *(Optional)*"
 "limit=:[QUERY] Results per page *(Optional)*"
 "order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"
@@ -818,54 +832,12 @@ case $state in
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      createStory)
-        local -a _op_arguments
-        _op_arguments=(
-                              )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      deleteStoryById)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] ID of Story **(Required)**"
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      getStoryById)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] ID of Story **(Required)**"
-          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listStories)
-        local -a _op_arguments
-        _op_arguments=(
-                    "page=:[QUERY] Current page *(Optional)*"
-"item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
-"model_type_id=:[QUERY] Search on ModelType ID *(Optional)* &#39;(Relation)&#39;"
-"tag_id=:[QUERY] Search on Tag ID *(Optional)* &#39;(Relation)&#39;"
-"limit=:[QUERY] Results per page *(Optional)*"
-"order-by=:[QUERY] Field to order the results *(Optional)*"
-"order-direction=:[QUERY] Direction of ordering *(Optional)*"
-"_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      updateStoryByID)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] ID of Story **(Required)**"
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
       getStringsByName)
         local -a _op_arguments
         _op_arguments=(
-          "name=:[PATH] Name of Strings **(Required)**"
-          "full_model=true:[QUERY] Full model or content only **(Required)**"
-          "full_model=false:[QUERY] Full model or content only **(Required)**"
+          "name=:[PATH] Name of String Template **(Required)**"
+          "full_model=true:[QUERY] Full model or content only **(Optional)**"
+          "full_model=false:[QUERY] Full model or content only **(Optional)**"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -886,18 +858,17 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] ID of Tag **(Required)**"
-          "_external_station_id=:[QUERY] Query on a different (content providing) station *(Optional)*"
-          )
+                    )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       listTags)
         local -a _op_arguments
         _op_arguments=(
-                    "page=:[QUERY] Current page *(Optional)*"
-"program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
+                    "program_id=:[QUERY] Search on Program ID *(Optional)* &#39;(Relation)&#39;"
 "item_id=:[QUERY] Search on Item ID *(Optional)* &#39;(Relation)&#39;"
 "broadcast_id=:[QUERY] Search on Broadcast ID *(Optional)* &#39;(Relation)&#39;"
 "contact_id=:[QUERY] Search on Contact ID *(Optional)* &#39;(Relation)&#39;"
+"page=:[QUERY] Current page *(Optional)*"
 "limit=:[QUERY] Results per page *(Optional)*"
 "order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"
@@ -915,7 +886,7 @@ case $state in
       deleteUserById)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] id of User"
+          "id=:[PATH] ID of User **(Required)**"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -935,8 +906,9 @@ case $state in
       listUsers)
         local -a _op_arguments
         _op_arguments=(
-                    "page=:[QUERY] Current page *(Optional)*"
-"role_id=:[QUERY] Search on Role ID *(Optional)*"
+                    "role_id=:[QUERY] Search on Role ID *(Optional)*"
+"group_id=:[QUERY] Search on Group ID *(Optional)*"
+"page=:[QUERY] Current page *(Optional)*"
 "limit=:[QUERY] Results per page *(Optional)*"
 "order-by=:[QUERY] Field to order the results *(Optional)*"
 "order-direction=:[QUERY] Direction of ordering *(Optional)*"

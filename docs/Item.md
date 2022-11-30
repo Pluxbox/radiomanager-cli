@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **modelUnderscoretypeUnderscoreid** | **integer** |  | [default to null]
 **blockUnderscoreid** | **integer** |  | [optional] [default to null]
 **externalUnderscoreid** | **string** |  | [optional] [default to null]
-**fieldUnderscorevalues** | [**map**](.md) |  | [optional] [default to null]
+**fieldUnderscorevalues** | **map** |  | [optional] [default to null]
 **title** | **string** |  | [optional] [default to null]
 **duration** | **integer** |  | [optional] [default to null]
 **start** | **string** |  | [optional] [default to null]

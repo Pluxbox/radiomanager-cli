@@ -29,11 +29,11 @@ radiomanager-cli createProgram
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**ProgramDataInput**](ProgramDataInput.md) | Data **(Required)** |
+ **programDataInput** | [**ProgramDataInput**](ProgramDataInput.md) | Data **(Required)** |
 
 ### Return type
 
-[**PostSuccess**](PostSuccess.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -64,11 +64,11 @@ radiomanager-cli deleteProgramById id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of program **(Required)** | [default to 0]
+ **id** | **integer** | ID of program **(Required)** | [default to null]
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -99,7 +99,7 @@ radiomanager-cli getProgramById id=value  _external_station_id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Program **(Required)** | [default to 0]
+ **id** | **integer** | ID of Program **(Required)** | [default to null]
  **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
@@ -127,7 +127,7 @@ List all programs.
 ### Example
 
 ```bash
-radiomanager-cli listPrograms  page=value  broadcast_id=value  model_type_id=value  tag_id=value  presenter_id=value  genre_id=value  block_id=value  item_id=value  disabled=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
+radiomanager-cli listPrograms  broadcast_id=value  model_type_id=value  tag_id=value  presenter_id=value  genre_id=value  group_id=value  block_id=value  item_id=value  disabled=value  page=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
@@ -135,15 +135,16 @@ radiomanager-cli listPrograms  page=value  broadcast_id=value  model_type_id=val
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional] [default to null]
  **broadcastId** | **integer** | Search on Broadcast ID *(Optional)* '(Relation)' | [optional] [default to null]
  **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional] [default to null]
  **tagId** | **integer** | Search on Tag ID *(Optional)* '(Relation)' | [optional] [default to null]
  **presenterId** | **integer** | Search on Presenter ID *(Optional)* '(Relation)' | [optional] [default to null]
  **genreId** | **integer** | Search on Genre ID *(Optional)* | [optional] [default to null]
+ **groupId** | **integer** | Search on Group ID *(Optional)* | [optional] [default to null]
  **blockId** | **integer** | Search on Block ID *(Optional)* '(Relation)' | [optional] [default to null]
  **itemId** | **integer** | Search on Item ID *(Optional)* '(Relation)' | [optional] [default to null]
  **disabled** | **integer** | Search on Disabled status *(Optional)* | [optional] [default to null]
+ **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
  **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
  **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
@@ -151,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProgramResults**](ProgramResults.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -182,12 +183,12 @@ radiomanager-cli updateProgramByID id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Program **(Required)** | [default to 0]
- **data** | [**ProgramDataInput**](ProgramDataInput.md) | Data *(Optional)* | [optional]
+ **id** | **integer** | ID of Program **(Required)** | [default to null]
+ **programDataInput** | [**ProgramDataInput**](ProgramDataInput.md) | Data *(Optional)* |
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 

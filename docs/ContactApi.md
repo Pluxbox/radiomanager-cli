@@ -29,11 +29,11 @@ radiomanager-cli createContact
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**ContactDataInput**](ContactDataInput.md) | Data **(Required)** |
+ **contactDataInput** | [**ContactDataInput**](ContactDataInput.md) | Data **(Required)** |
 
 ### Return type
 
-[**PostSuccess**](PostSuccess.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -64,11 +64,11 @@ radiomanager-cli deleteContactById id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Contact **(Required)** | [default to 0]
+ **id** | **integer** | ID of Contact **(Required)** | [default to null]
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -99,7 +99,7 @@ radiomanager-cli getContactById id=value  _external_station_id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Contact **(Required)** | [default to 0]
+ **id** | **integer** | ID of Contact **(Required)** | [default to null]
  **externalStationId** | **integer** | Query on a different (content providing) station *(Optional)* | [optional] [default to null]
 
 ### Return type
@@ -127,7 +127,7 @@ List all contacts.
 ### Example
 
 ```bash
-radiomanager-cli listContacts  page=value  item_id=value  model_type_id=value  tag_id=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
+radiomanager-cli listContacts  item_id=value  model_type_id=value  tag_id=value  page=value  limit=value  order-by=value  order-direction=value  _external_station_id=value
 ```
 
 ### Parameters
@@ -135,10 +135,10 @@ radiomanager-cli listContacts  page=value  item_id=value  model_type_id=value  t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **itemId** | **integer** | Search on Item ID *(Optional)* '(Relation)' | [optional] [default to null]
  **modelTypeId** | **integer** | Search on ModelType ID *(Optional)* '(Relation)' | [optional] [default to null]
  **tagId** | **integer** | Search on Tag ID *(Optional)* '(Relation)' | [optional] [default to null]
+ **page** | **integer** | Current page *(Optional)* | [optional] [default to 1]
  **limit** | **integer** | Results per page *(Optional)* | [optional] [default to null]
  **orderBy** | **string** | Field to order the results *(Optional)* | [optional] [default to null]
  **orderDirection** | **string** | Direction of ordering *(Optional)* | [optional] [default to null]
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ContactResults**](ContactResults.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -177,12 +177,12 @@ radiomanager-cli updateContactByID id=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **integer** | ID of Contact **(Required)** | [default to 0]
- **data** | [**ContactDataInput**](ContactDataInput.md) | Data *(Optional)* | [optional]
+ **id** | **integer** | ID of Contact **(Required)** | [default to null]
+ **contactDataInput** | [**ContactDataInput**](ContactDataInput.md) | Data *(Optional)* |
 
 ### Return type
 
-[**Success**](Success.md)
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
